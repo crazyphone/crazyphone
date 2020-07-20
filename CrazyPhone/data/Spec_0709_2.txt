@@ -1,0 +1,32 @@
+﻿Android 8.1,Snapdragon 855,6吋,2160x1080 pixels,800 萬畫素,1200 萬畫素,8 GB,512 GB,4000 mAh,1
+Android 9.0,Snapdragon 845,6.4吋,2340x1080 pixels,1300 萬畫素,4800 萬畫素,6 GB,128 GB,5000 mAh,2
+Android 8.0,Snapdragon 845,6.2吋,2246x1080 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,3300 mAh,3
+Android 8.1,Snapdragon 660,6.3吋,2280x1080 pixels,1300 萬畫素,1200 萬畫素,6 GB,64 GB,5000 mAh,4
+Android 8.1,Snapdragon 632,6.3吋,1520x720 pixels,800 萬畫素,1300 萬畫素,4 GB,64 GB,4000 mAh,5
+Google Android O,Snapdragon 845,5.7 吋/18:9,HDR FHD+ (2160x1080),5MP,"1900 萬像素 Motion Eye 相機",4 GB RAM,64 GB UFS 記憶體,3180 mAh,6
+Android 10,Snapdragon 865 ,6.5 吋 21:9 CinemaWide顯示幕, 4K HDR OLED ,8MP,12MP 三鏡頭相機,8 GB,256GB,4000mAh,7
+Android 9 Pie,Snapdragon 855 ,6.1 吋 21:9 CinemaWide顯示幕,FHD+ HDR OLED,8 MP,12 MP 三鏡頭相機,6 GB RAM,128 GB UFS 記憶體,3140 mAh,8
+Android 9 Pie,Snapdragon 630 ,6 .0吋21:9 延伸顯示幕,FHD+ (2520 x 1080),8 MP,"1300 萬像素/5 MP",3GB RAM、4GB RAM,64GB eMMC 內部記憶體,2870 mAh,9
+Android 108,Snapdragon665 ,6.0 吋 21:9 寬顯示幕,FHD+ OLED ,8MP,12MP/8MP/8MP 三鏡頭相機,4GB,128GB,3600mAh,10
+Android 10,Snapdragon 865,6.9,3200x1400,4000,10800,16,512,5000,11
+Android10,Snapdragon 865,6.7,3200x1400,1000,6400,12,128,4500,12
+Android 10,Snapdragon 865,6.2,3200x1400,1000,6400,12,128,4000,13
+Android 9.0,Exynos 9820,6.4,3040x1440,1000,1200,8,128,4100,14
+Android 9.0,Exynos 9820,6.1,3040x1440,1000,1200,8,128,3400,15
+Android 10,Snapdragon 855,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,3700 mAh,16
+Android 10,Snapdragon 855,5.7 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,6 GB,64 GB,2800 mAh,17
+Android 9.0,Snapdragon 845,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,3430 mAh,18
+Android 9.0,Snapdragon 845,5.5 inch,2160x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,2915 mAh,19
+Android 9.0,Snapdragon 670,5.6 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,3000 mAh,20
+Android 10,Snapdragon 855,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,3700 mAh,21
+Android 10,Snapdragon 855,5.7 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,2800 mAh,22
+Android 9.0,Snapdragon 845,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,3430 mAh,23
+Android 9.0,Snapdragon 845,5.5 inch,2160x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,2915 mAh,24
+Android 9.0,Snapdragon 670,5.6 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,3000 mAh,25
+Android 7.1,Snapdragon 821,5 inch,1920x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,2770 mAh,26
+Android 8.0,Snapdragon 835,5 inch,1920x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,2700 mAh,27
+iOS 11,A11 仿生晶片,5.5 吋 (對角線) 寬螢幕 LCD ,1920 x 1080 像素,700 萬像素照片,1200 萬像素廣角與望遠雙相機系統,3GB,64 GB,2675 毫安 mAh,28
+iOS 11,A11 仿生晶片,5.8 吋 (對角線) 全螢幕 OLED,2436 x 1125 像素,700 萬像素照片,1200 萬像素廣角與望遠雙相機系統,3GB,64 GB,2716 毫安 mAh,29
+iOS 12,A12 仿生晶片,6.1 吋 (對角線) 全螢幕 LCD,1792 x 828 像素,700 萬像素照片,1200 萬像素廣角單相機系統,3GB,64 GB,2942 毫安 mAh,30
+iOS 12,A12 仿生晶片,5.8 吋 (對角線) 全螢幕 OLED,2436 x 1125 像素,700 萬像素照片,1200 萬像素廣角與望遠雙相機系統,4GB,64 GB,2658 毫安 mAh,31
+iOS 12,A12 仿生晶片,6.5 吋 (對角線) 全螢幕 OLED,2688 x 1242 像素,700 萬像素照片,1200 萬像素廣角與望遠雙相機系統,4GB,64 GB,3174 毫安 mAh,32

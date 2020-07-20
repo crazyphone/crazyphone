@@ -1,0 +1,7 @@
+﻿Android 10,Snapdragon 855,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,3700 mAh
+Android 10,Snapdragon 855,5.7 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,6 GB,128 GB,2800 mAh
+Android 9.0,Snapdragon 845,6.3 inch,2960x1440 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,3430 mAh
+Android 9.0,Snapdragon 845,5.5 inch,2160x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,2915 mAh
+Android 9.0,Snapdragon 670,5.6 inch,2220x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,64 GB,3000 mAh
+Android 7.1,Snapdragon 821,5 inch,1920x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,2770 mAh
+Android 8.0,Snapdragon 835,5 inch,1920x1080 pixels,800 萬畫素,1200 萬畫素,4 GB,128 GB,2700 mAh
