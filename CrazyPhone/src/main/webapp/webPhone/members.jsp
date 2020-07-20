@@ -133,7 +133,7 @@ background-color:#787dcc;
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="active"><a href="home">首頁</a></li>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
 							<li class="grid"><a href="products.html">商城</a>
 								<div class="mepanel">
 									<div class="row">
@@ -221,7 +221,7 @@ background-color:#787dcc;
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="home">Home</a></li>
+					<li><a href="<c:url value = '/' />">Home</a></li>
 					<li class="active">會員基本資料</li>
 				</ol>
 			</div>

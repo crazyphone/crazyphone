@@ -56,12 +56,12 @@ public class MemberController {
 	@Autowired
 	ServletContext ctx;
 	
-	//回首頁
-	@RequestMapping("/home")
-	public String bHome(Model model) {
-
-		return "index";
-	}
+//	//回首頁
+//	@RequestMapping("/home")
+//	public String bHome(Model model) {
+//
+//		return "index";
+//	}
 	//首頁跳轉聯絡我們
 	@RequestMapping("/contact")
 	public String contact(Model model) {
@@ -140,7 +140,7 @@ public class MemberController {
 			
 			
 			if (errorMsgMap.isEmpty()) {
-				return "index";
+				return "redirect:/";
 			} else {
 				return "_1signIn";
 			}
@@ -253,7 +253,7 @@ public class MemberController {
 		
 		
 		
-		return "index";
+		return "redirect:/";
 	}
 	
 	//登出
@@ -263,7 +263,7 @@ public class MemberController {
 		session.removeAttribute("LoginSuperOK");
 	
 		System.out.println("登出了");
-		return "index";
+		return "redirect:/";
 	}
 	
 	//會員跳轉基本資料
@@ -473,7 +473,7 @@ public class MemberController {
 			
 			
 			if (errorSuperMap.isEmpty()) {
-				return "index";
+				return "redirect:/";
 			} else {
 				return "_1signIn2";
 			}

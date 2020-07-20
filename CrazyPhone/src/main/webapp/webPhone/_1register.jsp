@@ -228,7 +228,7 @@ background-color: #7df5f1;
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-    <a href=<c:url value='home'/> style="text-decoration:none;"> 
+    <a href=<c:url value='/'/> style="text-decoration:none;"> 
     <button type="button" class="cancelbtn">回首頁</button>
     </a>
       

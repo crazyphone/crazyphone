@@ -62,6 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	content='110794926966-tvl8m24boaqav34ifoh4fe3fh3egsusg.apps.googleusercontent.com'> 
 </head>
 <body>
+<!-- 標頭開始 -->
 	<!--top-header-->
 	<div class="top-header">
 		<div class="container">
@@ -99,13 +100,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</p>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
-						<a href="account"> <!-- <div class="total">
-								<span class="simpleCart_total"></span></div> --> <img
-							src="images/user2.png" alt="" title="登入" />
-
-						</a>
-						<!-- <p><a href="javascript:;" class="simpleCart_empty">登入</a></p> -->
 						<div class="clearfix"></div>
 					</div>
 				</div>
@@ -116,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="home"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
 		<c:if test="${! empty LoginSuperOK }"> 
 		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
 		</c:if>
@@ -187,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
 							</c:if> 
 							<c:if test="${! empty LoginSuperOK }"> 
- 								<span style="margin:50px">Hello <a  href="up1">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
 <!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
 <%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
 							</c:if> 
@@ -210,13 +204,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--bottom-header-->
+	<!-- 	標頭結束 -->
 	<!--banner-starts-->
 	<div class="bnr" id="home">
 		<div id="top" class="callbacks_container">
 			<ul class="rslides" id="slider4">
-				<li><img src="images/bnr-1.jpg" alt="" /></li>
-				<li><img src="images/bnr-2.jpg" alt="" /></li>
-				<li><img src="images/bnr-3.jpg" alt="" /></li>
+				<c:forEach var='carousel' items='${carousels11}'>
+					<li><a href="${carousel.carouselUrl}"><img
+						src="<c:url value='/getcarImg/${carousel.carouselID}'/>" alt="" /></a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<div class="clearfix"></div>
@@ -380,12 +376,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="footer-top">
 				<div class="col-md-6 footer-left">
-					<form>
-						<input type="text" value="Enter Your Email"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-						<input type="submit" value="Subscribe">
-					</form>
+<!-- 					<form> -->
+<!-- 						<input type="text" value="Enter Your Email" -->
+<!-- 							onfocus="this.value = '';" -->
+<!-- 							onblur="if (this.value == '') {this.value = 'Enter Your Email';}"> -->
+<!-- 						<input type="submit" value="Subscribe"> -->
+<!-- 					</form> -->
 					<ul>
 					<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
 						<li class="grid"><a href="super">管理員登入</a></li>

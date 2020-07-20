@@ -58,7 +58,7 @@ padding: 3px
     
 <div align='center' >
 <h3>會員資料</h3>
-<a href="<c:url value='/'/> " >回商品首頁</a>
+<%-- <a href="<c:url value='/'/> " >回商品首頁</a> --%>
 <a href="<c:url value='test'/> " >顯示全部會員</a>
 <form method='POST' action="<c:url value='searchMember' />" >
 	搜尋會員:<input type='text' name='search1' placeholder='Search...' class="icon">

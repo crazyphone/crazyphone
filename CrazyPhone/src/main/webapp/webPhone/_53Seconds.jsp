@@ -133,7 +133,7 @@ background-color:#787dcc;
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="active"><a href="home">首頁</a></li>
+							<li class="active"><a href="<c:url value='/'/>">首頁</a></li>
 							<li class="grid"><a href="products.html">商城</a>
 								<div class="mepanel">
 									<div class="row">
@@ -221,7 +221,7 @@ background-color:#787dcc;
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="home">Home</a></li>
+					<li><a href="<c:url value='/'/>">Home</a></li>
 					<li class="active">跳轉頁面</li>
 				</ol>
 			</div>
@@ -233,7 +233,7 @@ background-color:#787dcc;
 		<div class="container">
 			<div class="contact-top heading">
 				<h2> ${str}成功!</h2><br>
-				<h2><span id="sp" style="color:red"></span>秒之後將自動跳轉至首頁,如果沒有跳轉請按<a href="home" id="ho">回首頁</a></h2>
+				<h2><span id="sp" style="color:red"></span>秒之後將自動跳轉至首頁,如果沒有跳轉請按<a href="<c:url value='/'/>" id="ho">回首頁</a></h2>
 			</div>
 				
 		</div>
@@ -334,7 +334,7 @@ background-color:#787dcc;
 		$("#sp").text(x);
 		x--;
 		} else {
-			location.href = "home";
+			location.href = "<c:url value='/'/>";
 		}
 
 	}

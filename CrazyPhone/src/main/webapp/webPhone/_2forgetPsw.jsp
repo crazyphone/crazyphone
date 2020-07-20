@@ -119,7 +119,7 @@ span.psw {
 
       <button type="submit"  id="buttonMail"  >寄送信件</button>
     <div>
-          <a href=<c:url value='home'/> style="text-decoration:none;"> 
+          <a href=<c:url value='/'/> style="text-decoration:none;"> 
     <button type="button" class="cancelbtn">回首頁</button>
     </a>
       
