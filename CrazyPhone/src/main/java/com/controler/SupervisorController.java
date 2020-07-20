@@ -227,7 +227,7 @@ public class SupervisorController {
 		return typeMap;
 	}
 
-	// 新增品牌
+	// 新增商品
 	@PostMapping("/addProduct")
 	public String addProduct(@ModelAttribute("ProductBean") ProductBean PB, Model model) {
 		// 上傳圖片1
