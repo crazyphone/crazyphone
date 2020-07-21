@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.model.OrderItemBean;
+
 public class ShoppingCart {   
 	Date creteTime ;
 	private Map<Long, OrderItemBean> cart = new LinkedHashMap< >();
@@ -13,7 +15,7 @@ public class ShoppingCart {
 	public ShoppingCart() {
 		creteTime = new Date();
 	}
-	
+		
 	public String getCreteTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
 		return sdf.format(creteTime);
@@ -41,7 +43,34 @@ public class ShoppingCart {
 			oiBean.setQuantity(oib.getQuantity() + oiBean.getQuantity());
 		}
 	}
-
+	
+	//nowqty
+	public void DelQtyToCart(long ItemId, OrderItemBean  oib) {
+		if (oib.getQuantity() <= 1 ) {
+			return;
+		}
+		OrderItemBean oiBean = cart.get(ItemId);
+		//oiBean.setQuantity(oiBean.getQuantity()-1);
+	    oiBean.setQuantity(oib.getQuantity()-1);
+	}
+	
+	/*  //nowqty	
+	public void orderToDB(long ItemId, OrderItemBean  oib) {
+		if (oib.getQuantity() <= 0 ) {
+			return;
+		}
+		// 如果客戶在伺服器端沒有此項商品的資料，則客戶第一次購買此項商品
+		if ( cart.get(ItemId) == null ) {
+		    cart.put(ItemId, oib);
+		} else {
+	        // 如果客戶在伺服器端已有此項商品的資料，則客戶『加購』此項商品
+			OrderItemBean oiBean = cart.get(ItemId);
+			// 加購的數量：bean.getQuantity()
+			// 原有的數量：oBean.getQuantity()			
+			oiBean.setQuantity(oib.getQuantity() + oiBean.getQuantity());
+		}
+	} */
+	
 	public boolean modifyQty(long ItemId, int newQty) {
 		if ( cart.get(ItemId) != null ) {
 		   OrderItemBean  bean = cart.get(ItemId);
@@ -51,6 +80,7 @@ public class ShoppingCart {
 		   return false;
 		}
 	}
+	
 	// 刪除某項商品
 	public int deleteBook(long ItemId) {
 		if ( cart.get(ItemId) != null ) {

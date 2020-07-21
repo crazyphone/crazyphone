@@ -17,8 +17,49 @@ public class OrderDaoImpl_Hibernate implements OrderDao {
 	@Autowired
 	private SessionFactory factory;
 	int orderID=0;
+	
 	public OrderDaoImpl_Hibernate() {
 	}
+	
+	
+	
+	@Override
+	public void UpdateOrderToDB(OrdersBean ob) {
+		System.out.println("loop 8.0");
+		Session session=factory.getCurrentSession();
+		//OrdersBean uob = ob;		
+		//String hql ="update OrdersBean ob";
+		String hql ="update OrdersBean uob SET uob.ProductId = :pd , uob.ProductName = :pn ,"
+				+ " uob.Quantity = :qty , uob.DiscountID = :dic , uob.FinalPrice = :fp ,"
+				+ " uob.InvoiceNum = :in , uob.ShippedDate = :sda , uob.GoodsStatus = :gs ,"
+				+ " uob.OrderID = :oi , uob.getMemberID = :mi , uob.OrderDate = :od ,"
+				+ " uob.ShipAddress = :sad , uob.Receiver = :rc , uob.ReceiverPhone = :rcp";
+		System.out.println("loop 8.1->"+hql);
+		try {
+		//	session.createQuery(hql).executeUpdate();
+			session.createQuery(hql).setParameter("pd", ob.getProductId())
+									.setParameter("pn", ob.getProductName())
+									.setParameter("qty",ob.getQuantity())
+									.setParameter("dic",ob.getDiscountID())
+									.setParameter("fp", ob.getFinalPrice())
+									.setParameter("in", ob.getInvoiceNum())
+									.setParameter("sda",ob.getShippedDate())
+									.setParameter("gs", ob.getGoodsStatus())
+									.setParameter("oi", ob.getOrderID())
+									.setParameter("mi", ob.getMemberID())
+									.setParameter("od", ob.getOrderDate())
+									.setParameter("sad",ob.getShipAddress())
+									.setParameter("rc", ob.getReceiver())
+									.setParameter("rcp",ob.getReceiverPhone())
+									.executeUpdate();
+		
+		}catch (Exception e) {
+			System.out.println("loop 8.2-> Error SQL");
+			e.printStackTrace();
+		}
+	
+	}
+		
 	@Override
 	public void insertOrder(OrdersBean ob) {
 		Session session=factory.getCurrentSession();
@@ -30,12 +71,14 @@ public class OrderDaoImpl_Hibernate implements OrderDao {
 		ob=session.get(OrdersBean.class, orderID);
 		return ob;
 	}
+	
 	public String getMemberId() {
 		return MemberID;
 	}
 	public void setMemberId(String MemberId) {
-		this.MemberID=MemberID;
+		this.MemberID=MemberId;
 	}
+	
 	public void setConnection(Connection con) {
 	}
 

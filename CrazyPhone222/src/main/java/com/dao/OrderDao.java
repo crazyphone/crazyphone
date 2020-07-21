@@ -7,6 +7,9 @@ import com.model.OrdersBean;
 
 public interface OrderDao {
 	void insertOrder(OrdersBean ob);
+	void UpdateOrderToDB(OrdersBean ob);
+	
+	
 	void setConnection(Connection con);
 	OrdersBean getOrder(int OrderID);
 	List<OrdersBean> getAllOrders();

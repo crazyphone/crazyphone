@@ -3,7 +3,6 @@ package com.service;
 import java.util.List;
 
 import com.model.CriticismBean;
-import com.model.ProductBean;
 
 public interface CriticismService {
 	

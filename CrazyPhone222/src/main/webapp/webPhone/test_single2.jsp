@@ -1,4 +1,3 @@
-<!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -271,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										name='phoneName' value='${product.productName}'> <input
 										type='hidden' name='phonePrice' value='${product.unitPrice}'>
 									<input type='hidden' name='qty' value=1> <input
-										type='hidden' name='page' value='products2'> <input
+										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入購物車'>
 								</form>
 								<form action='addToPKCart' method='POST'>

@@ -21,7 +21,7 @@ public class _ShoppringCartController {
 @RequestMapping("removeCart")
 public String removeCart(Model model, SessionStatus status) {
 	status.setComplete(); // Clear Cart Items
-	return "redirect:/products2";
+	return "redirect:/products"; //ProductController
 //	return "products2";
   //return "redirect:/index";
 }	
@@ -63,5 +63,10 @@ public String removeCart(Model model, SessionStatus status) {
 	public String order(Model model,SessionStatus status) {
 		
 		return "check";
+	}
+	@RequestMapping("/orderList1")
+	public String order1(Model model,SessionStatus status) {
+		
+		return "check2";
 	}
 }
