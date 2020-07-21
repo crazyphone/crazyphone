@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.ProductBean;
 import com.service.MemberService;
@@ -49,8 +50,10 @@ public class HomeController {
 	}
 	
 	@GetMapping("/single")
-	public String single(Model model) {
-		return "test_single2";
+	public String single(@RequestParam("productID") Integer productID, Model model) {
+		
+	
+		return "redirect:http://localhost:8080/CrazyPhone222/product?id="+productID;
 	}
 	
 	@GetMapping("/compare")

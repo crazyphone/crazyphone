@@ -16,7 +16,7 @@
 				<h1>評論</h1>
 			</div>
 
-			<a href="single" class="mask" >回商品頁</a>
+			<a href="<spring:url value='single?productID=${productID}' />" class="mask" >回商品頁</a>
 
 		</div>
 	</section>

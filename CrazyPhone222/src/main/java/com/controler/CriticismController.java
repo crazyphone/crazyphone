@@ -103,7 +103,7 @@ public class CriticismController {
 
 //		return "redirect:/criticism";
 //		return "redirect:/criticism/product2";
-		return "redirect:http://localhost:8080/CrazyPhone22/product?productID="+productID;
+		return "redirect:http://localhost:8080/CrazyPhone222/id?productID="+productID;
 	}
 	
 
@@ -182,6 +182,7 @@ public class CriticismController {
 		public String getCriticismByProductId(@RequestParam Integer productID, Model model) {
 		List<CriticismBean> beans = service.getCriticismByProductId(productID);
 		model.addAttribute("criticism", beans);
+		model.addAttribute("productID",productID);
 		return "criticism";
 	}
 //	@GetMapping("/criticism")
