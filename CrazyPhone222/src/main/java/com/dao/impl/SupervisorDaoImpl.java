@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.SupervisorDao;
 import com.model.BrandBean;
@@ -98,7 +99,7 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	@Override
 	public boolean deleteproduct(Integer ProductID) {
 		Session session = factory.getCurrentSession();
-		String hql = "delete BrandBean BB where PB.id = :Pid";
+		String hql = "delete ProductBean PB where PB.id = :Pid";
 		try {
 			session.createQuery(hql).setParameter("Pid", ProductID).executeUpdate();
 		} catch (Exception e) {
@@ -136,6 +137,15 @@ public class SupervisorDaoImpl implements SupervisorDao {
 		Session session = factory.getCurrentSession();
 		List<TypeBean> typelist = session.createQuery(hql).getResultList();
 		return typelist;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ProductBean> getallproductid() {
+		String hql = "select ProductID from ProductBean";
+		Session session = factory.getCurrentSession();
+		List<ProductBean> pidlist = session.createQuery(hql).getResultList();
+		return pidlist;
 	}
 
 }

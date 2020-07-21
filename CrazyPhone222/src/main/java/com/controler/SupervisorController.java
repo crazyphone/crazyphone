@@ -3,6 +3,7 @@ package com.controler;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Blob;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +26,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dao.SupervisorDao;
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.SpecBean;
 import com.model.TypeBean;
 import com.service.Supervisorervice;
 
@@ -201,6 +204,7 @@ public class SupervisorController {
 	//商品刪除
 	@GetMapping("/peb/{productID}")
 	public String deleteproduct(Model model, @PathVariable Integer productID) {
+		System.out.println("近來");
 		boolean de = supervisorervice.dropproduct(productID);
 		if (de == false) {
 			System.out.println("刪除失敗");
@@ -275,6 +279,9 @@ public class SupervisorController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
+		//時間
+		Timestamp CreateDate = new Timestamp(System.currentTimeMillis());
+		PB.setReleasedDate(CreateDate);
 		Map<String, String> Perror = new HashMap<String, String>();
 		model.addAttribute("Errorp", Perror);
 		if (PB.getProductName() == null || PB.getProductName().trim().length() == 0) {
@@ -298,7 +305,7 @@ public class SupervisorController {
 		if (PB.getStockQuantity() == null || PB.getStockQuantity() == 0) {
 			Perror.put("sqspace", "請輸入庫存");
 		}
-		if (PB.getStockQuantity() != null && PB.getStockQuantity() <= 50) {
+		if (PB.getStockQuantity() != null && PB.getStockQuantity() < 50) {
 			Perror.put("sqspace", "庫存不能小於50");
 		}
 		if (PB.getProductImage() == null) {
@@ -315,7 +322,7 @@ public class SupervisorController {
 
 		} else {
 			supervisorervice.addproduct(PB);
-			return "redirect:/Product";
+			return "redirect:/addspec";
 		}
 
 	}
@@ -459,5 +466,17 @@ public class SupervisorController {
 		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
 		re = new ResponseEntity<>(b0, headers, HttpStatus.OK);
 		return re;
+	}
+	@GetMapping("/addspec")
+	public String addspec1(Model model) {
+		SpecBean SB = new SpecBean();
+		model.addAttribute("SpecBean", SB);
+		return "_L_addSpec";
+	}
+	
+	
+	@PostMapping("/addspec")
+	public String addspec(@ModelAttribute("SpecBean") SpecBean SB,Model model) {
+		return null;
 	}
 }

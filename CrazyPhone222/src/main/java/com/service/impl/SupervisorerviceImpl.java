@@ -98,4 +98,10 @@ public class SupervisorerviceImpl implements Supervisorervice {
 		return dao.gettypelist();
 	}
 
+	@Transactional
+	@Override
+	public List<ProductBean> getallpid() {
+		return dao.getallproductid();
+	}
+
 }

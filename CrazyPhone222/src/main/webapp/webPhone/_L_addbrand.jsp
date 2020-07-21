@@ -11,6 +11,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 input[type=text] {
 	width: 100%;
 	padding: 12px 20px;
@@ -19,6 +20,7 @@ input[type=text] {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+
 textarea[type=text] {
 	width: 100%;
 	padding: 12px 20px;
@@ -27,6 +29,7 @@ textarea[type=text] {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+
 button {
 	background-color: #4860a8;
 	color: white;
@@ -40,17 +43,20 @@ button {
 button:hover {
 	opacity: 0.8;
 }
+
 .cancelbtn {
 	width: auto;
 	padding: 10px 18px;
 	background-color: #f44336;
 }
+
 .container {
 	padding: 16px;
 }
+
 .modal {
-	position: fixed; 
-	z-index: 1; 
+	position: fixed;
+	z-index: 1;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -58,6 +64,7 @@ button:hover {
 	overflow: auto;
 	padding-top: 60px;
 }
+
 .modal-content {
 	background-color: #fefefe;
 	margin: 5% auto 15% auto;
@@ -79,7 +86,8 @@ button:hover {
 				<label for="Brandinfo"><b>廠商資訊:</b></label>&nbsp;<small><Font
 					color='red' size="-3">${Errorb.infospace}</Font></small>
 				<div>
-					<form:textarea style="resize:none" type="text" path="BrandInfo" id="Brandinfo" />
+					<form:textarea style="resize:none" type="text" path="BrandInfo"
+						id="Brandinfo" />
 				</div>
 			</div>
 			<div class="container">
@@ -92,12 +100,12 @@ button:hover {
 					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
 				</div>
 				<label for="BImage"><b>廠商Logo:</b></label>
-				<form:input type="file" path="BImage" accept="image/*"/>
+				<form:input type="file" path="BImage" accept="image/*" />
 			</div>
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">送出</button>
-				<input type="button" class="cancelbtn" value='一鍵輸入'>
-				<a class="cancelbtn" href="<c:url value='/'/> ">回前頁</a>
+				<input type="button" class="cancelbtn" value='一鍵輸入'> <a
+					class="cancelbtn" href="<c:url value='/'/> ">回前頁</a>
 			</div>
 		</form:form>
 	</div>

@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.model.BrandBean;
@@ -34,4 +35,6 @@ public interface SupervisorDao {
 	public TypeBean gettypebyid(int typeID);
 
 	public List<TypeBean> gettypelist();
+	
+	public List<ProductBean> getallproductid();
 }

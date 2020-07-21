@@ -100,7 +100,7 @@ input[type=text] {
 					<td>${product.stockQuantity}</td>
 					<td><a href="<c:url value=''/>"><button type="button" class="button">編輯</button></a>
 					<a href="<c:url value=''/>"><button type="button" class="button">編輯詳細資訊</button></a> 
-					<a href="<c:url value='/peb/{productID}'/>"><button type="button" class="button">刪除</button></a></td>
+					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>

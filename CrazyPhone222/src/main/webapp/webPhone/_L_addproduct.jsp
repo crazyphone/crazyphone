@@ -146,7 +146,7 @@ button:hover {
 				<form:input type="file" path="PImage3" accept="image/*" />
 			</div>
 			<div class="container">
-				<button type="submit" style="margin-top: 50px">送出</button>
+				<button type="submit" style="margin-top: 50px">下一步</button>
 				<input type="button" class="cancelbtn" value='一鍵輸入'>
 			</div>
 		</form:form>

@@ -35,4 +35,6 @@ public interface Supervisorervice {
 
 	public List<TypeBean> gettypelist();
 
+	public List<ProductBean> getallpid();
+
 }
