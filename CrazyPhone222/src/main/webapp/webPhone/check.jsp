@@ -59,10 +59,14 @@
    	     <input type='hidden' name='ReceiverPhone' value='${LoginOK.memberPhone}'> 
     	 <input type='hidden' name='ShipAddress' value='${LoginOK.memberAddress}'>
    	     <input type='hidden' name='page' value='check2'>
+
+   	      
+   	     
          <input type='submit' class="btn btn-primary" value='確定送出'>
 <!--    		 <button><a href='orderList1'>確定送出</a></button>		 -->
    		 
 <!--    		 ------------------------------------------------------------------ -->
+   		 	<c:set var="sum" value="0"></c:set>	
    		 	<c:forEach items='${ShoppingCart.content}' var='entry'>
 <!-- 		<tr> -->
 <%-- 			<td align='center'>${entry.value.bean.productID}</td> --%>
@@ -78,9 +82,19 @@
    		 <input type='hidden' name='productName' value='${entry.value.bean.productName}'>
    		 <input type='hidden' name='unitPrice' value='${entry.value.bean.unitPrice}'>
    		 <input type='hidden' name='quantity' value='${entry.value.quantity}'>
-   		 
    		 <input type='hidden' name='sum1' value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'>
+   		 <c:set var="sum"      value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'></c:set>
    		 </c:forEach>
+   		 
+   		 
+<!--    		 paypal參數 -->
+   		   <input type="hidden" name="product" value="OrderNumber" />
+	       <input type="hidden" name="subtotal" value="${sum} "/>
+           <input type="hidden" name="shipping" value="0" />
+           <input type="hidden" name="tax" value="0" />
+           <input type="hidden" name="total"  value="${sum} " />
+   	     
+   		 
 <!--    		 ------------------------------------------------------------- -->
    </form>
    
@@ -182,7 +196,10 @@
 	</c:forEach>
 	<tr height='16'>
 	<td colspan='4' align='right'>合計金額(含稅):</td>>
-	<td align='left'>${sum}元</td>					
+	<td align='left'>${sum}元</td>	
+	  
+	
+					
 	</tr>
 				     
 <!--    <input type="button" name="CancelBtn" value="取消訂單" onclick="cancelOrder()"> -->

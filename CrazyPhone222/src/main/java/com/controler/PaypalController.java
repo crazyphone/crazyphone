@@ -33,8 +33,8 @@ public class PaypalController {
 			@RequestParam(value = "tax") String tax, @RequestParam(value = "total") String total) {
 		OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
 		try {
-			Payment payment = service.createPayment(orderDetail, "http://localhost:8080/CrazyPhone22/cancel",
-					"http://localhost:8080/CrazyPhone22/review_payment");
+			Payment payment = service.createPayment(orderDetail, "http://localhost:8080/CrazyPhone222/cancel",
+					"http://localhost:8080/CrazyPhone222/review_payment");
 			
 			
 			for (Links link : payment.getLinks()) {
@@ -51,7 +51,7 @@ public class PaypalController {
 		return "redirect:/";
 	}
 
-	@GetMapping("/CrazyPhone22/cancel")
+	@GetMapping("/CrazyPhone222/cancel")
 	public String cancelPay() {
 		return "cancel";
 	}

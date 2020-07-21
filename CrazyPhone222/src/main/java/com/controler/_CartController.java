@@ -13,20 +13,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.model.OrderDetail;
 import com.model.OrderItemBean;
 import com.model.OrdersBean;
 import com.model.ProductBean;
 import com.model.ShoppingCart;
+import com.paypal.api.payments.Links;
+import com.paypal.api.payments.Payment;
+import com.paypal.base.rest.PayPalRESTException;
 import com.service.OrderService;
 //import com.service.ProductService;
 //import com.model.MemberBean;
+import com.service.PaypalService;
 
 @Controller
 @SessionAttributes({"ShoppingCart"})
 public class _CartController {
+	
+	
+	
 	//ProductService service;
 	@Autowired
 	OrderService Ods;
+	@Autowired
+	PaypalService service;
+	
 	
 	@ModelAttribute("ShoppingCart")
 	public ShoppingCart createShopping(Model model) {
@@ -119,7 +130,12 @@ public class _CartController {
 		   @RequestParam String productName,
 		   @RequestParam Integer unitPrice,
 		   @RequestParam Integer quantity,
-		   @RequestParam Integer sum1) {
+		   @RequestParam Integer sum1,
+		   @RequestParam(value = "product") String product,
+		   @RequestParam(value = "subtotal") String subtotal, 
+		   @RequestParam(value = "shipping") String shipping,
+		   @RequestParam(value = "tax") String tax, 
+		   @RequestParam(value = "total") String total)	{
 		System.out.println("long in 0");			
 		   SimpleDateFormat sdf  = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 		 //Date current = new Date();
@@ -163,9 +179,29 @@ public class _CartController {
 			  //items.add(oib);
 //		   }
 //		 
+//		PAypal 連線	    
+			    OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
+				try {
+					Payment payment = service.createPayment(orderDetail, "http://localhost:8080/CrazyPhone222/cancel",
+							"http://localhost:8080/CrazyPhone222/review_payment");
+					
+					
+					for (Links link : payment.getLinks()) {
+						if (link.getRel().equalsIgnoreCase("approval_url")) {
+							
+							return "redirect:" + link.getHref();
+						}
+					}
+
+				} catch (PayPalRESTException e) {
+
+					e.printStackTrace();
+				}   
+
+			    
 		System.out.println("After orderToDB to ShowPage->" + page);
 		return  page;
 	}
-		
+
 }
  
