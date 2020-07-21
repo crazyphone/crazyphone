@@ -175,7 +175,7 @@ public class SupervisorController {
 
 	// 品牌刪除
 	@GetMapping("/deb/{brandID}")
-	public String deletebrand(Model model, @PathVariable Integer brandID) {
+	public String deletebrand(@PathVariable Integer brandID) {
 		boolean de = supervisorervice.dropbrand(brandID);
 		if (de == false) {
 			System.out.println("刪除失敗");
@@ -197,6 +197,8 @@ public class SupervisorController {
 		model.addAttribute("ProductBean", PB);
 		return "_L_addproduct";
 	}
+     
+	//商品刪除
 	@GetMapping("/peb/{productID}")
 	public String deleteproduct(Model model, @PathVariable Integer productID) {
 		boolean de = supervisorervice.dropproduct(productID);
@@ -205,6 +207,7 @@ public class SupervisorController {
 		}
 		return "redirect:/Product";
 	}
+
 	// 商品品牌選單
 	@ModelAttribute("BrandMap")
 	public Map<Integer, String> getBrandList() {
@@ -227,7 +230,7 @@ public class SupervisorController {
 		return typeMap;
 	}
 
-	// 新增品牌
+	// 新增商品
 	@PostMapping("/addProduct")
 	public String addProduct(@ModelAttribute("ProductBean") ProductBean PB, Model model) {
 		// 上傳圖片1
@@ -273,9 +276,39 @@ public class SupervisorController {
 			}
 		}
 		Map<String, String> Perror = new HashMap<String, String>();
-		model.addAttribute("Errorb", Perror);
+		model.addAttribute("Errorp", Perror);
 		if (PB.getProductName() == null || PB.getProductName().trim().length() == 0) {
 			Perror.put("namespace", "請輸入名稱");
+		}
+		if (PB.getBrandBeanID() == -1) {
+			Perror.put("nochoosep", "請選擇品牌");
+		}
+		if (PB.getTypeBeanID() == -1) {
+			Perror.put("nochooset", "請選擇類型");
+		}
+		if (PB.getProductIntro() == null || PB.getProductIntro().trim().length() == 0) {
+			Perror.put("introspace", "請輸入資訊");
+		}
+		if (PB.getUnitPrice() == null || PB.getUnitPrice() == 0) {
+			Perror.put("pricespace", "請輸入金額");
+		}
+		if (PB.getUnitPrice() != null && PB.getUnitPrice() <= 3000) {
+			Perror.put("pricespace", "金額不能小於3000");
+		}
+		if (PB.getStockQuantity() == null || PB.getStockQuantity() == 0) {
+			Perror.put("sqspace", "請輸入庫存");
+		}
+		if (PB.getStockQuantity() != null && PB.getStockQuantity() <= 50) {
+			Perror.put("sqspace", "庫存不能小於50");
+		}
+		if (PB.getProductImage() == null) {
+			Perror.put("pimgspace", "請上傳圖片");
+		}
+		if (PB.getProductImage2() == null) {
+			Perror.put("pimgspace2", "請上傳圖片");
+		}
+		if (PB.getProductImage3() == null) {
+			Perror.put("pimgspace3", "請上傳圖片");
 		}
 		if (!Perror.isEmpty()) {
 			return "_L_addproduct";
