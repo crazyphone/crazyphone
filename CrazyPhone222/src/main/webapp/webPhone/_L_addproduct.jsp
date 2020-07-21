@@ -86,61 +86,61 @@ button:hover {
 			modelAttribute="ProductBean" enctype="multipart/form-data">
 			<div class="container">
 				<label for="Productname"><b>商品名稱:</b></label> &nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+					color='red' size="-3">${Errorp.namespace}</Font></small>
 				<form:input type="text" path="ProductName" id="Productname" />
 			</div>
 			<div class="container">
-				<label for="brandBean"><b>商品品牌:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.nochoose}</Font></small>
+				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.nochoosep}</Font></small></div>
+				<label for="brandBean"><b>商品品牌:</b></label>
 				<form:select path="brandBean.BrandID" id="brand">
 					<form:option value="-1" label="請挑選品牌" />
 					<form:options items="${BrandMap}" />
 				</form:select>
 			</div>
 			<div class="container">
-				<label for="type"><b>商品類型:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.nochoose}</Font></small>
+				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.nochooset}</Font></small></div>
+				<label for="type"><b>商品類型:</b></label>
 				<form:select path="typeBean.TypeID" id="type">
 					<form:option value="-1" label="請挑選類型"  />
 					<form:options items="${TypeMap}" />
 				</form:select>
 			</div>
 			<div class="container">
-				<label for="Productintro"><b>廠商資訊:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.infospace}</Font></small>
+				<label for="Productintro"><b>廠商資訊:</b></label>
+				&nbsp;<small><Font color='red' size="-3">${Errorp.introspace}</Font></small>
 				<div>
 					<form:textarea style="resize:none" type="text" path="ProductIntro"
 						id="Productintro" />
 				</div>
 			</div>
 			<div class="container">
-				<label for="Unitprice"><b>商品價錢:</b></label> &nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+				<label for="Unitprice"><b>商品價錢:</b></label> 
+				&nbsp;<small><Font color='red' size="-3">${Errorp.pricespace}</Font></small>
 				<form:input type="text" path="UnitPrice" id="Unitprice" />
 			</div>
 			<div class="container">
-				<label for="Stockquantity"><b>商品庫存:</b></label> &nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.sqspace}</Font></small></div>
+				<label for="Stockquantity"><b>商品庫存:</b></label> 
 				<form:input type="number" path="StockQuantity" id="Stockquantity"
 					min="0" />
 			</div>
 			<div class="container">
 				<div>
-					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
+					<small><Font color='red' size="-3">${Errorp.pimgspace}</Font></small>
 				</div>
 				<label for="pImage"><b>商品照片:</b></label>
 				<form:input type="file" path="PImage" accept="image/*" />
 			</div>
 			<div class="container">
 				<div>
-					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
+					<small><Font color='red' size="-3">${Errorp.pimgspace2}</Font></small>
 				</div>
 				<label for="pImage2"><b>商品照片2:</b></label>
 				<form:input type="file" path="PImage2" accept="image/*" />
 			</div>
 			<div class="container">
 				<div>
-					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
+					<small><Font color='red' size="-3">${Errorp.pimgspace3}</Font></small>
 				</div>
 				<label for="pImage3"><b>商品照片3:</b></label>
 				<form:input type="file" path="PImage3" accept="image/*" />

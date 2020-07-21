@@ -207,12 +207,20 @@ public class ProductBean {
 		return typeBean;
 	}
 
+	public Integer getTypeBeanID() {
+		return typeBean.getTypeID();
+	}
+
 	public void setTypeBean(TypeBean typeBean) {
 		this.typeBean = typeBean;
 	}
 
 	public BrandBean getBrandBean() {
 		return brandBean;
+	}
+
+	public Integer getBrandBeanID() {
+		return brandBean.getBrandID();
 	}
 
 	public void setBrandBean(BrandBean brandBean) {

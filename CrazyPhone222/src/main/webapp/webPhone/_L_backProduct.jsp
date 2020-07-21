@@ -58,6 +58,7 @@ input[type=text] {
 			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
 			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
+			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
 		</ul>
 	</div>
 	<div align='center'>
@@ -99,7 +100,7 @@ input[type=text] {
 					<td>${product.stockQuantity}</td>
 					<td><a href="<c:url value=''/>"><button type="button" class="button">編輯</button></a>
 					<a href="<c:url value=''/>"><button type="button" class="button">編輯詳細資訊</button></a> 
-					<a href="<c:url value=''/>"><button type="button" class="button">刪除</button></a></td>
+					<a href="<c:url value='/peb/{productID}'/>"><button type="button" class="button">刪除</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>
