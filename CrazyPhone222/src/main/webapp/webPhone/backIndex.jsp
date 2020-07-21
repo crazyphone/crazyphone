@@ -63,13 +63,13 @@ padding: 3px
         <li class="active" ><a href="backIndex" style="text-align:center;">商城管理系統</a></li>
         <li><a href="addCarousel" style="color:#5d76cf">輪播牆管理</a></li>
         <li><a href="test" style="color:#5d76cf">會員管理</a></li>
-        <li><a href="#" style="color:#5d76cf">商品管理</a></li>
+        <li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
+		<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
         <li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
         
         
         
-        <div><a href="<c:url value='/' />"
-style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁</a></div>
+<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁</a></div>
       </ul>
     </div>
 
