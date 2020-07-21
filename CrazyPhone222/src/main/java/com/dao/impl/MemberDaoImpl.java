@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.MemberDao;
 import com.model.CarouselBean;
 import com.model.MemberBean;
+import com.model.OrdersBean;
 import com.model.SupervisorBean;
 
 
@@ -331,6 +332,14 @@ public class MemberDaoImpl implements MemberDao {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public List<OrdersBean> getAllMemberOrders(Integer id) {
+		String hql = "FROM OrdersBean ob where ob.MemberID = :mid ";
+		Session session = factory.getCurrentSession();
+		List<OrdersBean> list = session.createQuery(hql).setParameter("mid", id).getResultList();
+		return list;
 	}
 
 

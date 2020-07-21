@@ -619,7 +619,14 @@ public class MemberController {
 		
 		}
 
-
+		//連到歷史訂單
+		@PostMapping("/orderSelectMember")
+		public String orderSelectMember(Model model,HttpSession session,@RequestParam(value="idid") Integer id) {
+		
+			model.addAttribute("orderSelectMember",memberService.getAllMemberOrders(id));
+			
+			return "selectOrders";
+		}
 		
 		
 	

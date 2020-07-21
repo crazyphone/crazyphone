@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.model.CarouselBean;
 import com.model.MemberBean;
+import com.model.OrdersBean;
 import com.model.SupervisorBean;
 
 public interface MemberService {
@@ -42,4 +43,6 @@ public interface MemberService {
 	public boolean addCarousel(CarouselBean carousel);
 	CarouselBean getCarouselByIdaa(int CarouselId);
 	public boolean deleteCarousel(Integer id);
+	
+	public List<OrdersBean> getAllMemberOrders(Integer id);
 }

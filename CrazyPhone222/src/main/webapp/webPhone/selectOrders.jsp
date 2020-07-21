@@ -12,7 +12,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Luxury Watches A Ecommerce Category Flat Bootstarp Resposive Website Template | Contact :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
@@ -49,19 +51,19 @@ input[type=text] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-button {
-  background-color: #4860a8;
-  color: white;
-  padding: 10px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+button { 
+   background-color: #4860a8; 
+   color: white; 
+   padding: 5px 5px; 
+   margin: 8px 0; 
+   border: none; 
+   cursor: pointer; 
   
-}
+ } 
 .ddd{
 margin:0px auto;
 width:70%;
-background-color:#787dcc;
+
 }
 </style>
 
@@ -222,65 +224,85 @@ background-color:#787dcc;
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
 					<li><a href="<c:url value = '/' />">Home</a></li>
-					<li class="active">會員基本資料</li>
+					<li class="active">歷史訂單</li>
 				</ol>
 			</div>
 		</div>
 	</div>
 	<!--end-breadcrumbs-->
 	<!--contact-start-->
-	<form  action="<c:url value='orderSelectMember' />" method="post" >
-		 <input type="hidden" name="idid"  value="${LoginOK.memberID}" />
-    <button type="submit" class="cancelbtn" style="position: absolute;margin-left: 47%">歷史訂單</button>
-    </form>
+<!-- 	----------------------------------------------------------------------- -->
+	<div class="modal" tabindex="-1" role="dialog" id="222">
+
+     <div class="modal-dialog" role="document"> 
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">新增輪播圖</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button> 
+            </div>
+            <div class="modal-body">
+            
+      	<span ><b >圖片:</b></span>
+      
+         <span ><b >超連結:</b></span><br>
+       
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+             
+            </div>
+            
+       </div>
+   </div>
+  
+</div>
+<!-- 	--------------------------------------------------------------------- -->
+	
+	<button	type="button" onclick="showModal()" >查看</button>
+		
 	<div class="contact">
 		<div class="container">
 			<div class="contact-top heading">
-				<h2>會員基本資料</h2>
+				<h2>歷史訂單</h2>
 			</div>
 				<div class="ddd">
 
-					<div class="container2" ><div style="color:red;text-align:center">*為可以修改</div>
-						<form:form modelAttribute="MemberBean" method="post" enctype="multipart/form-data">
-						 <label for="email"><b>帳號:</b></label><br>
-							<input type="text"  name='email' disabled="disabled" id='ma1' value="${LoginOK.memberEmail}" /><br>
-						<label  for="time"><b>註冊時間:</b></label><br>
-							<input type="text"  value="${LoginOK.createDate}"  disabled="disabled"><br>
-					     <label for="uname"><b><span style="color:red">*</span>姓名:</b></label><br>
-							<form:input type="text" path="MemberName" value="${LoginOK.memberName}" /><br>
-						 <label for="birth"><b><span style="color:red">*</span>生日:</b></label><br>
-							<form:input type="text"   path="MemberBirth" value="${LoginOK.memberBirth}" /><br>
-						 <label  for="phone"><b><span style="color:red">*</span>聯絡電話:</b></label><br>
-							<form:input type="text"   path="MemberPhone" value="${LoginOK.memberPhone}" /><br>
-						 <label  for="MemberAddress"><b><span style="color:red">*</span>地址:</b></label><br>
-							<form:input type="text"  path="MemberAddress" value="${LoginOK.memberAddress}"  /><br>
+					<table border='2' cellpadding="3" cellspacing="1">
+				<tr style="background-color:#787dcc;">
+						<th width='150' style="text-align: center">訂單編號</th>
+						<th width='200' style="text-align: center">訂單日期</th>
+						<th width='200' style="text-align: center">狀態</th>
+						<th width='150' style="text-align: center">總價</th>
+						<th width='50' style="text-align: center">明細</th>
+
+					</tr>
+					<c:forEach var='orderSelectMember1' items='${orderSelectMember}'>
+						<tr>
+							<td style="text-align: center">${orderSelectMember1.orderID}</td>
 							
-						<label  for="MemberImage"><b><span style="color:red">*</span>當前大頭貼:</b></label>
-							<img width='100' height='100' 
-									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /><br>
+<%-- 							<td><img width='250' height='150' src="<c:url value='/getcarImg/${carousel.carouselID}'/>" /></td> --%>
+							
+							<td style="text-align: center" height="50">${orderSelectMember1.orderDate}</td>
+							<td style="text-align: center">${orderSelectMember1.goodsStatus}</td>
+							<td style="text-align: center">${orderSelectMember1.finalPrice}</td>
+<%-- 							<td style="text-align: center"><a href="<c:url value='/deCar/${orderSelectMember1.orderID}'/>">查看</a></td> --%>
+							<td style="text-align: center"><button	type="button" onclick="showModal()" >查看</button></td>
 									
-						
-							<form:input type="file"  path="MImage"  /><br>
-						<label  for=""><b><span style="color:red"></span>新的大頭貼:</b></label>
-						<img id="changeimg" src=""  />	
-							
-							
-							<div class="submit-btn">
-								<button type="submit" id="submit">修改</button>
-							</div>
-						</form:form>
+						</tr>
+					</c:forEach>
+				</table>
 					
 					</div>	
 					<div class="clearfix"></div>
 				</div>
 		</div>
-	</div>
+	
 
 	<!--contact-end-->
 	<!--map-start-->
 	<div class="map">
 		<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6632.248000703498!2d151.265683!3d-33.7832959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12abc7edcbeb07%3A0x5017d681632bfc0!2sManly+Vale+NSW+2093%2C+Australia!5e0!3m2!1sen!2sin!4v1433329298259" style="border:0"></iframe> -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.93837800922856!2d121.54236744924873!3d25.033597317002624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd4825ecdf1%3A0xa9479a36fc6b99d0!2sDigital%20Education%20Institute%2C%20III!5e0!3m2!1szh-TW!2stw!4v1592843106856!5m2!1szh-TW!2stw" style="border:0;"></iframe>
+<!-- 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.93837800922856!2d121.54236744924873!3d25.033597317002624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd4825ecdf1%3A0xa9479a36fc6b99d0!2sDigital%20Education%20Institute%2C%20III!5e0!3m2!1szh-TW!2stw!4v1592843106856!5m2!1szh-TW!2stw" style="border:0;"></iframe> -->
 		<!-- width="600" height="450" frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0" -->
 	</div>
 	<!--map-end-->
@@ -361,35 +383,10 @@ background-color:#787dcc;
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script >
-// 	$("#submit").click(function(){
-
-// 		$("#ma1").prop("disabled",false);
-
-// 		});
-
-		$("#MImage").change(function() {
-
-			readURL(this);
-		});
-		function readURL(input) {
-
-			if (input.files && input.files[0]) {
-
-				var reader = new FileReader();
-
-				reader.onload = function(e) {
-
-					$("#changeimg").attr('src', e.target.result);
-
-					$("#changeimg").css('width', '105px')
-							.css('height', '105px')
-				}
-
-				reader.readAsDataURL(input.files[0]);
-
-			}
-
-		}
+	
+	function showModal() {
+	    $('#222').modal('show'); 
+	}
 	</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.MemberDao;
 import com.model.CarouselBean;
 import com.model.MemberBean;
+import com.model.OrdersBean;
 import com.model.SupervisorBean;
 import com.service.MemberService;
 
@@ -143,6 +144,12 @@ public class MemberServiceImpl implements MemberService{
 	public boolean deleteCarousel(Integer id) {
 		
 		return dao.deleteCarousel(id);
+	}
+	@Transactional
+	@Override
+	public List<OrdersBean> getAllMemberOrders(Integer id) {
+		
+		return dao.getAllMemberOrders(id);
 	}
 
 }
