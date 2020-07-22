@@ -25,6 +25,7 @@ import com.service.OrderService;
 //import com.service.ProductService;
 //import com.model.MemberBean;
 import com.service.PaypalService;
+import com.service.ProductService;
 
 @Controller
 @SessionAttributes({"ShoppingCart"})
@@ -37,7 +38,8 @@ public class _CartController {
 	OrderService Ods;
 	@Autowired
 	PaypalService service;
-	
+	@Autowired
+	ProductService pservice;
 	
 	@ModelAttribute("ShoppingCart")
 	public ShoppingCart createShopping(Model model) {
@@ -112,7 +114,9 @@ public class _CartController {
 		   ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
 		   ProductBean bean = new ProductBean(phoneId, phoneName,phonePrice);
 		
-		   OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);//nowqty
+		   
+	   OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);//nowqty
+		  
 		   cart.DelQtyToCart(phoneId, oib);
 		
 		System.out.println("After DelQtyToCart to ShowPage->" + page);
@@ -136,15 +140,22 @@ public class _CartController {
 		   @RequestParam(value = "shipping") String shipping,
 		   @RequestParam(value = "tax") String tax, 
 		   @RequestParam(value = "total") String total)	{
-		System.out.println("long in 0");			
-		   SimpleDateFormat sdf  = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-		 //Date current = new Date();
-		 //System.out.println(sdFormat.format(current));
-		System.out.println("long in 1");
-		   Integer OrderID = sdf.hashCode();
+		System.out.println("long in 0");	
+			
+		
+		;
+		   SimpleDateFormat sdf  = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+		   
+		   String str = sdf.format(System.currentTimeMillis());
+		   System.out.println(str);
+		   Long OrderID = Long.valueOf(str);
+		   
+		   System.out.println(OrderID);
+		 System.out.println("long in 1");
+		   
 		   Timestamp OrderDate = new Timestamp(System.currentTimeMillis());
 		System.out.println("Log in 2>"+OrderID+">>"+MemberID+">>"+OrderDate+">>"+ShipAddress+">>"+Receiver+">>"+ReceiverPhone);   		   
-		   OrdersBean ob = new OrdersBean(OrderID, MemberID, OrderDate, productID, 
+		   OrdersBean ob = new OrdersBean(null,OrderID, MemberID, OrderDate, productID, 
 				   productName, quantity, null, sum1, null, null,
 				                        ShipAddress, Receiver, ReceiverPhone, null);
 		System.out.println("long in 3");   
@@ -152,33 +163,32 @@ public class _CartController {
 		System.out.println("long in 4");
 		   // 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
 		   Map<Long, OrderItemBean> content = sc.getContent();
+		 
 		System.out.println("long in 5");
+	
 		   Set<Long> set = content.keySet();
-		 //Set<OrderItemBean> items = new LinkedHashSet<>();
+		   System.out.println("set"+set);
+		   
+		
 		System.out.println("long in 6");
-//		   for(Long i : set) {
-//			    OrderItemBean ssaoib = content.get(i);
-//			    ob.setProductId(ssaoib.getBean().getProductID());
-//			    ob.setProductName(ssaoib.getBean().getProductName());
-//			    ob.setQuantity(ssaoib.getQuantity());
-//			    ob.setDiscountID(1);
-//			    ob.setFinalPrice(ssaoib.getBean().getUnitPrice());
-//			    ob.setInvoiceNum("");
-//			    ob.setShippedDate(OrderDate);
-//			    ob.setGoodsStatus("未結帳");
+		   for(Long i : set) {
+			   
+			   Integer k = (int) (long) i;
+			    ob.setProductId(k);
+			    ob.setProductName(pservice.getProductById(k).getProductName());
+			    ob.setGoodsStatus("已出貨");
 			    
-//			    System.out.println("loop 7->"+ssaoib.getBean().getProductID());
-//			    System.out.println("loop 7->"+ssaoib.getBean().getProductName());
-//			    System.out.println("loop 7->"+ssaoib.getQuantity());
-//			    System.out.println("loop 7->"+ssaoib.getBean().getUnitPrice());
-//			    System.out.println("foop 7->"+OrderDate);
+			    
+			    System.out.println(ob);
 			    
 //			    Ods.UpdateOrderToDB(ob);
-			    Ods.insertOrder(ob);
+			   Ods.insertOrder(ob);
 			  //oib.setOrdersBean(ob);
 			  //items.add(oib);
-//		   }
-//		 
+		   }
+		   
+		
+		      
 //		PAypal 連線	    
 			    OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
 				try {

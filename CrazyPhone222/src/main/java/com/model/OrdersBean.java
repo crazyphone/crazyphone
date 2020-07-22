@@ -13,7 +13,8 @@ import javax.persistence.Table;
 public class OrdersBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer OrderID;
+	private Integer ID;
+	private Long OrderID;
 	private Integer MemberID;
 	private Timestamp OrderDate;
 	private Integer ProductId;
@@ -28,14 +29,35 @@ public class OrdersBean {
 	private String ReceiverPhone;
 	private String GoodsStatus;
 	
+	
+	
 	public OrdersBean() {
 		super();
-		
+		// TODO Auto-generated constructor stub
 	}
-	public OrdersBean(Integer orderID, Integer memberID, Timestamp orderDate, Integer productId, String productName,
-			Integer quantity, Integer discountID, Integer finalPrice, String invoiceNum, Timestamp shippedDate,
-			String shipAddress, String receiver, String receiverPhone, String goodsStatus) {
+
+	public Integer getID() {
+		return ID;
+	}
+
+	public void setID(Integer iD) {
+		ID = iD;
+	}
+
+	
+	public Long getOrderID() {
+		return OrderID;
+	}
+
+	public void setOrderID(Long orderID) {
+		OrderID = orderID;
+	}
+
+	public OrdersBean(Integer iD, Long orderID, Integer memberID, Timestamp orderDate, Integer productId,
+			String productName, Integer quantity, Integer discountID, Integer finalPrice, String invoiceNum,
+			Timestamp shippedDate, String shipAddress, String receiver, String receiverPhone, String goodsStatus) {
 		super();
+		ID = iD;
 		OrderID = orderID;
 		MemberID = memberID;
 		OrderDate = orderDate;
@@ -51,12 +73,7 @@ public class OrdersBean {
 		ReceiverPhone = receiverPhone;
 		GoodsStatus = goodsStatus;
 	}
-	public Integer getOrderID() {
-		return OrderID;
-	}
-	public void setOrderID(Integer orderID) {
-		OrderID = orderID;
-	}
+
 	public Integer getMemberID() {
 		return MemberID;
 	}
