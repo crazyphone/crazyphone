@@ -1,8 +1,6 @@
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+Author: W3layout Author URL: http://w3layouts.com License: Creative
+Commons Attribution 3.0 Unported License URL:
+http://creativecommons.org/licenses/by/3.0/ -->
 <%@ page contentType="text/html; charset=UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -27,7 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="memenu skyblue">
 							<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
 							<li class="active"><a href="products">商城</a></li>
-							<li class="grid"><a href="compare">車拚</a></li>
+							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<li class="grid"><a href="lognin">登入</a></li>
@@ -279,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										name='productName' value='${product.productName}'> <input
 										type='hidden' name='UnitPrice' value='${product.unitPrice}'>
 									<input type='hidden' name='qty' value=1> <input
-										type='hidden' name='page' value='products2'> <input
+										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入車拚'>
 								</form>
 

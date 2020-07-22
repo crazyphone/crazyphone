@@ -103,7 +103,7 @@ public class CriticismController {
 
 //		return "redirect:/criticism";
 //		return "redirect:/criticism/product2";
-		return "redirect:http://localhost:8080/CrazyPhone222/id?productID="+productID;
+		return "redirect:http://localhost:8080/CrazyPhone222/product?id="+productID;
 	}
 	
 

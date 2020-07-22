@@ -166,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 								--></li>
-							<li class="grid"><a href="pk123">車拚</a></li>
+							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
