@@ -132,6 +132,20 @@ button:hover {
 			</div>
 		</form:form>
 	</div>
-
+<script>
+		$(function() {
+			$(".cancelbtn").click(function() {
+				$("#os").val("Android 4.4");
+				$("#processor").val("MT6732M");
+				$("#displaySize").val(" 4.5 inch");
+				$("#displayResolution").val("245 ppi ");
+				$("#frontCamera").val("500 萬畫素");
+				$("#rearCamera").val("無");
+				$("#ram").val("1 GB");
+				$("#storage").val("8 GB");
+				$("#batterycapacity").val("2000 mAh");
+			})
+		})
+	</script>
 </body>
 </html>
