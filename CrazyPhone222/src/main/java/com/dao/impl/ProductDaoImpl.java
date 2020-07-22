@@ -44,11 +44,10 @@ public class ProductDaoImpl implements ProductDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getAllCategories() {
-		String hql = "SELECT DISTINCT p.brandBean FROM ProductBean p";
+		String hql = "SELECT DISTINCT p.brandBean.BrandName FROM ProductBean p";
 		Session session = factory.getCurrentSession();
 		List<String> list = new ArrayList<>();
-		list = session.createQuery(hql)
-					  .getResultList();
+		list = session.createQuery(hql).getResultList();
 		return list;
 	}
 
