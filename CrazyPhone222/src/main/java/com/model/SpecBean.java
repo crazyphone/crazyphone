@@ -26,7 +26,7 @@ public class SpecBean {
 	private String Storage;
 	private String BatteryCapacity;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "ProductID")
 	ProductBean productBean;
 
@@ -147,6 +147,5 @@ public class SpecBean {
 				 + "]";
 	}
 	
-	//+ ", productBean=" + productBean
 
 }

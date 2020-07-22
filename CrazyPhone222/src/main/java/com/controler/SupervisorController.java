@@ -251,7 +251,7 @@ public class SupervisorController {
 			}
 		}
 		// 上傳圖片2
-		MultipartFile PImage2 = PB.getPImage();
+		MultipartFile PImage2 = PB.getPImage2();
 		String originalFilename2 = PImage2.getOriginalFilename();
 		PB.setProductFileName2(originalFilename2);
 		if (PImage2 != null && !PImage2.isEmpty()) {
@@ -265,7 +265,7 @@ public class SupervisorController {
 			}
 		}
 		// 上傳圖片3
-		MultipartFile PImage3 = PB.getPImage();
+		MultipartFile PImage3 = PB.getPImage3();
 		String originalFilename3 = PImage3.getOriginalFilename();
 		PB.setProductFileName2(originalFilename3);
 		if (PImage3 != null && !PImage3.isEmpty()) {
