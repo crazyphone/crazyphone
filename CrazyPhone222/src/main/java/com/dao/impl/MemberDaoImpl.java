@@ -336,9 +336,11 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public List<OrdersBean> getAllMemberOrders(Integer id) {
-		String hql = "FROM OrdersBean ob where ob.MemberID = :mid ";
+//		String hql = "select  ob.OrderID, ob.OrderDate FROM OrdersBean ob where  ob.MemberID = :mid GROUP BY ob.OrderID";
+		String hql1 = "FROM OrdersBean ob where  ob.MemberID = :mid ";
 		Session session = factory.getCurrentSession();
-		List<OrdersBean> list = session.createQuery(hql).setParameter("mid", id).getResultList();
+		List<OrdersBean> list = session.createQuery(hql1).setParameter("mid", id).getResultList();
+		System.out.println(list);
 		return list;
 	}
 

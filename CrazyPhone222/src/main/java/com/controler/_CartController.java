@@ -176,7 +176,7 @@ public class _CartController {
 			   Integer k = (int) (long) i;
 			    ob.setProductId(k);
 			    ob.setProductName(pservice.getProductById(k).getProductName());
-			    ob.setGoodsStatus("已出貨");
+			    ob.setGoodsStatus("下單中");
 			    
 			    
 			    System.out.println(ob);
