@@ -7,11 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.SupervisorDao;
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.SpecBean;
 import com.model.TypeBean;
 
 @Repository
@@ -72,8 +72,6 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	@Override
 	public void insertproduct(ProductBean product) {
 		Session session = factory.getCurrentSession();
-		BrandBean bb = getbrandbyid(product.getBrandBean().getBrandID());
-		product.setBrandBean(bb);
 		session.save(product);
 	}
 
@@ -141,11 +139,49 @@ public class SupervisorDaoImpl implements SupervisorDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ProductBean> getallproductid() {
+	public List<Integer> getallproductid() {
 		String hql = "select ProductID from ProductBean";
 		Session session = factory.getCurrentSession();
-		List<ProductBean> pidlist = session.createQuery(hql).getResultList();
+		List<Integer> pidlist = session.createQuery(hql).getResultList();
 		return pidlist;
+	}
+
+	@Override
+	public void insertspec(SpecBean spec) {
+		Session session = factory.getCurrentSession();
+		session.save(spec);
+	}
+
+	@Override
+	public boolean updataspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
+			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
+			Integer ProductID) {
+		String hql = "update SpecBean SB SET SB.OS = :OS,SB.Processor:SP,SB.DisplaySize:DS,SB.DisplayResolution:DR,SB.FrontCamera:FC,SB.RearCamera:RC,SB.RAM:RM,SB.Storage:SS,SB.BatteryCapacity:BC where SB.ProductID = :PI";
+		Session session = factory.getCurrentSession();
+		try {
+			session.createQuery(hql).setParameter("OS", nOS).setParameter("SP", nProcessor)
+					.setParameter("DS", nDisplaySize).setParameter("DR", nDisplayResolution)
+					.setParameter("FC", nFrontCamera).setParameter("RC", nRearCamera).setParameter("RM", nRAM)
+					.setParameter("SS", nStorage).setParameter("BC", nBatteryCapacity).setParameter("PI", ProductID)
+					.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean deletepspec(Integer ProductID) {
+		Session session = factory.getCurrentSession();
+		String hql = "delete SpecBean SB where SB.id = :SPid";
+		try {
+			session.createQuery(hql).setParameter("SPid", ProductID).executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }

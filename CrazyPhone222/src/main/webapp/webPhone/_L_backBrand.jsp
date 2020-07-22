@@ -62,7 +62,7 @@ input[type=text] {
 		</ul>
 	</div>
 	<div align='center'>
-		<h3>會員資料</h3>
+		<h3>品牌資料</h3>
 		<a href='addBrand'>新增品牌資料</a> &nbsp;&nbsp;&nbsp; <a
 			href="<c:url value='/'/> ">回商品首頁</a>
 		<hr>
