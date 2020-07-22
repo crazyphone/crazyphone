@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="memenu skyblue">
 						<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
 						<li class="active "><a href="products">商城</a>					
-						<li class="grid"><a href="compare">車拚</a></li>
+						<li class="grid"><a href="showPKCartContent">車拚</a></li>
 						<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<li class="grid"><a href="lognin">登入</a></li>
