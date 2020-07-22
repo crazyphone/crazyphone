@@ -275,11 +275,11 @@ width:60%;
 							<td style="text-align: center">
 							
 							 <a data-toggle="collapse"
-								data-parent="#accordion" href="#collapse${orderSelectMember1.orderID}">
+								data-parent="#accordion" href="#collapse${orderSelectMember1.ID}">
 									查看 </a>
 
 </td>
-								<div id="collapse${orderSelectMember1.orderID}" class="panel-collapse collapse">
+								<div id="collapse${orderSelectMember1.ID}" class="panel-collapse collapse">
 									<div class="panel-body" style="margin-left: 60%; border: 1.5px solid transparent ;
 									border-radius: 10px ;background-color: #d3ddeb;position: relative;font-weight:bold;">
 									
