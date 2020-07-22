@@ -50,7 +50,7 @@ input[type=text] {
 </head>
 <body>
 	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 1000px">
+		style="width: 15%; background-color: #363636; height: 1000px; position:fixed">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
@@ -61,7 +61,8 @@ input[type=text] {
 			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
 		</ul>
 	</div>
-	<div align='center'>
+	<div align='center' style="position: absolute;
+	left: 300px; right:50px">
 		<h3>商品資料</h3>
 		<a href='addProduct'>新增產品資料</a> &nbsp;&nbsp;&nbsp; <a
 			href="<c:url value='/'/> ">回商品首頁</a>
@@ -69,7 +70,7 @@ input[type=text] {
 		<form method='POST'>
 			<input type='hidden' name='_method' value='DELETE'>
 		</form>
-		<table border='2' cellpadding="3" cellspacing="1">
+		<table border='2' cellpadding="3" cellspacing="1" >
 			<tr>
 				<th>產品編號</th>
 				<th>產品名稱</th>
@@ -95,7 +96,7 @@ input[type=text] {
 					<img style="display:block" width='100' height='100' src="<c:url value='/getproductimg2/${product.productID}'/>" />
 					<img style="display:block" width='100' height='100' src="<c:url value='/getproductimg3/${product.productID}'/>" />
 					</td>
-					<td>${product.unitPrice}</td>
+					<td>${product.unitPrice}元</td>
 					<td>${product.releasedDate}</td>
 					<td>${product.stockQuantity}</td>
 					<td>
