@@ -177,6 +177,8 @@ public class _CartController {
 			    ob.setProductId(k);
 			    ob.setProductName(pservice.getProductById(k).getProductName());
 			    ob.setGoodsStatus("下單中");
+//			    int a=(int)Math.floor(Math.random()*9999999+1);
+			    ob.setInvoiceNum("AB95718654");
 			    
 			    
 			    System.out.println(ob);
