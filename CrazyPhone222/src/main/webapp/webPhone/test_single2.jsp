@@ -144,9 +144,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<input type="text" value="Search" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="">
+						<form method='POST' action="<c:url value='searchProduct' />">
+							<input type="text" name="searchP" value="Search"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Search';}">
+							<input type="submit" value="">
+
+						</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -461,57 +465,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<section class="sky-form">
 							<h4>Brand</h4>
 							<div class="row1 row2 scroll-pane">
+							<!--  
 								<div class="col col-4">
 									<label class="checkbox"><input type="checkbox"
 										name="checkbox" checked=""><i></i>kurtas</label>
 								</div>
+								-->
 								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Sonata</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Titan</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Casio</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Omax</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>shree</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Fastrack</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Sports</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Fossil</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Maxima</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Yepme</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Citizen</label> <label class="checkbox"><input
-										type="checkbox" name="checkbox"><i></i>Diesel</label>
-								</div>
+							<c:forEach var='brand' items='${brands}' varStatus='status'>
+							<!--  
+								<label class="checkbox"> <input type="checkbox"
+									onclick='window.location.assign("productsBrand?brandName=${brand}")'
+									name="checkbox"><i></i>${brand}</label>
+							-->		
+									<label class="radio">
+									<input	type="radio" name="radio" 
+									onclick='window.location.assign("productsBrand?brandName=${brand}")'><i></i>${brand}</label>
+							</c:forEach>
+
+						</div>
 							</div>
 						</section>
-						<section class="sky-form">
-							<h4>Colour</h4>
-							<ul class="w_nav2">
-								<li><a class="color1" href="#"></a></li>
-								<li><a class="color2" href="#"></a></li>
-								<li><a class="color3" href="#"></a></li>
-								<li><a class="color4" href="#"></a></li>
-								<li><a class="color5" href="#"></a></li>
-								<li><a class="color6" href="#"></a></li>
-								<li><a class="color7" href="#"></a></li>
-								<li><a class="color8" href="#"></a></li>
-								<li><a class="color9" href="#"></a></li>
-								<li><a class="color10" href="#"></a></li>
-								<li><a class="color12" href="#"></a></li>
-								<li><a class="color13" href="#"></a></li>
-								<li><a class="color14" href="#"></a></li>
-								<li><a class="color15" href="#"></a></li>
-								<li><a class="color5" href="#"></a></li>
-								<li><a class="color6" href="#"></a></li>
-								<li><a class="color7" href="#"></a></li>
-								<li><a class="color8" href="#"></a></li>
-								<li><a class="color9" href="#"></a></li>
-								<li><a class="color10" href="#"></a></li>
-							</ul>
-						</section>
+						
 						<section class="sky-form">
 							<h4>discount</h4>
 							<div class="row1 row2 scroll-pane">

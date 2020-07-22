@@ -15,6 +15,7 @@ public interface ProductService {
 	ProductBean getProductPK(Integer productID);
 
 	public List<ProductBean> searchProduct(String productname);
-
-	List<ProductBean> getProductsByCategory(BrandBean category);
+	List<ProductBean>  getProductsByBrand(String brand);
+	List<ProductBean> getProductsByPrice(Integer priceL,Integer priceH);
+	
 }

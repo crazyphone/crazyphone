@@ -3,8 +3,6 @@ package com.dao;
 
 import java.util.List;
 
-import com.model.BrandBean;
-import com.model.CriticismBean;
 import com.model.ProductBean;
 
 public interface ProductDao {
@@ -14,7 +12,8 @@ public interface ProductDao {
 	
 	ProductBean getProductPK(Integer productID);
 	List<String> getAllCategories();
-	List<ProductBean> getProductsByCategory(BrandBean category);
+	List<ProductBean> getProductsByBrand(String brand);
+	List<ProductBean> getProductsByPrice(Integer priceL,Integer priceH);
 	
 	
 	public List<ProductBean> searchProduct(String productname);

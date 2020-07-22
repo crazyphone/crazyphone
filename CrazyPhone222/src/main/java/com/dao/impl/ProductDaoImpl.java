@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dao.ProductDao;
-import com.model.BrandBean;
-import com.model.CriticismBean;
-import com.model.MemberBean;
 import com.model.ProductBean;
 
 @Repository
@@ -55,28 +52,16 @@ public class ProductDaoImpl implements ProductDao {
 		return list;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<ProductBean> getProductsByCategory(BrandBean category) {
-		String hql = "FROM ProductBean pb WHERE pb.brandBean = :category";
-		Session session = factory.getCurrentSession();
-		List<ProductBean> list = new ArrayList<>();
-		list = session.createQuery(hql)
-					  .setParameter("category", category)
-					  .getResultList();
-		return list;
-	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ProductBean> searchProduct(String productname) {
 		String hql = "FROM ProductBean p WHERE p.brandBean.BrandName like :brandname or p.ProductName like :productname";
 		Session session = factory.getCurrentSession();
-		List<ProductBean> list=null;
+		List<ProductBean> list = null;
 		try {
-			list=  session.createQuery(hql)
-					.setParameter("brandname", "%"+productname+"%")
-					.setParameter("productname", "%"+productname+"%")
-					.getResultList();
+			list = session.createQuery(hql).setParameter("brandname", "%" + productname + "%")
+					.setParameter("productname", "%" + productname + "%").getResultList();
 		} catch (NoResultException ex) {
 			;
 		} catch (NonUniqueResultException ex) {
@@ -84,5 +69,31 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		return list;
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProductBean> getProductsByBrand(String brand) {
+		String hql = "FROM ProductBean pb WHERE pb.brandBean.BrandName = :category";
+		Session session = factory.getCurrentSession();
+		List<ProductBean> list = new ArrayList<>();
+		list = session.createQuery(hql).setParameter("category", brand).getResultList();
+		return list;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProductBean> getProductsByPrice(Integer priceL, Integer priceH) {
+		String hql = null;
+		Session session = factory.getCurrentSession();
+		List<ProductBean> list = new ArrayList<>();
+		if (priceL.equals(priceH)) {
+			hql = "FROM ProductBean pb WHERE pb.UnitPrice = :priceL ORDER BY pb.UnitPrice DESC";
+			list = session.createQuery(hql).setParameter("priceL", priceL).getResultList();
+		} else {
+			hql = "FROM ProductBean pb WHERE pb.UnitPrice >= :priceL "
+					+ " AND pb.UnitPrice < :priceH ORDER BY pb.UnitPrice DESC";
+			list = session.createQuery(hql).setParameter("priceL", priceL).setParameter("priceH", priceH)
+					.getResultList();
+		}
 
+		return list;
+	}
 }

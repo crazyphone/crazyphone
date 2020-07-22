@@ -40,8 +40,10 @@ public class ProductController {
 	
 	//跳轉商品頁
 	@GetMapping("/products")
-	public String list(Model model,HttpServletRequest req) {
-		List<ProductBean> beans = service.getAllProducts();	
+	public String list(Model model, HttpServletRequest req) {
+		List<ProductBean> beans = service.getAllProducts();
+		List<String> brand = service.getAllCategories();
+		model.addAttribute("brands", brand);
 		model.addAttribute("products", beans);
 		return "test_products";
 	}
@@ -52,19 +54,25 @@ public class ProductController {
 		return "category";
 	}
 	
-	@GetMapping("/products/{category}")
-	public String getProductsByCategory(@PathVariable("category") BrandBean category,Model model) {
-		List<ProductBean> products = service.getProductsByCategory(category);
-		model.addAttribute("product",products);
-		return "test_productsCategory";
-	}
 	
-	//單一商品頁
-	@GetMapping("/product")
-	public String getProductsById(@RequestParam("id") Integer productID,Model model) {
-		model.addAttribute("product", service.getProductById(productID));
-		return "test_single2";
-	}
+	// 透過品牌篩選
+		@GetMapping("/productsBrand")
+		public String getProductsByBrand(@RequestParam("brandName") String brandName, Model model) {
+			List<String> brand = service.getAllCategories();
+			List<ProductBean> products = service.getProductsByBrand(brandName);
+			model.addAttribute("brands", brand);
+			model.addAttribute("products", products);
+			return "test_products";
+		}
+	
+		// 單一商品頁
+		@GetMapping("/product")
+		public String getProductsById(@RequestParam("id") Integer productID, Model model) {
+			List<String> brand = service.getAllCategories();
+			model.addAttribute("product", service.getProductById(productID));
+			model.addAttribute("brands", brand);
+			return "test_single2";
+		}
 	//透過ID顯示圖片
 	@GetMapping("/getPicture/{productID}")
 	public ResponseEntity<byte[]> getPitcure(HttpServletRequest req, @PathVariable Integer productID){
@@ -114,21 +122,45 @@ public class ProductController {
 		return re;
 	}
 	
-	//搜尋
-		@PostMapping( "/searchProduct")
-		public String processlognin(@RequestParam(value="searchP") String productname
-				,Model model,HttpSession session) {
-//			session.removeAttribute("members");
-			@SuppressWarnings("unchecked")
-			List<ProductBean> products=(List) service.searchProduct(productname);
-			if(products != null) {
-				model.addAttribute("products",products);
-			}else {
+	// 搜尋
+		@PostMapping("/searchProduct")
+		public String productSearch(@RequestParam(value = "searchP") String productname, Model model, HttpSession session) {
+//				session.removeAttribute("members");
+			List<ProductBean> products = service.searchProduct(productname);
+			List<String> brand = service.getAllCategories();
+			model.addAttribute("brands", brand);
+			if (products != null) {
+				model.addAttribute("products", products);
+			} else {
 				System.out.println("查無此商品資料");
 			}
-					return "test_products";
+			return "test_products";
 		}
-		
+
+		// 價格篩選
+		@PostMapping("/productsPrice")
+		public String getProductByPrice(
+				@RequestParam(value = "lowestPrice",defaultValue = "0") Integer priceL,
+				@RequestParam(value = "highestPrice",defaultValue = "99999") Integer priceH,
+				Model model,HttpSession session) {
+			
+			List<ProductBean> products = service.getProductsByPrice(priceL, priceH);
+			List<String> brand = service.getAllCategories();
+			model.addAttribute("brands", brand);
+			
+			if (products != null ) {
+				model.addAttribute("products", products);
+				if(products.isEmpty()) {
+					model.addAttribute("adjustmentText", "很抱歉，沒有篩選到符合條件的商品，您可以調整篩選條件試試看。");
+					
+				}
+			} else {
+				model.addAttribute("adjustmentText", "很抱歉，沒有篩選到符合條件的商品，您可以調整篩選條件試試看。");
+				System.out.println("查無此商品資料");
+				
+			}
+			return "test_products";
+		}
 		
 	@GetMapping("/pk123" )
 	public String pk123( Model model) {

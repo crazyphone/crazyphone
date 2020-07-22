@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.ProductDao;
-import com.model.BrandBean;
 import com.model.ProductBean;
 import com.service.ProductService;
 @Service
@@ -44,15 +43,26 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getAllCategories();
 	}
 	
-	@Transactional
-	@Override
-	public List<ProductBean> getProductsByCategory(BrandBean category) {
-		return productDao.getProductsByCategory(category);
-	}
+	
 	@Transactional
 	@Override
 	public List<ProductBean> searchProduct(String productname) {
 		return productDao.searchProduct(productname);
 	}
-
+	@Transactional
+	@Override
+	public List<ProductBean> getProductsByBrand(String brand) {
+		return productDao.getProductsByBrand(brand);
+	}
+	@Transactional
+	@Override
+	public List<ProductBean> getProductsByPrice(Integer priceL, Integer priceH) {
+		
+		if(priceL<=priceH) {
+			return productDao.getProductsByPrice(priceL, priceH);
+		}
+		else {
+			return null;
+		}
+	}
 }
