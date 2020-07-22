@@ -12,9 +12,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 <title>Luxury Watches A Ecommerce Category Flat Bootstarp Resposive Website Template | Contact :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
@@ -34,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
 <!--dropdown-->
 <script src="js/jquery.easydropdown.js"></script>	
+
 
 <style>
 .container2 {
@@ -62,9 +64,12 @@ button {
  } 
 .ddd{
 margin:0px auto;
-width:70%;
+width:60%;
 
 }
+
+
+
 </style>
 
 </head>
@@ -232,33 +237,14 @@ width:70%;
 	<!--end-breadcrumbs-->
 	<!--contact-start-->
 <!-- 	----------------------------------------------------------------------- -->
-	<div class="modal" tabindex="-1" role="dialog" id="222">
+	
+		
+			
 
-     <div class="modal-dialog" role="document"> 
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">新增輪播圖</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button> 
-            </div>
-            <div class="modal-body">
-            
-      	<span ><b >圖片:</b></span>
-      
-         <span ><b >超連結:</b></span><br>
-       
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-             
-            </div>
-            
-       </div>
-   </div>
-  
-</div>
+	
 <!-- 	--------------------------------------------------------------------- -->
 	
-	<button	type="button" onclick="showModal()" >查看</button>
+
 		
 	<div class="contact">
 		<div class="container">
@@ -283,10 +269,31 @@ width:70%;
 <%-- 							<td><img width='250' height='150' src="<c:url value='/getcarImg/${carousel.carouselID}'/>" /></td> --%>
 							
 							<td style="text-align: center" height="50">${orderSelectMember1.orderDate}</td>
-							<td style="text-align: center">${orderSelectMember1.goodsStatus}</td>
+							<td style="text-align: center;font-weight:bold;">${orderSelectMember1.goodsStatus}</td>
 							<td style="text-align: center">${orderSelectMember1.finalPrice}</td>
 <%-- 							<td style="text-align: center"><a href="<c:url value='/deCar/${orderSelectMember1.orderID}'/>">查看</a></td> --%>
-							<td style="text-align: center"><button	type="button" onclick="showModal()" >查看</button></td>
+							<td style="text-align: center">
+							
+							 <a data-toggle="collapse"
+								data-parent="#accordion" href="#collapse${orderSelectMember1.orderID}">
+									查看 </a>
+
+</td>
+								<div id="collapse${orderSelectMember1.orderID}" class="panel-collapse collapse">
+									<div class="panel-body" style="margin-left: 60%; border: 1.5px solid transparent ;
+									border-radius: 10px ;background-color: #d3ddeb;position: relative;font-weight:bold;">
+									
+									<div style="color:red;text-align:center;font-weight:bold;">訂單編號:${orderSelectMember1.orderID}</div><br>
+									發票編號:${orderSelectMember1.invoiceNum}<br>
+									商品名稱:${orderSelectMember1.productName}<br>
+									數量:${orderSelectMember1.quantity}<br>
+									出貨地點:${orderSelectMember1.shipAddress}<br>
+									</div>
+									<div style="width: 0;height: 0;border-style: solid;
+border-width: 20px 15.5px 0 15.5px;border-color: #d3ddeb transparent transparent transparent;margin-left: 91.5%"></div>
+								</div>
+								
+								
 									
 						</tr>
 					</c:forEach>
@@ -297,7 +304,7 @@ width:70%;
 				</div>
 		</div>
 	
-
+<hr>
 	<!--contact-end-->
 	<!--map-start-->
 	<div class="map">
@@ -382,11 +389,8 @@ width:70%;
 	<!--footer-end-->	
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	<script >
-	
-	function showModal() {
-	    $('#222').modal('show'); 
-	}
+	<script type="text/javascript">
+
 	</script>
 </body>
 </html>
