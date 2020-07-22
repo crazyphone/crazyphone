@@ -24,20 +24,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.model.CriticismBean;
+import com.model.MemberBean;
 import com.model.ProductBean;
 import com.service.CriticismService;
+import com.service.MemberService;
 import com.service.ProductService;
 
 @Controller
+@SessionAttributes({"LoginOK"})
 public class CriticismController {
 	@Autowired
 	CriticismService service;
 
 	@Autowired
 	ProductService pService;
+	@Autowired
+	MemberService mService;
 	@Autowired
 	ServletContext ctx;
 
@@ -65,11 +71,15 @@ public class CriticismController {
 	// 2.2.從瀏覽器送出後跳轉回評論清單(criticism)頁面
 	@PostMapping("/criticism/add")
 	public String processAddNewCriticismForm(@RequestParam Integer productID,
+			@RequestParam Integer memberId,
 			@ModelAttribute("criticismBean") CriticismBean bean, BindingResult result, Model model) {
 
 		//把productID存入CriticismBean的ProductBean
 		ProductBean pb = pService.getProductById(productID);
 		bean.setProductBean(pb);
+		
+		MemberBean mb = mService.getMemberbyIdaa(memberId);
+		bean.setMemberBean(mb);
 		
 		model.addAttribute("product", pService.getProductById(productID));
 		MultipartFile addCriticismImage = bean.getAddCriticismImage();
