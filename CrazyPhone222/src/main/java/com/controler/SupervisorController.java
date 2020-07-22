@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dao.SupervisorDao;
 import com.model.BrandBean;
 import com.model.ProductBean;
 import com.model.SpecBean;
@@ -200,8 +199,8 @@ public class SupervisorController {
 		model.addAttribute("ProductBean", PB);
 		return "_L_addproduct";
 	}
-     
-	//商品刪除
+
+	// 商品刪除
 	@GetMapping("/peb/{productID}")
 	public String deleteproduct(Model model, @PathVariable Integer productID) {
 		System.out.println("近來");
@@ -279,7 +278,7 @@ public class SupervisorController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
-		//時間
+		// 時間
 		Timestamp CreateDate = new Timestamp(System.currentTimeMillis());
 		PB.setReleasedDate(CreateDate);
 		Map<String, String> Perror = new HashMap<String, String>();
@@ -467,16 +466,56 @@ public class SupervisorController {
 		re = new ResponseEntity<>(b0, headers, HttpStatus.OK);
 		return re;
 	}
+
 	@GetMapping("/addspec")
 	public String addspec1(Model model) {
 		SpecBean SB = new SpecBean();
 		model.addAttribute("SpecBean", SB);
 		return "_L_addSpec";
 	}
-	
-	
+
 	@PostMapping("/addspec")
-	public String addspec(@ModelAttribute("SpecBean") SpecBean SB,Model model) {
-		return null;
+	public String addspec(@ModelAttribute("SpecBean") SpecBean SB, Model model) {
+		Map<String, String> Serror = new HashMap<String, String>();
+		model.addAttribute("errorS", Serror);
+		if (SB.getOS() == null || SB.getOS().trim().length() == 0) {
+			Serror.put("osspace", "請輸入OS");
+		}
+		if (SB.getProcessor() == null || SB.getProcessor().trim().length() == 0) {
+			Serror.put("cpuspace", "請輸入CPU");
+		}
+		if (SB.getDisplaySize() == null || SB.getDisplaySize().trim().length() == 0) {
+			Serror.put("dsspace", "請輸入螢幕大小");
+		}
+		if (SB.getDisplayResolution() == null || SB.getDisplayResolution().trim().length() == 0) {
+			Serror.put("drspace", "請輸入螢幕解析度");
+		}
+		if (SB.getFrontCamera() == null || SB.getFrontCamera().trim().length() == 0) {
+			Serror.put("fcspace", "請輸入前鏡頭");
+		}
+		if (SB.getRearCamera() == null || SB.getRearCamera().trim().length() == 0) {
+			Serror.put("rcspace", "請輸入後鏡頭");
+		}
+		if (SB.getRAM() == null || SB.getRAM().trim().length() == 0) {
+			Serror.put("ramspace", "請輸入RAM");
+		}
+		if (SB.getStorage() == null || SB.getStorage().trim().length() == 0) {
+			Serror.put("ssspace", "請輸入儲存容量");
+		}
+		if (SB.getBatteryCapacity() == null || SB.getBatteryCapacity().trim().length() == 0) {
+			Serror.put("bsspace", "請輸入電池容量");
+
+		}
+
+		if (!Serror.isEmpty()) {
+			return "_L_addSpec";
+
+		} else {
+			ProductBean PB = new ProductBean();
+			PB.setProductID(supervisorervice.getallpid().get(supervisorervice.getallpid().size() - 1));
+			SB.setProductBean(PB);
+			supervisorervice.addspec(SB);
+			return "_L_backProduct";
+		}
 	}
 }

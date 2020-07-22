@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.SpecBean;
 import com.model.TypeBean;
 
 public interface Supervisorervice {
@@ -35,6 +36,14 @@ public interface Supervisorervice {
 
 	public List<TypeBean> gettypelist();
 
-	public List<ProductBean> getallpid();
+	public List<Integer> getallpid();
+	
+	public void addspec(SpecBean spec);
+
+	public boolean upspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
+			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
+			Integer ProductID);
+
+	public boolean dropspec(Integer ProductID);
 
 }

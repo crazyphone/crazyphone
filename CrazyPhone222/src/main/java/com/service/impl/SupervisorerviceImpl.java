@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.SupervisorDao;
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.SpecBean;
 import com.model.TypeBean;
 import com.service.Supervisorervice;
 
@@ -100,8 +101,29 @@ public class SupervisorerviceImpl implements Supervisorervice {
 
 	@Transactional
 	@Override
-	public List<ProductBean> getallpid() {
+	public List<Integer > getallpid() {
 		return dao.getallproductid();
+	}
+
+	@Transactional
+	@Override
+	public void addspec(SpecBean spec) {
+		dao.insertspec(spec);
+		
+	}
+
+	@Transactional
+	@Override
+	public boolean upspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
+			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
+			Integer ProductID) {
+		return dao.updataspec(nOS, nProcessor, nDisplaySize, nDisplayResolution, nFrontCamera, nRearCamera, nRAM, nStorage, nBatteryCapacity, ProductID);
+	}
+
+	@Transactional
+	@Override
+	public boolean dropspec(Integer ProductID) {
+		return dao.deletepspec(ProductID);
 	}
 
 }

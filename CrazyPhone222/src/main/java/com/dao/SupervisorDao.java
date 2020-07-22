@@ -1,11 +1,11 @@
 package com.dao;
 
 import java.sql.Blob;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.SpecBean;
 import com.model.TypeBean;
 
 public interface SupervisorDao {
@@ -35,6 +35,14 @@ public interface SupervisorDao {
 	public TypeBean gettypebyid(int typeID);
 
 	public List<TypeBean> gettypelist();
-	
-	public List<ProductBean> getallproductid();
+
+	public List<Integer> getallproductid();
+
+	public void insertspec(SpecBean spec);
+
+	public boolean updataspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
+			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
+			Integer ProductID);
+
+	public boolean deletepspec(Integer ProductID);
 }

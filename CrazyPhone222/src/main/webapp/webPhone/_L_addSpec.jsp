@@ -81,9 +81,49 @@ button:hover {
 		<form:form class="modal-content animate" method="post"
 			modelAttribute="SpecBean">
 			<div class="container">
-				<label for="os"><b>廠商名稱:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+				<label for="os"><b>OS:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.osspace}</Font></small>
 				<form:input type="text" path="OS" id="os" />
+			</div>
+			<div class="container">
+				<label for="processor"><b>CPU:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.cpuspace}</Font></small>
+				<form:input type="text" path="Processor" id="processor" />
+			</div>
+			<div class="container">
+				<label for="displaySize"><b>螢幕大小:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.dsspace}</Font></small>
+				<form:input type="text" path="DisplaySize" id="displaySize" />
+			</div>
+			<div class="container">
+				<label for="displayResolution"><b>解析度:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.drspace}</Font></small>
+				<form:input type="text" path="DisplayResolution" id="displayResolution" />
+			</div>
+			<div class="container">
+				<label for="frontCamera"><b>前鏡頭:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.fcspace}</Font></small>
+				<form:input type="text" path="FrontCamera" id="frontCamera" />
+			</div>
+			<div class="container">
+				<label for="rearCamera"><b>後鏡頭:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.rcspace}</Font></small>
+				<form:input type="text" path="RearCamera" id="rearCamera" />
+			</div>
+			<div class="container">
+				<label for="ram"><b>RAM:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.ramspace}</Font></small>
+				<form:input type="text" path="RAM" id="ram" />
+			</div>
+			<div class="container">
+				<label for="storage"><b>儲存容量:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.ssspace}</Font></small>
+				<form:input type="text" path="Storage" id="storage" />
+			</div>
+			<div class="container">
+				<label for="batterycapacity"><b>電池容量:</b></label>&nbsp;<small><Font
+					color='red' size="-3">${errorS.bsspace}</Font></small>
+				<form:input type="text" path="BatteryCapacity" id="batterycapacity" />
 			</div>
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">送出</button>
