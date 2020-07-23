@@ -107,7 +107,7 @@ public class SupervisorController {
 
 	// 編輯品牌
 	@PostMapping("/upBrand/{brandID}")
-	public String updBrand(@ModelAttribute("BrandBean") BrandBean BB, Model model, @PathVariable Integer brandID) {
+	public String updBrand(@ModelAttribute("BrandBean") BrandBean BB, @PathVariable Integer brandID) {
 		MultipartFile BImage = BB.getBImage();
 		String originalFilename = BImage.getOriginalFilename();
 		BB.setBrandFileName(originalFilename);
@@ -121,8 +121,6 @@ public class SupervisorController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
-		Map<String, String> Berror = new HashMap<String, String>();
-		model.addAttribute("Errorb", Berror);
 		supervisorervice.updatabrand(BB.getBrandName(), BB.getBrandInfo(), BB.getBrandCountry(), BB.getBrandImage(),
 				brandID);
 		return "redirect:/Brand";
@@ -337,6 +335,56 @@ public class SupervisorController {
 		PB = supervisorervice.getproductbyid(productID);
 		model.addAttribute("ProductBean", PB);
 		return "_L_upproduct";
+	}
+
+	// 商品編輯
+	@PostMapping("/upproduct/{productID}")
+	public String updProduct(@ModelAttribute("ProductBean") ProductBean PB, Model model,
+			@PathVariable Integer productID) {
+		// 編輯圖片1
+		MultipartFile PImage = PB.getPImage();
+		String originalFilename = PImage.getOriginalFilename();
+		PB.setProductFileName(originalFilename);
+		if (PImage != null && !PImage.isEmpty()) {
+			try {
+				byte[] b = PImage.getBytes();
+				Blob blob = new SerialBlob(b);
+				PB.setProductImage(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+			}
+		}
+		// 編輯圖片2
+		MultipartFile PImage2 = PB.getPImage2();
+		String originalFilename2 = PImage2.getOriginalFilename();
+		PB.setProductFileName2(originalFilename2);
+		if (PImage2 != null && !PImage2.isEmpty()) {
+			try {
+				byte[] b = PImage2.getBytes();
+				Blob blob = new SerialBlob(b);
+				PB.setProductImage2(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+			}
+		}
+		// 編輯圖片3
+		MultipartFile PImage3 = PB.getPImage3();
+		String originalFilename3 = PImage3.getOriginalFilename();
+		PB.setProductFileName2(originalFilename3);
+		if (PImage3 != null && !PImage3.isEmpty()) {
+			try {
+				byte[] b = PImage3.getBytes();
+				Blob blob = new SerialBlob(b);
+				PB.setProductImage3(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+			}
+		}
+		supervisorervice.updataproduct(PB.getProductName(), PB.getBrandBeanID(), PB.getTypeBeanID(), PB.getProductImage(), PB.getProductImage2(), PB.getProductImage3(), PB.getProductIntro(), PB.getUnitPrice(), PB.getStockQuantity(),productID);
+		return "redirect:/Product";
 	}
 
 	// 顯示品牌圖片
