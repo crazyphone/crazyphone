@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="prdt-top">
 				<div class="col-md-9 prdt-left">
-					
+					<div><p>${adjustmentText}</p></div>
 					
 					<c:forEach var='product' items='${products}' varStatus='status' >
 						<c:if test="${status.count%3==1}">
