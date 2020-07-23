@@ -148,6 +148,8 @@ background-color: #7df5f1;
 
 .demo1{
 
+float: right;
+margin-top:10px;
 padding: 9px;
 width: auto;
 background-color: #7df5f1;
@@ -218,7 +220,7 @@ float: right;
       
       <span ><input type="button" class="demo" value='一鍵輸入'></span>
 <!--       <span ><input type="button" class="demo1" value='一鍵管理者'></span> -->
-	
+	<span ><input type="button" class="demo1" value='一鍵輸入(新)'></span>
       
  
     </div>
@@ -242,7 +244,11 @@ float: right;
 //   			$("#pswdemo").val("xxxxxxxxxxxx");
 
 //  		})
- 		
+ 		$(".demo1").click(function(){
+ 			$("#nameDemo").val("eeit11011@gmail.com");
+  			$("#pswDemo").val("sa123456");
+
+ 		})
     })
     
 	var clicked=false;
