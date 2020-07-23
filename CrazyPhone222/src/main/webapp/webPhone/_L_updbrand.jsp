@@ -11,6 +11,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 input[type=text] {
 	width: 100%;
 	padding: 12px 20px;
@@ -28,6 +29,7 @@ textarea[type=text] {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+
 button {
 	background-color: #4860a8;
 	color: white;
@@ -41,16 +43,19 @@ button {
 button:hover {
 	opacity: 0.8;
 }
+
 .cancelbtn {
 	width: auto;
 	padding: 10px 18px;
 	background-color: #f44336;
 }
+
 .container {
 	padding: 16px;
 }
+
 .modal {
-	position: fixed; 
+	position: fixed;
 	z-index: 1;
 	left: 0;
 	top: 0;
@@ -59,6 +64,7 @@ button:hover {
 	overflow: auto;
 	padding-top: 60px;
 }
+
 .modal-content {
 	background-color: #fefefe;
 	margin: 5% auto 15% auto;
@@ -70,29 +76,31 @@ button:hover {
 <body>
 	<div class="modal">
 		<form:form class="modal-content animate" method="post"
-			modelAttribute="BrandBean" enctype="multipart/form-data" var='brand' items='${Brands}'>
+			modelAttribute="BrandBean" enctype="multipart/form-data">
 			<div class="container">
 				<label for="Brandname"><b>廠商名稱:</b></label>
-				<form:input type="text" path="BrandName" id="Brandname" value="${brand.brandName}"/>
+				<form:input type="text" path="BrandName" id="Brandname" />
 			</div>
 			<div class="container">
 				<label for="Brandinfo"><b>廠商資訊:</b></label>
 				<div>
-					<form:textarea style="resize:none" type="text" path="BrandInfo" id="Brandinfo" value="${brand.brandInfo}"/>
+					<form:textarea style="resize:none" type="text" path="BrandInfo"
+						id="Brandinfo" />
 				</div>
 			</div>
 			<div class="container">
 				<label for="Brandcountry"><b>廠商地址:</b></label>
-				<form:input type="text" path="BrandCountry" id="Brandcountry" value="${brand.brandCountry}"/>
+				<form:input type="text" path="BrandCountry" id="Brandcountry" />
 			</div>
 			<div class="container">
 				<label for="BImage"><b>廠商Logo:</b></label>
-				<form:input type="file" path="BImage"/>
+				<form:input type="file" path="BImage" id="bchaimg"/>
 			</div>
+			<img id="bchimg" src="" />
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">更新</button>
-				<input type="button" class="cancelbtn" value='一鍵輸入'>
-				<a class="cancelbtn" href="<c:url value='/'/> ">回前頁</a>
+				<input type="button" class="cancelbtn" value='一鍵輸入'> <a
+					class="cancelbtn" href="<c:url value='/'/> ">回前頁</a>
 			</div>
 		</form:form>
 	</div>
@@ -107,6 +115,20 @@ button:hover {
 				$("#Brandcountry").val("台灣");
 			})
 		})
+		$("#bchaimg").change(function() {
+			readURL(this);
+		});
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#bchimg").attr('src', e.target.result);
+					$("#bchimg").css('width', '100px').css('height', '100px')
+				}
+				reader.readAsDataURL(input.files[0]);
+				console.log()
+			}
+		}
 	</script>
 </body>
 </html>

@@ -90,7 +90,9 @@ button:hover {
 				<form:input type="text" path="ProductName" id="Productname" />
 			</div>
 			<div class="container">
-				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.nochoosep}</Font></small></div>
+				<div>
+					&nbsp;<small><Font color='red' size="-3">${Errorp.nochoosep}</Font></small>
+				</div>
 				<label for="brandBean"><b>商品品牌:</b></label>
 				<form:select path="brandBean.BrandID" id="brand">
 					<form:option value="-1" label="請挑選品牌" />
@@ -98,29 +100,33 @@ button:hover {
 				</form:select>
 			</div>
 			<div class="container">
-				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.nochooset}</Font></small></div>
+				<div>
+					&nbsp;<small><Font color='red' size="-3">${Errorp.nochooset}</Font></small>
+				</div>
 				<label for="type"><b>商品類型:</b></label>
 				<form:select path="typeBean.TypeID" id="type">
-					<form:option value="-1" label="請挑選類型"  />
+					<form:option value="-1" label="請挑選類型" />
 					<form:options items="${TypeMap}" />
 				</form:select>
 			</div>
 			<div class="container">
-				<label for="Productintro"><b>廠商資訊:</b></label>
-				&nbsp;<small><Font color='red' size="-3">${Errorp.introspace}</Font></small>
+				<label for="Productintro"><b>廠商資訊:</b></label> &nbsp;<small><Font
+					color='red' size="-3">${Errorp.introspace}</Font></small>
 				<div>
 					<form:textarea style="resize:none" type="text" path="ProductIntro"
 						id="Productintro" />
 				</div>
 			</div>
 			<div class="container">
-				<label for="Unitprice"><b>商品價錢:</b></label> 
-				&nbsp;<small><Font color='red' size="-3">${Errorp.pricespace}</Font></small>
+				<label for="Unitprice"><b>商品價錢:</b></label> &nbsp;<small><Font
+					color='red' size="-3">${Errorp.pricespace}</Font></small>
 				<form:input type="text" path="UnitPrice" id="Unitprice" />
 			</div>
 			<div class="container">
-				<div>&nbsp;<small><Font color='red' size="-3">${Errorp.sqspace}</Font></small></div>
-				<label for="Stockquantity"><b>商品庫存:</b></label> 
+				<div>
+					&nbsp;<small><Font color='red' size="-3">${Errorp.sqspace}</Font></small>
+				</div>
+				<label for="Stockquantity"><b>商品庫存:</b></label>
 				<form:input type="number" path="StockQuantity" id="Stockquantity"
 					min="0" />
 			</div>
@@ -129,22 +135,25 @@ button:hover {
 					<small><Font color='red' size="-3">${Errorp.pimgspace}</Font></small>
 				</div>
 				<label for="pImage"><b>商品照片:</b></label>
-				<form:input type="file" path="PImage" accept="image/*" />
+				<form:input type="file" path="PImage" accept="image/*" id="chaimg" />
 			</div>
 			<div class="container">
 				<div>
 					<small><Font color='red' size="-3">${Errorp.pimgspace2}</Font></small>
 				</div>
 				<label for="pImage2"><b>商品照片2:</b></label>
-				<form:input type="file" path="PImage2" accept="image/*" />
+				<form:input type="file" path="PImage2" accept="image/*" id="chaimg2" />
 			</div>
 			<div class="container">
 				<div>
 					<small><Font color='red' size="-3">${Errorp.pimgspace3}</Font></small>
 				</div>
 				<label for="pImage3"><b>商品照片3:</b></label>
-				<form:input type="file" path="PImage3" accept="image/*" />
+				<form:input type="file" path="PImage3" accept="image/*" id="chaimg3" />
 			</div>
+			<img id="chimg" src="" />
+			<img id="chimg2" src="" />
+			<img id="chimg3" src="" />
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">更新</button>
 				<input type="button" class="cancelbtn" value='一鍵輸入'>
@@ -162,6 +171,46 @@ button:hover {
 				$("#Stockquantity").val("50");
 			})
 		})
+		$("#chaimg").change(function() {
+						readURL(this);
+					});
+					function readURL(input) {
+						if (input.files && input.files[0]) {
+							var reader = new FileReader();
+							reader.onload = function(e) {
+								$("#chimg").attr('src', e.target.result);
+								$("#chimg").css('width','100px').css('height','100px')
+							}
+							reader.readAsDataURL(input.files[0]);
+							console.log()
+						}
+					}
+		$("#chaimg2").change(function() {
+						readURL2(this);
+					});
+					function readURL2(input) {
+						if (input.files && input.files[0]) {
+							var reader = new FileReader();
+							reader.onload = function(e) {
+								$("#chimg2").attr('src', e.target.result);
+								$("#chimg2").css('width','100px').css('height','100px')
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
+		$("#chaimg3").change(function() {
+						readURL3(this);
+					});
+					function readURL3(input) {
+						if (input.files && input.files[0]) {
+							var reader = new FileReader();
+							reader.onload = function(e) {
+								$("#chimg3").attr('src', e.target.result);
+								$("#chimg3").css('width','100px').css('height','100px')
+							}
+							reader.readAsDataURL(input.files[0]);
+						}
+					}
 	</script>
 </body>
 </html>

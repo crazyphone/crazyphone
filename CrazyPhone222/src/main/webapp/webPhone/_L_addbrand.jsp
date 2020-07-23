@@ -100,8 +100,9 @@ button:hover {
 					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
 				</div>
 				<label for="BImage"><b>廠商Logo:</b></label>
-				<form:input type="file" path="BImage" accept="image/*" />
+				<form:input type="file" path="BImage" accept="image/*" id="bchaimg"/>
 			</div>
+			<img id="bchimg" src="" />
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">送出</button>
 				<input type="button" class="cancelbtn" value='一鍵輸入'> <a
@@ -120,6 +121,20 @@ button:hover {
 				$("#Brandcountry").val("台灣");
 			})
 		})
+		$("#bchaimg").change(function() {
+			readURL(this);
+		});
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#bchimg").attr('src', e.target.result);
+					$("#bchimg").css('width', '100px').css('height', '100px')
+				}
+				reader.readAsDataURL(input.files[0]);
+				console.log()
+			}
+		}
 	</script>
 </body>
 </html>
