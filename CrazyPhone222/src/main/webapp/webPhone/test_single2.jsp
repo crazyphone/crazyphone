@@ -234,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											href="<spring:url value='criticism?productID=${product.productID}' />"
 											class="btn btn-primary"> <span
 											class="glyphicon-info-sigh glyphicon"></span>看評論
-										</a> <a
+										</a>&nbsp&nbsp<a
 											href="<spring:url value='criticism/add?productID=${product.productID}' />"
 											class="btn btn-primary"> <span
 											class="glyphicon-info-sigh glyphicon"></span>撰寫評論
@@ -264,10 +264,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="clearfix"></div>
 									</ul>
 								</div>
-								<ul class="tag-men">
-									<li><span>TAG</span> <span class="women1">: Women,</span></li>
-									<li><span>SKU</span> <span class="women1">: CK09</span></li>
-								</ul>
+<!-- 								<ul class="tag-men"> -->
+<!-- 									<li><span>TAG</span> <span class="women1">: Women,</span></li> -->
+<!-- 									<li><span>SKU</span> <span class="women1">: CK09</span></li> -->
+<!-- 								</ul> -->
+								<table style="width:100px;position:relative;left:250px">
+								<tr>
+								<td>
 								<form action='addToCart' method='POST'>
 									<input type='hidden' name='phoneId'
 										value='${product.productID}'> <input type='hidden'
@@ -277,6 +280,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入購物車'>
 								</form>
+								</td>
+								<td style="font-color:white">&nbsp&nbsp</td>
+								<td>
 								<form action='addToPKCart' method='POST'>
 									<input type='hidden' name='productID'
 										value='${product.productID}'> <input type='hidden'
@@ -286,6 +292,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入車拚'>
 								</form>
+								</td>
+								</tr>
+								</table>
 
 							</div>
 						</div>

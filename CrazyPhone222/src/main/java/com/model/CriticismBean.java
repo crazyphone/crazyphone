@@ -42,6 +42,9 @@ public class CriticismBean {
 	@JoinColumn(name = "MemberID")
 	MemberBean memberBean;
 
+	@Transient
+	private MultipartFile CriImage;
+	
 	public CriticismBean() {
 		super();
 	}
@@ -180,13 +183,17 @@ public class CriticismBean {
 		return CriFileName;
 	}
 
-
-
 	public void setCriFileName(String criFileName) {
 		CriFileName = criFileName;
 	}
 
-
+	public MultipartFile getCriImage() {
+		return CriImage;
+	}
+	public void setCriImage(MultipartFile criImage) {
+		CriImage = criImage;
+	}
+	
 	@Override
 	public String toString() {
 		return "CriticismBean [CriticismID=" + CriticismID + ", CreateDate=" + CreateDate + ", Score=" + Score

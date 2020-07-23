@@ -9,6 +9,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 
@@ -60,12 +66,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	width: 300px;
 	height: 380px;
 	border: 2px solid gray;
-	border-radius:30px;
+	border-radius: 30px;
 	margin: 2px;
 	float: left;
- 	position: absolute; 
- 	left: 180px; 
-  	top: -100px;  
+	position: absolute;
+	left: 180px;
+	top: -100px;
 }
 
 /* .tb2 { */
@@ -79,7 +85,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 /* 	left: -100px; */
 /* 	top: -100px; */
 /* } */
-
 td, th {
 	border: 1px solid gray;
 	text-align: center;
@@ -257,56 +262,65 @@ th {
 				</div>
 			</div>
 		</div>
-<!-- 		<table class="tb1"> -->
-<!-- 			<tbody> -->
-				<c:forEach var='criticism' items='${criticism}'>
-				<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
-<!-- 					<div class="col-sm-6 col-md-3" > -->
-<!-- 					<div class="col-sm-4 wthree-crd widgettable"> -->
+		<!-- 		<table class="tb1"> -->
+		<!-- 			<tbody> -->
+		<c:forEach var='criticism' items='${criticism}'>
+			<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
+				<!-- 					<div class="col-sm-6 col-md-3" > -->
+				<!-- 					<div class="col-sm-4 wthree-crd widgettable"> -->
 
-						<div class="card">
-							<div class="card-body">
-								<div class="agileinfo-cdr">
+				<div class="card">
+					<div class="card-body">
+						<div class="agileinfo-cdr">
 
-									<table class="tbC">
-										<thead>
-											<tr>
-												<th colspan="2">no.${criticism.criticismID}</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td rowspan="2"><img width='60' height='60'
-													src="<c:url value='/getmemImg/${criticism.memberBean.memberID}'/>" /></td>
-												<td>${criticism.memberBean.memberName}</td>
-											</tr>
-											<tr>
-												<td>給  <span style="font-size:20px">${criticism.score}  </span>分</td>
-											</tr>
+							<table class="tbC">
+								<thead>
+									<tr>
+										<th colspan="2">no.${criticism.criticismID}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="2"><img width='60' height='60'
+											src="<c:url value='/getmemImg/${criticism.memberBean.memberID}'/>" /></td>
+										<td>${criticism.memberBean.memberName}</td>
+									</tr>
+									<tr>
+										<td>給 <span style="font-size: 20px">${criticism.score}
+										</span>分
+										</td>
+									</tr>
 
-											<tr>
-												<td colspan="2" style="text-align:left">${criticism.textContent}</td>
-												
-											</tr>
-											<tr>
-												<td colspan="2"><img width='200' height='160'
-													src="<c:url value='/getPicture2/${criticism.criticismID}' />" /></td>
-												
-											</tr>
+									<tr>
+										<td colspan="2" style="text-align: left">${criticism.textContent}</td>
 
-										</tbody>
-									</table>
-								</div>
-							</div>
+									</tr>
+									<tr>
+										<td colspan="2"><img height='160'
+											src="<c:url value='/getPicture2/${criticism.criticismID}' />" /></td>
+									</tr>
+									<tr>
+										<td><a
+											href="<c:url value='/dCri/${criticism.criticismID}'/>">刪除</a>
+										</td>
+										<td><a
+											href="<c:url value='/updateCriticism/${criticism.criticismID}'/>">編輯</a>
+										</td>
+
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
+				</div>
+			</div>
 
-				</c:forEach>
+		</c:forEach>
 
-				<!-- 		</table> -->
+		<!-- 		</table> -->
 
-<!-- 			</tbody> -->
-<!-- 		</table> -->
+		<!-- 			</tbody> -->
+		<!-- 		</table> -->
 	</div>
 	<!-- 	<hr> -->
 	<!--typo-ends-->
