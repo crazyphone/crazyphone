@@ -251,7 +251,7 @@ background-color: #7df5f1;
   			$("#MemberPwd").val("Do!ng123");
   			$("#checkPwd1").val("Do!ng123");
 //   			$("#MemberBirth").val("19960618");
-  			$("#MemberName").val("張健哲");
+  			$("#MemberName").val("周健哲");
   			$("#MemberPhone").val("0912321597");
   			$("#MemberAddress").val("台北市大安區復興南路一段390號");
  		})

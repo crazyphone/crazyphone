@@ -105,6 +105,7 @@ public class _CartController {
 		System.out.println("After addQtyToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
+
 	@PostMapping("/DelQtyToCart")
 	public String DelQtyToCart(Model model,
 		   @RequestParam Integer phoneId,
@@ -145,7 +146,7 @@ public class _CartController {
 		System.out.println("long in 0");	
 			
 		
-		;
+		
 		   SimpleDateFormat sdf  = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		   
 		   String str = sdf.format(System.currentTimeMillis());

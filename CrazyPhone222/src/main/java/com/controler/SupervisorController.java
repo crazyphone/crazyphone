@@ -203,16 +203,16 @@ public class SupervisorController {
 	// 商品刪除
 	@GetMapping("/peb/{productID}")
 	public String deleteproduct(@PathVariable Integer productID) {
-		System.out.println("c:  "+productID);
+		System.out.println("c:  " + productID);
 		boolean des = supervisorervice.dropspec(productID);
 		System.out.println(des);
 //		boolean dep = supervisorervice.dropproduct(productID);
 //		System.out.println(dep);
-		if ( des == false) {
+		if (des == false) {
 			System.out.println("刪除失敗");
 		}
 		return "redirect:/Product";
-		
+
 	}
 
 	// 商品品牌選單
@@ -328,6 +328,15 @@ public class SupervisorController {
 			return "redirect:/addspec";
 		}
 
+	}
+
+	// 商品編輯頁
+	@GetMapping("/upproduct/{productID}")
+	public String updpjsp(Model model, @PathVariable Integer productID) {
+		ProductBean PB = new ProductBean();
+		PB = supervisorervice.getproductbyid(productID);
+		model.addAttribute("ProductBean", PB);
+		return "_L_upproduct";
 	}
 
 	// 顯示品牌圖片

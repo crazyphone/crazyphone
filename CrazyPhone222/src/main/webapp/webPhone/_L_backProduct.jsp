@@ -48,9 +48,9 @@ input[type=text] {
 }
 </style>
 </head>
-<body>
+<body style="background: #e1e1e8">
 	 	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 600px; position:fixed">
+		style="width: 15%; background-color: #363636; height: 680px; position:fixed">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
@@ -105,7 +105,7 @@ input[type=text] {
 					<td>${product.releasedDate}</td>
 					<td>${product.stockQuantity}</td>
 					<td>
-					<a href="<c:url value=''/>"><button type="button" class="button">編輯</button></a>
+					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="button">編輯</button></a>
 					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			
 					<a href="<c:url value=''/>"><button type="button" class="button">查看詳細資訊</button></a> 
 					<a href="<c:url value=''/>"><button type="button" class="button">編輯詳細資訊</button></a> 
