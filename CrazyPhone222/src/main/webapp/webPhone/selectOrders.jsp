@@ -306,7 +306,7 @@ button {
 
 									<div style="color: red; text-align: center; font-weight: bold;">訂單編號:${orderSelectMember1.orderID}</div>
 									<br>
-					發票編號:${orderSelectMember2.invoiceNum}<br>
+									發票編號:${orderSelectMember1.invoiceNum}<br>
 									<c:forEach var='orderSelectMember2' items='${orderSelectMember}'>
 										<c:set var="number1" value="${orderSelectMember1.orderID}"/>
 										<c:set var="number2" value="${orderSelectMember2.orderID}"/>
@@ -320,7 +320,7 @@ button {
 												</c:when>
 										</c:choose>
 									</c:forEach>
-									出貨地點:${orderSelectMember2.shipAddress}<br>
+									出貨地點:${orderSelectMember1.shipAddress}<br>
 								</div>
 								<div
 									style="width: 0; height: 0; border-style: solid; border-width: 20px 15.5px 0 15.5px; border-color: #d3ddeb transparent transparent transparent; margin-left: 91.5%"></div>
