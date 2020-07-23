@@ -65,15 +65,17 @@ padding: 3px
     
 <div align='center' style="position: absolute;
 	left: 300px; right:50px">
-<h3>會員資料</h3>
+<h3>訂單資料</h3>
 <%-- <a href="<c:url value='/'/> " >回商品首頁</a> --%>
-<a href="<c:url value='test'/> " >顯示全部會員</a>
-<form method='POST' action="<c:url value='searchMember' />" >
-	搜尋會員:<input type='text' name='search1' placeholder='Search...' class="icon">
+<a href="<c:url value='OOrders'/> " >顯示全部訂單</a>
+<form method='POST' action="<c:url value='searchOOrders' />" >
+	搜尋訂單編號:<input type='text' name='search1' placeholder='Search...' class="icon"><br>
+	搜尋訂單電話:<input type='text' name='phone1' placeholder='Search...' class="icon"><br>
 	
 	狀態:<select name="status1">
-　	<option value="正常">正常</option>
-　	<option value="封鎖中">封鎖中</option>
+　	<option value="下單中">下單中</option>
+　	<option value="運送中">運送中</option>
+　	<option value="已完成">已完成</option>
 	</select>
 	
 	<button type="submit" class="search">送出</button>
@@ -84,38 +86,34 @@ padding: 3px
 <hr>
 
 		<c:choose>
-			<c:when test="${empty members}">
-	    		沒有搜尋到會員資料<br>
+			<c:when test="${empty Orders}">
+	    		沒有搜尋到訂單資料<br>
 			</c:when>
 			<c:otherwise>
 
 				<table border='2' cellpadding="3" cellspacing="1">
 					<tr>
-						<th width='30'>會員編號</th>
-						<th width='20'>姓名</th>
-						<th width='50'>帳號</th>
-						<th width='40'>生日</th>
-						<th width='50'>地址</th>
-						<th width='50'>電話</th>
-						<th width='50'>註冊時間</th>
-						<th width='100'>大頭貼</th>
-						<th width='47'>狀態</th>
+						<th width='30'>訂單編號</th>
+						<th width='20'>訂單日期</th>
+						<th width='50'>訂單人</th>
+						<th width='40'>訂單電話</th>
+						<th width='50'>送貨地址</th>
+						<th width='50'>總價</th>
+						<th width='50'>狀態</th>
 						<th width='70'>功能</th>
 
 					</tr>
-					<c:forEach var='member' items='${members}'>
+					<c:forEach var='Order' items='${Orders}'>
 						<tr>
-							<td style="text-align: center">${member.memberID}</td>
-							<td style="text-align: center">${member.memberName}</td>
-							<td style="text-align: center">${member.memberEmail}</td>
-							<td style="text-align: center">${member.memberBirth}</td>
-							<td style="text-align: center">${member.memberAddress}</td>
-							<td style="text-align: center">${member.memberPhone}</td>
-							<td style="text-align: center">${member.createDate}</td>
+							<td style="text-align: center">${Order.orderID}</td>
+							<td style="text-align: center">${Order.orderDate}</td>
+							<td style="text-align: center">${Order.receiver}</td>
+							<td style="text-align: center">${Order.receiverPhone}</td>
+							<td style="text-align: center">${Order.shipAddress}</td>
+							<td style="text-align: center">${Order.finalPrice}</td>
+							<td style="text-align: center">${Order.goodsStatus}</td>
 
-							<td><img width='100' height='100'
-								src="<c:url value='/getmemImg/${member.memberID}'/>" /></td>
-							<td style="text-align: center">${member.memberstatus}</td>
+							
 							
  								<c:choose> 
 								<c:when test="${  seal.mapaa  !=  member.memberID}"> 

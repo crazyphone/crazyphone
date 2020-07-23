@@ -43,5 +43,8 @@ public interface MemberDao {
 	public boolean deleteCarousel(Integer id);
 	
 	public List<OrdersBean> getAllMemberOrders(Integer id);
+	
+	List<OrdersBean> getAllOrders();
+	public List<OrdersBean> searchOrders(Long id,String phone,String sta);
 
 }

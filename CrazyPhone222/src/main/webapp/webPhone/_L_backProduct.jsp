@@ -56,8 +56,9 @@ input[type=text] {
 				style="text-align: center;">商城管理系統</a></li>
 			<li><a href="addCarousel" style="color: #5d76cf">輪播牆管理</a></li>
 			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
-			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
+			<li><a href="Brand" style="color: #5d76cf">品牌管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
+			<li><a href="OOrders" style="color: #5d76cf">訂單管理</a></li>
 			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
 	
         

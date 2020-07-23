@@ -344,6 +344,33 @@ public class MemberDaoImpl implements MemberDao {
 		return list;
 	}
 
+	@Override
+	public List<OrdersBean> getAllOrders() {
+		String hql = "FROM OrdersBean";
+		Session session = factory.getCurrentSession();
+		List<OrdersBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+
+	@Override
+	public List<OrdersBean> searchOrders(Long id, String phone, String sta) {
+		
+		String hql = "FROM OrdersBean ob WHERE ob.OrderID like :id and ob.ReceiverPhone like :ph and ob.GoodsStatus = :sta ";
+		Session session = factory.getCurrentSession();
+		
+		List<OrdersBean> list=null;
+		try {
+			list=  session.createQuery(hql).setParameter("id", "%"+id+"%").setParameter("ph","%"+phone+"%").setParameter("sta",sta)
+					.getResultList();
+		} catch (NoResultException ex) {
+			;
+		} catch (NonUniqueResultException ex) {
+			;
+		}
+
+		return list;
+	}
+
 
 
 

@@ -43,6 +43,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.model.CarouselBean;
 import com.model.MemberBean;
+import com.model.OrdersBean;
 import com.model.SupervisorBean;
 import com.service.MemberService;
 
@@ -628,7 +629,34 @@ public class MemberController {
 			return "selectOrders";
 		}
 		
+		//連到後台訂單資料
+		@GetMapping("/OOrders")
+		public String backOrders(Model model,HttpSession session) {
 		
+			model.addAttribute("Orders",memberService.getAllOrders());
+			
+			return "backOrders";
+		}
+		//搜尋訂單資料
+		@RequestMapping(value = "/searchOOrders",method =RequestMethod.POST)
+		public String searchOOrders1(@RequestParam(value="search1") String orderIdd
+				,@RequestParam(value="phone1") String phone
+				,@RequestParam(value="status1") String status
+				,Model model,HttpSession session) {
+			int aaaa = Integer.parseInt(orderIdd);
+			
+			Long k =(long)(int)aaaa;
+			
+			List<OrdersBean> ob=(List) memberService.searchOrders(k,phone,status);
+			if(ob != null) {
+				model.addAttribute("Orders",ob);
+			}else {
+				System.out.println("查無此訂單資料");
+			}
+			
+			
+					return "backOrders";
+		}
 	
 	//如果沒有登入就跳轉登入畫面
 //	Object sess = session.getAttribute("LoginOK");
