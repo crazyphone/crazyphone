@@ -134,7 +134,7 @@ public class _CartController {
 		   @RequestParam String productName,
 		   @RequestParam Integer unitPrice,
 		   @RequestParam Integer quantity,
-		   @RequestParam Integer sum1,
+		   @RequestParam(value = "total")  Integer sum1,
 		   @RequestParam(value = "product") String product,
 		   @RequestParam(value = "subtotal") String subtotal, 
 		   @RequestParam(value = "shipping") String shipping,

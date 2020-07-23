@@ -82,17 +82,17 @@
    		 <input type='hidden' name='productName' value='${entry.value.bean.productName}'>
    		 <input type='hidden' name='unitPrice' value='${entry.value.bean.unitPrice}'>
    		 <input type='hidden' name='quantity' value='${entry.value.quantity}'>
-   		 <input type='hidden' name='sum1' value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'>
-   		 <c:set var="sum"      value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'></c:set>
+   		 <c:set var="sum"     value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'></c:set>
+
+   		 
    		 </c:forEach>
-   		 
-   		 
+   		    		 
 <!--    		 paypal參數 -->
    		   <input type="hidden" name="product" value="OrderNumber" />
 	       <input type="hidden" name="subtotal" value="${sum} "/>
            <input type="hidden" name="shipping" value="0" />
            <input type="hidden" name="tax" value="0" />
-           <input type="hidden" name="total"  value="${sum} " />
+           <input type="hidden" name="total"  value="${sum}" />
    	     
    		 
 <!--    		 ------------------------------------------------------------- -->

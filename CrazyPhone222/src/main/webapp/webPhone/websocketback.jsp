@@ -19,7 +19,7 @@
 		if ('WebSocket' in window) {
 			console.log("此瀏覽器支援websocket");
 			websocket = new WebSocket(
-					"ws://localhost:8080/CrazyPhone22/socketHandler");
+					"ws://localhost:8080/CrazyPhone222/socketHandler");
 		} else if ('MozWebSocket' in window) {
 			alert("此瀏覽器只支援MozWebSocket");
 		} else {
