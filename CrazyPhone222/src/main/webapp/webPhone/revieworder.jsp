@@ -89,7 +89,7 @@
         <tr>
             <td colspan="2" align="center">
                 
-                <a href="index" >Back to HomePage</a>
+                <a href="<c:url value='/'/>">Back to HomePage</a>
             </td>
         </tr>    
     </table>
