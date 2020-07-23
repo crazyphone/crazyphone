@@ -63,7 +63,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="simpleCart_total"></span></div>
 								<img src="images/cart-1.png" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">清空購物車</a></p>
+						<p></p>
+<!-- 						<p><a href="javascript:;" class="simpleCart_empty">清空購物車</a></p> -->
+							<td width='130' align='center'><a href='showCartContent'>購物車明細</a>&nbsp;&nbsp;<a href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="cart box_1">
@@ -87,9 +89,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container" style="text-align: center">
 				<h1>產品清單</h1>
 				
-				<td colspan='2' width='260' align='center'>${ShoppingCart.creteTime}</td>
-				<td colspan='2' width='260' align='center'>${pageContext.request.contextPath}</td>
-				<td width='130' align='center'><a href='showCartContent'>購物車明細</a>&nbsp;&nbsp;<a href='removeCart'>移除購物車項目</a></td>
+<%-- 				<td colspan='2' width='260' align='center'>${ShoppingCart.creteTime}</td> --%>
+<%-- 				<td colspan='2' width='260' align='center'>${pageContext.request.contextPath}</td> --%>
+<!-- 				<td width='130' align='center'><a href='showCartContent'>購物車明細</a>&nbsp;&nbsp;<a href='removeCart'>移除購物車項目</a></td> -->
 			    <td width='130' align='center'><a href='showPKCartContent'>車拚</a>&nbsp;&nbsp;<a href='removePKCart'>結束車拚</a></td>
 			</div>
 		</div>

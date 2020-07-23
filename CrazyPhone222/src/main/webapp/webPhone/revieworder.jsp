@@ -38,11 +38,11 @@
         </tr>
         <tr>
             <td>Tax:</td>
-            <td>${transaction.amount.details.tax} USD</td>
+            <td>${transaction.amount.details.tax} TWD</td>
         </tr>
         <tr>
             <td>Total:</td>
-            <td>${transaction.amount.total} USD</td>
+            <td>${transaction.amount.total} TWD</td>
         </tr>
         <tr><td><br/></td></tr>
         <tr>

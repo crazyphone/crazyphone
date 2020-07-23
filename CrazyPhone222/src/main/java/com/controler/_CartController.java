@@ -26,6 +26,8 @@ import com.service.OrderService;
 //import com.model.MemberBean;
 import com.service.PaypalService;
 import com.service.ProductService;
+import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
+import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
 
 @Controller
 @SessionAttributes({"ShoppingCart"})
@@ -133,7 +135,7 @@ public class _CartController {
 		   @RequestParam Integer productID,
 		   @RequestParam String productName,
 		   @RequestParam Integer unitPrice,
-		   @RequestParam(value = "quantity")Integer quantity,
+		   @RequestParam(value = "quantity") Integer quantity,
 		   @RequestParam(value = "total")  Integer sum1,
 		   @RequestParam(value = "product") String product,
 		   @RequestParam(value = "subtotal") String subtotal, 
@@ -160,10 +162,12 @@ public class _CartController {
 				                        ShipAddress, Receiver, ReceiverPhone, null);
 		System.out.println("long in 3");   
 		   ShoppingCart sc = (ShoppingCart) model.getAttribute("ShoppingCart");
+		   
 		System.out.println("long in 4");
 		   // 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
 		   Map<Long, OrderItemBean> content = sc.getContent();
-		 
+		  
+		   
 		System.out.println("long in 5");
 	
 		   Set<Long> set = content.keySet();
@@ -176,7 +180,7 @@ public class _CartController {
 			   Integer k = (int) (long) i;
 			    ob.setProductId(k);
 			    ob.setProductName(pservice.getProductById(k).getProductName());
-			    ob.setQuantity(k);
+			    ob.setQuantity(content.get(i).getQuantity());
 			    ob.setGoodsStatus("下單中");
 //			    int a=(int)Math.floor(Math.random()*9999999+1);
 			    ob.setInvoiceNum("AB95718654");

@@ -389,7 +389,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 						<li class="grid"><a href="test">測試會員顯示</a></li> -->
 <!-- 						<li class="grid"><a href="addCarousel">測試輪播顯示</a></li> -->
 <!-- 							<li class="grid"><a href="ck">測試</a></li> -->
-						<li class="grid"><a href="webweb">測試聊天</a></li>
+						<li class="grid"><a href="webweb">LIVE CHAT</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 footer-right">
