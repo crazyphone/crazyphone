@@ -520,8 +520,7 @@ public class SupervisorController {
 			ProductBean PB = new ProductBean();
 			PB.setProductID(supervisorervice.getallpid().get(supervisorervice.getallpid().size() - 1));
 			SB.setProductBean(PB);
-			supervisorervice.addspec(SB);
-			return "_L_backProduct";
+			return "redirect:/Product";
 		}
 	}
 }
