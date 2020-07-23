@@ -1,6 +1,5 @@
 package com.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +9,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Spec")
+@Table(name = "Spec")
 public class SpecBean {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private Integer SpecID;
 	private String OS;
@@ -25,7 +24,7 @@ public class SpecBean {
 	private String RAM;
 	private String Storage;
 	private String BatteryCapacity;
-	
+
 	@OneToOne
 	@JoinColumn(name = "ProductID")
 	ProductBean productBean;
@@ -143,9 +142,7 @@ public class SpecBean {
 	public String toString() {
 		return "SpecBean [SpecID=" + SpecID + ", OS=" + OS + ", Processor=" + Processor + ", DisplaySize=" + DisplaySize
 				+ ", DisplayResolution=" + DisplayResolution + ", FrontCamera=" + FrontCamera + ", RearCamera="
-				+ RearCamera + ", RAM=" + RAM + ", Storage=" + Storage + ", BatteryCapacity=" + BatteryCapacity
-				 + "]";
+				+ RearCamera + ", RAM=" + RAM + ", Storage=" + Storage + ", BatteryCapacity=" + BatteryCapacity + "]";
 	}
-	
 
 }

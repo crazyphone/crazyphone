@@ -173,10 +173,13 @@ public class SupervisorDaoImpl implements SupervisorDao {
 
 	@Override
 	public boolean deletepspec(Integer ProductID) {
+		System.out.println(ProductID);
 		Session session = factory.getCurrentSession();
-		String hql = "delete SpecBean SB where SB.id = :SPid";
+		String hql = "delete SpecBean SB where SB.productBean.ProductID = :SPid";
+		String hql2 = "delete ProductBean PB where PB.id = :Pid";
 		try {
 			session.createQuery(hql).setParameter("SPid", ProductID).executeUpdate();
+			session.createQuery(hql2).setParameter("Pid", ProductID).executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
