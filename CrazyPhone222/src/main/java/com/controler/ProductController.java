@@ -40,7 +40,15 @@ public class ProductController {
 	
 	//跳轉商品頁
 	@GetMapping("/products")
-	public String list(Model model, HttpServletRequest req) {
+	public String list(Model model, HttpServletRequest req,HttpSession session) {
+		
+//		如果沒有登入就跳轉登入畫面
+		Object sess = session.getAttribute("LoginOK");
+		if(sess == null) {
+			return "redirect:/lognin";
+		}
+		
+		
 		List<ProductBean> beans = service.getAllProducts();
 		List<String> brand = service.getAllCategories();
 		model.addAttribute("brands", brand);

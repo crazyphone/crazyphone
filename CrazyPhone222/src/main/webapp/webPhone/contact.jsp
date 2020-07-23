@@ -83,15 +83,12 @@ button {
 							</select>
 						</div>
 						<div class="clearfix"></div>
-					</div> -->
+					</div>
+					-->
 				</div>
 				<div class="col-md-6 top-header-left">
-				
 					<div class="cart box_1">
-									
-				
-				
-						<a href="check">
+						<a href="checkout">
 							<div class="total">
 								<span class="simpleCart_total"></span>
 							</div> <img src="images/cart-1.png" alt="" />
@@ -101,7 +98,6 @@ button {
 						</p>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
 						<div class="clearfix"></div>
 					</div>
 				</div>
@@ -112,9 +108,9 @@ button {
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="home"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
 		<c:if test="${! empty LoginSuperOK }"> 
-		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="test" >後台</a></span>
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
 		</c:if>
 	</div>
 	<!--start-logo-->
@@ -125,32 +121,30 @@ button {
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="active"><a href="<c:url value='/'/>">首頁</a></li>
-							<li class="grid"><a href="products.html">商城</a>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
+							<li class="grid"><a href="products">商城</a> <!--  
 								<div class="mepanel">
 									<div class="row">
 										<div class="col1 me-one">
-											<h4>Shop</h4>
+											<h4>智慧型手機</h4>
 											<ul>
-												<li><a href="products.html">New Arrivals</a></li>
-												<li><a href="products.html">Blazers</a></li>
-												<li><a href="products.html">Swem Wear</a></li>
-												<li><a href="products.html">Accessories</a></li>
-												<li><a href="products.html">Handbags</a></li>
-												<li><a href="products.html">T-Shirts</a></li>
-												<li><a href="products.html">Watches</a></li>
-												<li><a href="products.html">My Shopping Bag</a></li>
+												<li><a href="products">SAMSUNG</a></li>
+												<li><a href="products">Apple</a></li>
+												<li><a href="products">ASUS</a></li>
+												<li><a href="products">HTC</a></li>
+												<li><a href="products">SONY</a></li>
+												<li><a href="products">Google</a></li>
 											</ul>
 										</div>
 										<div class="col1 me-one">
-											<h4>Style Zone</h4>
+											<h4>穿戴式配件</h4>
 											<ul>
-												<li><a href="products.html">Shoes</a></li>
-												<li><a href="products.html">Watches</a></li>
-												<li><a href="products.html">Brands</a></li>
-												<li><a href="products.html">Coats</a></li>
-												<li><a href="products.html">Accessories</a></li>
-												<li><a href="products.html">Trousers</a></li>
+												<li><a href="products">SAMSUNG</a></li>
+												<li><a href="products">Apple</a></li>
+												<li><a href="products">ASUS</a></li>
+												<li><a href="products">HTC</a></li>
+												<li><a href="products">SONY</a></li>
+												<li><a href="products">Google</a></li>
 											</ul>
 										</div>
 										<div class="col1 me-one">
@@ -163,14 +157,14 @@ button {
 												<li><a href="products.html">Maxima</a></li>
 												<li><a href="products.html">Timex</a></li>
 												<li><a href="products.html">TomTom</a></li>
-												<li><a href="products.html">Tin</a></li>
+												<li><a href="products.html">Titan</a></li>
 											</ul>
 										</div>
+										
 									</div>
-								</div></li>
-<!-- 							<li class="grid"><a href="#">活動課程</a> -->
-							<li class="grid"><a href="products2">小商城</a>
-							<li class="grid"><a href="#">車拚</a></li>
+								</div>
+								--></li>
+							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
@@ -185,21 +179,22 @@ button {
 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
 							</c:if> 
 							<c:if test="${! empty LoginSuperOK }"> 
- 								<span style="margin:50px">Hello <a  href="up1">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
 <!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
 <%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
 							</c:if> 
-							
 						</ul>
-
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<input type="text" value="Search" onfocus="this.value = '';"
+					<form method='POST' action="<c:url value='searchProduct' />">
+					
+						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Search';}">
 						<input type="submit" value="">
+					</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -207,7 +202,7 @@ button {
 		</div>
 	</div>
 	<!--bottom-header-->
-<!-- 	標頭結束 -->
+	<!-- 	標頭結束 -->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">

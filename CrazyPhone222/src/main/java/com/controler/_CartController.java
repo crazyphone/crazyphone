@@ -133,8 +133,8 @@ public class _CartController {
 		   @RequestParam Integer productID,
 		   @RequestParam String productName,
 		   @RequestParam Integer unitPrice,
-		   @RequestParam Integer quantity,
-		   @RequestParam Integer sum1,
+		   @RequestParam(value = "quantity")Integer quantity,
+		   @RequestParam(value = "total")  Integer sum1,
 		   @RequestParam(value = "product") String product,
 		   @RequestParam(value = "subtotal") String subtotal, 
 		   @RequestParam(value = "shipping") String shipping,
@@ -176,7 +176,10 @@ public class _CartController {
 			   Integer k = (int) (long) i;
 			    ob.setProductId(k);
 			    ob.setProductName(pservice.getProductById(k).getProductName());
+			    ob.setQuantity(k);
 			    ob.setGoodsStatus("下單中");
+//			    int a=(int)Math.floor(Math.random()*9999999+1);
+			    ob.setInvoiceNum("AB95718654");
 			    
 			    
 			    System.out.println(ob);

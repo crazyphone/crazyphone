@@ -49,8 +49,8 @@ input[type=text] {
 </style>
 </head>
 <body>
-	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 1000px; position:fixed">
+	 	<div class="col-md-3 "
+		style="width: 15%; background-color: #363636; height: 600px; position:fixed">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
@@ -59,8 +59,13 @@ input[type=text] {
 			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
 			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
-		</ul>
-	</div>
+	
+        
+        
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	</a></div>
+      </ul>
+    </div>
 	<div align='center' style="position: absolute;
 	left: 300px; right:50px">
 		<h3>商品資料</h3>
@@ -104,7 +109,6 @@ input[type=text] {
 					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			
 					<a href="<c:url value=''/>"><button type="button" class="button">查看詳細資訊</button></a> 
 					<a href="<c:url value=''/>"><button type="button" class="button">編輯詳細資訊</button></a> 
-					<a href="<c:url value=''/>"><button type="button" class="button">刪除詳細資料</button></a>
 					</td>
 				</tr>
 			</c:forEach>

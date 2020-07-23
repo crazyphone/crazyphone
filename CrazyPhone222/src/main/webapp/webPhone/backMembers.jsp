@@ -44,20 +44,26 @@ padding: 3px
 <body style="background: #e1e1e8">
 
 
-   <div class="col-md-3 "  style="width: 15% ; background-color:#363636 ;height: 600px">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active" ><a href="backIndex" style="text-align:center;">商城管理系統</a></li>
-       <li><a href="addCarousel" style="color:#5d76cf">輪播牆管理</a></li>
-        <li><a href="test" style="color:#5d76cf">會員管理</a></li>
-        <li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
-		<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
-        <li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
+<div class="col-md-3 "
+		style="width: 15%; background-color: #363636; height: 600px; position:fixed">
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="backIndex"
+				style="text-align: center;">商城管理系統</a></li>
+			<li><a href="addCarousel" style="color: #5d76cf">輪播牆管理</a></li>
+			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
+			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
+			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
+			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
+	
+        
+        
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	</a></div>
       </ul>
     </div>
     
-    
-    
-<div align='center' >
+<div align='center' style="position: absolute;
+	left: 300px; right:50px">
 <h3>會員資料</h3>
 <%-- <a href="<c:url value='/'/> " >回商品首頁</a> --%>
 <a href="<c:url value='test'/> " >顯示全部會員</a>

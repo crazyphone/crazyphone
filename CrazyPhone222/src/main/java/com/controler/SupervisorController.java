@@ -202,13 +202,17 @@ public class SupervisorController {
 
 	// 商品刪除
 	@GetMapping("/peb/{productID}")
-	public String deleteproduct(Model model, @PathVariable Integer productID) {
-		System.out.println("近來");
-		boolean de = supervisorervice.dropproduct(productID);
-		if (de == false) {
+	public String deleteproduct(@PathVariable Integer productID) {
+		System.out.println("c:  "+productID);
+		boolean des = supervisorervice.dropspec(productID);
+		System.out.println(des);
+//		boolean dep = supervisorervice.dropproduct(productID);
+//		System.out.println(dep);
+		if ( des == false) {
 			System.out.println("刪除失敗");
 		}
 		return "redirect:/Product";
+		
 	}
 
 	// 商品品牌選單
@@ -467,6 +471,7 @@ public class SupervisorController {
 		return re;
 	}
 
+	// 規格表單
 	@GetMapping("/addspec")
 	public String addspec1(Model model) {
 		SpecBean SB = new SpecBean();
@@ -474,6 +479,7 @@ public class SupervisorController {
 		return "_L_addSpec";
 	}
 
+	// 新增表單
 	@PostMapping("/addspec")
 	public String addspec(@ModelAttribute("SpecBean") SpecBean SB, Model model) {
 		Map<String, String> Serror = new HashMap<String, String>();
@@ -514,8 +520,7 @@ public class SupervisorController {
 			ProductBean PB = new ProductBean();
 			PB.setProductID(supervisorervice.getallpid().get(supervisorervice.getallpid().size() - 1));
 			SB.setProductBean(PB);
-			supervisorervice.addspec(SB);
-			return "_L_backProduct";
+			return "redirect:/Product";
 		}
 	}
 }

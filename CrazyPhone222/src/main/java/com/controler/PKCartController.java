@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +31,16 @@ public class PKCartController {
 
 	}	
 		@RequestMapping("showPKCartContent")
-		public String showPKCartContentAll(Model model, SessionStatus status) {
+		public String showPKCartContentAll(Model model, SessionStatus status,HttpSession session) {
 			                      
+			
+//			如果沒有登入就跳轉登入畫面
+			Object sess = session.getAttribute("LoginOK");
+			if(sess == null) {
+				return "redirect:/lognin";
+			}
+			
+			
 			PKCart cart = (PKCart)model.getAttribute("PKCart");
 			Map<Long, PKItemBean> pkcart = cart.getContent();
 			Set<Long> set=pkcart.keySet();
