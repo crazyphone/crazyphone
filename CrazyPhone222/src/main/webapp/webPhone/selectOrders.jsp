@@ -318,7 +318,9 @@ button {
 													數量:${orderSelectMember2.quantity}<br>
 													
 												</c:when>
+												
 										</c:choose>
+										
 									</c:forEach>
 									出貨地點:${orderSelectMember1.shipAddress}<br>
 								</div>

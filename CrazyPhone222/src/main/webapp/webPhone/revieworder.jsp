@@ -30,11 +30,11 @@
         </tr>
         <tr>
             <td>Subtotal:</td>
-            <td>${transaction.amount.details.subtotal} USD</td>
+            <td>${transaction.amount.details.subtotal} TWD</td>
         </tr>
         <tr>
             <td>Shipping:</td>
-            <td>${transaction.amount.details.shipping} USD</td>
+            <td>${transaction.amount.details.shipping} TWD</td>
         </tr>
         <tr>
             <td>Tax:</td>
