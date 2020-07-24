@@ -12,9 +12,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>後台</title>
 <style type="text/css">
+.body1 {
+font-family: Arial, Helvetica, sans-serif;
+background-image: url("http://pic.netbian.com/uploads/allimg/190324/170928-1553418568e1ef.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+ }
 th{
 background: #ff2f24;
 }
@@ -52,10 +60,24 @@ padding: 3px
 /* .menu ul li a:active {background:#fff; color:#000;}   */
 /* .menu ul li a:focus {background:#fff; color:#000;}   */
 
+.ml16 {
+  color: #402d2d;
+  padding: 40px 0;
+  font-weight: bold;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  overflow: hidden;
+  font-family: KaiTi;
+}
 
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
 </style>
 </head>
-<body style="background: #e1e1e8">
+<body class="body1" >
   
   
  	<div class="col-md-3 "
@@ -80,19 +102,40 @@ padding: 3px
 
 <div align='center' style="position: absolute;
 	left: 300px; right:50px" >
-<h3>後台首頁</h3>
+<h3 style="font-weight: bold;">後台首頁</h3>
 
 
 <hr>
 
-
-
-				
-
 		<hr>
 </div>
-	
-	
 
+	<div style="position: absolute; left: 300px; right: 50px">
+	<h4 class="ml16" style="margin-top: 250px;margin-left: 50px;font-weight: bold">您好關禮源，歡迎進入Phone人苑後台系統</h4>
+		<!-- 		<h1 class="ml9" style="margin-top: 250px;margin-left: 50px;font-weight:800"> -->
+<!-- 			<span class="text-wrapper">  -->
+<!-- 			<span class="letters" style="font-family:_GB2312 FangSong_GB2312">您好關禮源，歡迎進入Phone人苑後台系統</span> -->
+<!-- 			</span> -->
+<!-- 		</h1> -->
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	
+<script type="text/javascript">
+var textWrapper = document.querySelector('.ml16');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml16 .letter',
+    translateY: [-100,0],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: (el, i) => 30 * i
+  }).add({
+    targets: '.ml16',
+  
+  });
+</script>
 </body>
 </html>
