@@ -26,6 +26,7 @@ public class PKCart {
 	}
 	
 	public void addToPKCart(long ItemId, PKItemBean  pib) {
+		//0724測試中(30-31行)
 //		if (pib.getQuantity() <= 0 ) {
 //			return;
 //		}
