@@ -29,7 +29,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 </script>
@@ -52,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
 .tb1 {
 	width: 150px;
-	height: 600px;
+	height: 620px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -64,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 .tb2 {
 	width: 250px;
-	height: 600px;
+	height: 620px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -288,6 +292,9 @@ th {
 				<tr>
 					<td>前相機畫素</td>
 				</tr>
+				<tr>
+					<td>&nbsp</td>
+				</tr>
 				<!-- 							</tbody> -->
 				<!-- 						</table> -->
 				<!-- 					</div> -->
@@ -339,6 +346,20 @@ th {
 													</tr>
 													<tr>
 														<td>${product.value.specBean.frontCamera}</td>
+													</tr>
+
+													<tr>
+														<td>
+															<form action='deleteFromPKCart' method='POST'>
+																<input type='hidden' name='productID'
+																	value='${product.value.productBean.productID}'>
+																<input type='hidden' name='page'
+																	value='showPKCartContent'>
+																<!-- 																	type='hidden' name='page' value='products'> <input -->
+																<input type='submit' class="btn btn-primary"
+																	value='移出車拚'>
+															</form>
+														</td>
 													</tr>
 												</tbody>
 											</table>

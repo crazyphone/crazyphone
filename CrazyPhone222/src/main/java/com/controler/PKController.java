@@ -43,7 +43,20 @@ public class PKController {
 		System.out.println("After addToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
+	//移除車拚項目
+	@PostMapping("/deleteFromPKCart")
+	public String deleteItem(Model model, 
+		   @RequestParam Integer productID,
+		   @RequestParam String page) {
+		
+		PKCart cart = (PKCart)model.getAttribute("PKCart");
+//		ProductBean bean = service.getProductById(productID);
 	
+//		PKItemBean pib = new PKItemBean(null, null, bean.getSpecBean(), bean);
+		cart.deleteItem(productID);
+		System.out.println("After addToCart to ShowPage->" + page);
+		return "redirect:/" + page;
+	}
 
 }
  
