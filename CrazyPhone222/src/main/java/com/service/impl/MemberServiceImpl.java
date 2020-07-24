@@ -179,5 +179,11 @@ public class MemberServiceImpl implements MemberService{
 	public boolean ororor3(Integer id) {
 		return dao.ororor3(id);
 	}
+	@Transactional
+	@Override
+	public boolean checkSealoffIdPassword(String mail, String pwd) {
+		
+		return dao.checkSealoffIdPassword(mail,pwd);
+	}
 
 }

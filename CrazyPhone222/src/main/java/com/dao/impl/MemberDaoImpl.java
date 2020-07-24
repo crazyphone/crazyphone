@@ -69,10 +69,39 @@ public class MemberDaoImpl implements MemberDao {
 			;
 		} catch (NonUniqueResultException ex) {
 			;
+		}catch (NullPointerException e) {
+			en=null;
+			return en;
 		}
 
 		return en;
 	}
+	//查看帳號封鎖
+	@Override
+	public boolean checkSealoffIdPassword(String mail, String pwd) {
+		String hql = "select m.Memberstatus FROM MemberBean m WHERE m.MemberEmail = :mid and m.MemberPwd = :pwsd";
+		Session session = factory.getCurrentSession();
+		String mb = null;
+		
+			try {
+				mb =  (String) session.createQuery(hql).setParameter("mid", mail).setParameter("pwsd", pwd)
+						.getSingleResult();
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+				return true;
+			}
+			if(mb.length() == 3) {
+				return false;
+			}else if(mb.length() == 2 || mb == null){
+				return true;
+			}else {
+				return true;
+			}
+		
+	}
+	
+	
 	//管理員登入
 	@Override
 	public SupervisorBean checkSuperIdPassword(String userId, String password) {
@@ -412,6 +441,8 @@ public class MemberDaoImpl implements MemberDao {
 		}
 		return true;
 	}
+
+
 
 
 

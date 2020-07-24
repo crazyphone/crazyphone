@@ -70,7 +70,7 @@ button:hover {
 /* Modal Content/Box */
 .modal-content {
 	background-color: #fefefe;
-	margin: 5% auto 15% auto;
+	margin-top:5% ;
 	border: 1px solid #888;
 	width: 40%;
 }

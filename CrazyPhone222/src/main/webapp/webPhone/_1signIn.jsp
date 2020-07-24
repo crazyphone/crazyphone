@@ -206,6 +206,8 @@ float: right;
 <!--       </label> -->
       &nbsp;<Font color='red' size="-1" style='margin-left:70px'>
              ${ErrorMsgKey.LoginError}&nbsp;</Font>
+      &nbsp;<Font color='red' size="-1" style='margin-left:70px'>
+             ${ErrorMsgKey.sealo1}&nbsp;</Font>
       <div id="g-recaptcha-error"></div>
       
  	<div class="psw2">忘記 <a href=<c:url value='_2forgetPsw' />>密碼?</a></div>

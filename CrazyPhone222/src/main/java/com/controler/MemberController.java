@@ -106,6 +106,17 @@ public class MemberController {
 		
 		model.addAttribute("ErrorMsgKey",errorMsgMap);
 		
+		boolean abab = memberService.checkSealoffIdPassword(name,psw);
+		System.out.println("這裡 "+abab);
+		
+		if(abab == false) {
+			errorMsgMap.put("sealo1", "帳號封鎖中，如有疑問請至聯絡我們，謝謝");
+		}
+//		else if(abab == null && abab.length() == 2){
+			
+		
+		
+		
 		if (name == null || name.trim().length() == 0) {
 			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 		}
@@ -120,6 +131,11 @@ public class MemberController {
 			return "_1signIn";
 			
 		}else {
+			
+		
+			
+			
+			
 			MemberBean mb=null;
 		
 			try {
@@ -145,6 +161,8 @@ public class MemberController {
 			} else {
 				return "_1signIn";
 			}
+		
+		
 		}
 		
 	}

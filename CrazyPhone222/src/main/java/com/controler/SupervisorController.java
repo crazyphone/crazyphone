@@ -339,8 +339,7 @@ public class SupervisorController {
 
 	// 商品編輯
 	@PostMapping("/upproduct/{productID}")
-	public String updProduct(@ModelAttribute("ProductBean") ProductBean PB, Model model,
-			@PathVariable Integer productID) {
+	public String updProduct(@ModelAttribute("ProductBean") ProductBean PB, @PathVariable Integer productID) {
 		// 編輯圖片1
 		MultipartFile PImage = PB.getPImage();
 		String originalFilename = PImage.getOriginalFilename();
@@ -383,8 +382,12 @@ public class SupervisorController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
-		supervisorervice.updataproduct(PB.getProductName(), PB.getBrandBean(), PB.getTypeBean(), PB.getProductImage(), PB.getProductImage2(), PB.getProductImage3(), PB.getProductIntro(), PB.getUnitPrice(), PB.getStockQuantity(),productID);
+		System.out.println(supervisorervice.updataproduct(PB.getProductName(), PB.getBrandBean(), PB.getTypeBean(),
+				PB.getProductImage(), PB.getProductImage2(), PB.getProductImage3(), PB.getProductIntro(),
+				PB.getUnitPrice(), PB.getStockQuantity(), productID));
+
 		return "redirect:/Product";
+
 	}
 
 	// 顯示品牌圖片
@@ -579,5 +582,13 @@ public class SupervisorController {
 			SB.setProductBean(PB);
 			return "redirect:/Product";
 		}
+	}
+
+	// 品牌頁
+	@GetMapping("/query/{product.productID}")
+	public String readSjsp(Model model) {
+		model.addAttribute("products", supervisorervice.getproductlist());
+		model.addAttribute("specs", supervisorervice);
+		return "_L_productIno";
 	}
 }

@@ -119,10 +119,10 @@ padding: 3px
 							
  								<c:choose> 
 								<c:when test="${  seal.mapaa  !=  member.memberID}"> 
-							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a> 
+							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button"  onclick="return delForm2()">封鎖</button></a> 
 							</c:when> 
  								<c:when test="${ empty seal }"> 
-										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a>
+										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" onclick="return delForm2()">封鎖</button></a>
  								</c:when> 
  								<c:when test="${  seal.mapaa  ==  member.memberID }">
 								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="button" >解鎖</button></a> 
@@ -133,7 +133,7 @@ padding: 3px
 	
 
 										<a href="<c:url value='/debu/${member.memberID}'/>"><button
-										type="button" class="button" class='deletelink'>刪除</button></a></td>
+										type="button" class="button" class='deletelink' onclick="return delForm()">刪除</button></a></td>
 				
 						</tr>
 					</c:forEach>
@@ -146,25 +146,35 @@ padding: 3px
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type='text/javascript'>
 
-// 	function sealoff() {
-// 		setInterval(go, 5000);
-// 	};
+	function delForm() {
+		if (confirm("確定刪除嗎?")) {
+			return true;
+		}
+		return false;
+	}
 	
-// 	function go() {
-// 		$(".${member.memberID}").click()
-// 	};
+	function delForm2() {
+		if (confirm("確定封鎖嗎?")) {
+			return true;
+		}
+		return false;
+	}
+	// 	function sealoff() {
+	// 		setInterval(go, 5000);
+	// 	};
 
-// 	$("#a1").click(function(){
-// 		$("#a1").css("display","none");
-// 		$("#a2").css("display","block");
-// 	})
-// 	$("#a2").click(function(){
-// 		$("#a1").css("display","block");
-// 		$("#a2").css("display","none");
-// 	})
-	
-	
-	
+	// 	function go() {
+	// 		$(".${member.memberID}").click()
+	// 	};
+
+	// 	$("#a1").click(function(){
+	// 		$("#a1").css("display","none");
+	// 		$("#a2").css("display","block");
+	// 	})
+	// 	$("#a2").click(function(){
+	// 		$("#a1").css("display","block");
+	// 		$("#a2").css("display","none");
+	// 	})
 </script>
 </body>
 </html>
