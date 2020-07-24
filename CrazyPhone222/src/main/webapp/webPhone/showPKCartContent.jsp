@@ -371,9 +371,9 @@ th {
 
 					</c:when>
 					<c:otherwise>
-						<tr colspan='5'>
-							<td>您尚未選擇任何商品</td>
-						</tr>
+						
+							<h4 style="position:relative;left:45%">您尚未選擇任何商品</h4>
+				
 					</c:otherwise>
 				</c:choose>
 				<!-- 		</table> -->
