@@ -135,7 +135,7 @@ padding: 3px
 							<td style="text-align: center">${carousel.carouselUrl}</td>
 							<td style="text-align: center">${carousel.createDate}</td>
 							<td style="text-align: center"><a href="<c:url value='/deCar/${carousel.carouselID}'/>"><button
-							type="button" class="button" class="btn btn-primary">刪除</button></a></td>
+							type="button" class="button" class="btn btn-primary" onclick="return delForm()">刪除</button></a></td>
 									
 						</tr>
 					</c:forEach>
@@ -151,7 +151,13 @@ padding: 3px
 function showModal() {
     $('#111').modal('show'); 
 }
-
+function delForm()
+{
+if( confirm("確定刪除嗎?") ){
+	   return true; 
+}
+	   return false;
+}
 	
 	
 </script>
