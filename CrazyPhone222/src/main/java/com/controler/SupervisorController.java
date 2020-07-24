@@ -383,7 +383,7 @@ public class SupervisorController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
-		supervisorervice.updataproduct(PB.getProductName(), PB.getBrandBeanID(), PB.getTypeBeanID(), PB.getProductImage(), PB.getProductImage2(), PB.getProductImage3(), PB.getProductIntro(), PB.getUnitPrice(), PB.getStockQuantity(),productID);
+		supervisorervice.updataproduct(PB.getProductName(), PB.getBrandBean(), PB.getTypeBean(), PB.getProductImage(), PB.getProductImage2(), PB.getProductImage3(), PB.getProductIntro(), PB.getUnitPrice(), PB.getStockQuantity(),productID);
 		return "redirect:/Product";
 	}
 
