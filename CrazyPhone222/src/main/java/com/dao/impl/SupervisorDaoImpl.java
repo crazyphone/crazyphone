@@ -198,4 +198,13 @@ public class SupervisorDaoImpl implements SupervisorDao {
 		return true;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<SpecBean> getSpeclist() {
+		String hql = "FROM SpecBean";
+		Session session = factory.getCurrentSession();
+		List<SpecBean> Speclist = session.createQuery(hql).getResultList();
+		return Speclist;
+	}
+
 }

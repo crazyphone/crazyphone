@@ -22,9 +22,11 @@ body {
 </head>
 <body>
 	<div class="outside">
-		<div>
-			<img src="<c:url value=''/>"/>
-		</div>
+		<c:forEach var='product' items='${products}'>
+			<div>
+				<img src="<c:url value='/getproductimg/${product.productID}'/>"class="demoimg" />
+			</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

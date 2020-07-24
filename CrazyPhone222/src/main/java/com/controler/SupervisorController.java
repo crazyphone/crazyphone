@@ -201,11 +201,7 @@ public class SupervisorController {
 	// 商品刪除
 	@GetMapping("/peb/{productID}")
 	public String deleteproduct(@PathVariable Integer productID) {
-		System.out.println("c:  " + productID);
 		boolean des = supervisorervice.dropspec(productID);
-		System.out.println(des);
-//		boolean dep = supervisorervice.dropproduct(productID);
-//		System.out.println(dep);
 		if (des == false) {
 			System.out.println("刪除失敗");
 		}
@@ -390,7 +386,7 @@ public class SupervisorController {
 
 	}
 
-	// 顯示品牌圖片
+	// 顯示商品圖片
 	@GetMapping("/getproductimg/{productID}")
 	public ResponseEntity<byte[]> getProductImg(HttpServletRequest req, @PathVariable Integer productID) {
 		String noImagePath = "\\resources\\nothing.jpg";
@@ -437,7 +433,7 @@ public class SupervisorController {
 		return re;
 	}
 
-	// 顯示品牌圖片2
+	// 顯示商品圖片2
 	@GetMapping("/getproductimg2/{productID}")
 	public ResponseEntity<byte[]> getProductImg2(HttpServletRequest req, @PathVariable Integer productID) {
 		String noImagePath = "\\resources\\nothing.jpg";
@@ -484,7 +480,7 @@ public class SupervisorController {
 		return re;
 	}
 
-	// 顯示品牌圖片3
+	// 顯示商品圖片3
 	@GetMapping("/getproductimg3/{productID}")
 	public ResponseEntity<byte[]> getProductImg3(HttpServletRequest req, @PathVariable Integer productID) {
 		String noImagePath = "\\resources\\nothing.jpg";
@@ -585,10 +581,10 @@ public class SupervisorController {
 	}
 
 	// 品牌頁
-	@GetMapping("/query/{product.productID}")
+	@GetMapping("/query/{productID}")
 	public String readSjsp(Model model) {
 		model.addAttribute("products", supervisorervice.getproductlist());
-		model.addAttribute("specs", supervisorervice);
+		model.addAttribute("specs", supervisorervice.getSpeclist());
 		return "_L_productIno";
 	}
 }

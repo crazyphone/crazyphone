@@ -19,7 +19,7 @@
 font-family: Arial, Helvetica, sans-serif;
 background-image: url("http://pic.netbian.com/uploads/allimg/190324/170928-1553418568e1ef.jpg");
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed; 
             background-position: center;
             background-size: cover;
  }
@@ -132,10 +132,7 @@ anime.timeline({loop: false})
     easing: "easeOutExpo",
     duration: 1400,
     delay: (el, i) => 30 * i
-  }).add({
-    targets: '.ml16',
-  
-  });
+  })
 </script>
 </body>
 </html>

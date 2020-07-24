@@ -126,4 +126,10 @@ public class SupervisorerviceImpl implements Supervisorervice {
 		return dao.deletepspec(ProductID);
 	}
 
+	@Transactional
+	@Override
+	public List<SpecBean> getSpeclist() {
+		return dao.getSpeclist();
+	}
+
 }
