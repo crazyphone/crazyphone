@@ -159,9 +159,25 @@ public class MemberServiceImpl implements MemberService{
 	}
 	@Transactional
 	@Override
-	public List<OrdersBean> searchOrders(Long id, String phone, String sta) {
+	public List<OrdersBean> searchOrders(String id, String phone, String sta) {
 		
 		return dao.searchOrders(id,phone,sta);
+	}
+	@Transactional
+	@Override
+	public boolean ororor1(Integer id) {
+		
+		return dao.ororor1(id);
+	}
+	@Transactional
+	@Override
+	public boolean ororor2(Integer id) {
+		return dao.ororor2(id);
+	}
+	@Transactional
+	@Override
+	public boolean ororor3(Integer id) {
+		return dao.ororor3(id);
 	}
 
 }

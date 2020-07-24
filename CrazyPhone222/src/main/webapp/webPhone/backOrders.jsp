@@ -69,7 +69,7 @@ padding: 3px
 <%-- <a href="<c:url value='/'/> " >回商品首頁</a> --%>
 <a href="<c:url value='OOrders'/> " >顯示全部訂單</a>
 <form method='POST' action="<c:url value='searchOOrders' />" >
-	搜尋訂單編號:<input type='text' name='search1' placeholder='Search...' class="icon"><br>
+	搜尋訂單人:<input type='text' name='search1' placeholder='Search...' class="icon"><br>
 	搜尋訂單電話:<input type='text' name='phone1' placeholder='Search...' class="icon"><br>
 	
 	狀態:<select name="status1">
@@ -112,26 +112,24 @@ padding: 3px
 							<td style="text-align: center">${Order.shipAddress}</td>
 							<td style="text-align: center">${Order.finalPrice}</td>
 							<td style="text-align: center">${Order.goodsStatus}</td>
-
-							
-							
- 								<c:choose> 
-								<c:when test="${  seal.mapaa  !=  member.memberID}"> 
-							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a> 
-							</c:when> 
- 								<c:when test="${ empty seal }"> 
-										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a>
- 								</c:when> 
- 								<c:when test="${  seal.mapaa  ==  member.memberID }">
-								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="button" >解鎖</button></a> 
-								</c:when>
-								</c:choose> 
-
-							
-	
-
-										<a href="<c:url value='/debu/${member.memberID}'/>"><button
-										type="button" class="button" class='deletelink'>刪除</button></a></td>
+							<td style="text-align: center">
+							<a href="<c:url value='/ororor1/${Order.ID}'/>"><button type="button" class="button" >下單中</button></a>
+							<a href="<c:url value='/ororor2/${Order.ID}'/>"><button type="button" class="button" >運送中</button></a>
+							<a href="<c:url value='/ororor3/${Order.ID}'/>"><button type="button" class="button" >已完成</button></a>
+							</td>
+<%--  								<c:choose>  --%>
+<%-- 								<c:when test="${  seal.mapaa  !=  Order.memberID}">  --%>
+<%-- 							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a>  --%>
+<%-- 							</c:when>  --%>
+<%--  								<c:when test="${ empty seal }">  --%>
+<%-- 										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a> --%>
+<%--  								</c:when>  --%>
+<%--  								<c:when test="${  seal.mapaa  ==  member.memberID }"> --%>
+<%-- 								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="button" >解鎖</button></a>  --%>
+<%-- 								</c:when> --%>
+<%-- 								</c:choose> --%>
+<%-- 										<a href="<c:url value='/debu/${member.memberID}'/>"><button --%>
+<!-- 										type="button" class="button" class='deletelink'>刪除</button></a></td> -->
 				
 						</tr>
 					</c:forEach>
