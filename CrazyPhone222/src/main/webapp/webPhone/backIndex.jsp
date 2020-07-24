@@ -132,10 +132,7 @@ anime.timeline({loop: false})
     easing: "easeOutExpo",
     duration: 1400,
     delay: (el, i) => 30 * i
-  }).add({
-    targets: '.ml16',
-  
-  });
+  })
 </script>
 </body>
 </html>
