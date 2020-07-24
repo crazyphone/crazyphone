@@ -294,7 +294,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h3>${product.productName}</h3>
 									<p>Explore Now</p>
 									<h4>
-										<a class="item_add" href="#"><i></i></a> <span
+										<a class="item_add" href="<spring:url value='addToCart_index?phoneId=${product.productID}&&phoneName=${product.productName}&&phonePrice=${product.unitPrice}&&qty=1&&page=products'/>">
+										
+										<i></i>
+										</a> <span
 											class=" item_price">$ ${product.unitPrice}</span>
 									</h4>
 								</div>

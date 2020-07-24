@@ -108,7 +108,23 @@ public class _CartController {
 			System.out.println("After addToCart to ShowPage->" + page);
 			return  "redirect:/" + page ;
 		}
-	
+		//首頁測試href_index 2020/07/24
+		@GetMapping("/addToCart_index")
+		public String addToCart_index(Model model, 
+			   @RequestParam Integer phoneId,
+			   @RequestParam String phoneName,
+			   @RequestParam Integer phonePrice,
+			   @RequestParam Integer qty, 
+			   @RequestParam String page) {
+			
+			ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+			ProductBean bean = new ProductBean(phoneId, phoneName,phonePrice);
+			
+			OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);
+			cart.addToCart(phoneId, oib);
+			System.out.println("After addToCart to ShowPage->" + page);
+			return  "redirect:/" ;
+		}
 	@PostMapping("/addQtyToCart")
 	public String addQtyToCart(Model model, 
 		   @RequestParam Integer phoneId,
