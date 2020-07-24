@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
 .tb1 {
 	width: 150px;
-	height: 620px;
+	height: 650px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 .tb2 {
 	width: 250px;
-	height: 620px;
+	height: 650px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -293,7 +293,7 @@ th {
 					<td>前相機畫素</td>
 				</tr>
 				<tr>
-					<td>&nbsp</td>
+					<td height='50px'>&nbsp</td>
 				</tr>
 				<!-- 							</tbody> -->
 				<!-- 						</table> -->
@@ -356,7 +356,7 @@ th {
 																<input type='hidden' name='page'
 																	value='showPKCartContent'>
 																<!-- 																	type='hidden' name='page' value='products'> <input -->
-																<input type='submit' class="btn btn-primary"
+																<input type='submit' class="btn btn-link"
 																	value='移出車拚'>
 															</form>
 														</td>
