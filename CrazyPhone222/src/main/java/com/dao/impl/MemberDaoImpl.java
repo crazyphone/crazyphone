@@ -353,9 +353,9 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public List<OrdersBean> searchOrders(Long id, String phone, String sta) {
+	public List<OrdersBean> searchOrders(String id, String phone, String sta) {
 		
-		String hql = "FROM OrdersBean ob WHERE ob.OrderID like :id and ob.ReceiverPhone like :ph and ob.GoodsStatus = :sta ";
+		String hql = "FROM OrdersBean ob WHERE ob.Receiver like :id and ob.ReceiverPhone like :ph and ob.GoodsStatus = :sta ";
 		Session session = factory.getCurrentSession();
 		
 		List<OrdersBean> list=null;
@@ -369,6 +369,48 @@ public class MemberDaoImpl implements MemberDao {
 		}
 
 		return list;
+	}
+
+	@Override
+	public boolean ororor1(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '下單中'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean ororor2(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '運送中'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean ororor3(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '已完成'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 

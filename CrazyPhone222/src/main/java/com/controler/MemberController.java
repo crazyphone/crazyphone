@@ -619,7 +619,7 @@ public class MemberController {
 			return "redirect:/addCarousel";
 		
 		}
-
+//------------------------------------訂單-----------------------------------------------
 		//連到歷史訂單
 		@PostMapping("/orderSelectMember")
 		public String orderSelectMember(Model model,HttpSession session,@RequestParam(value="idid") Integer id) {
@@ -637,17 +637,21 @@ public class MemberController {
 			
 			return "backOrders";
 		}
+		
+		
+		
+		
 		//搜尋訂單資料
 		@RequestMapping(value = "/searchOOrders",method =RequestMethod.POST)
 		public String searchOOrders1(@RequestParam(value="search1") String orderIdd
 				,@RequestParam(value="phone1") String phone
 				,@RequestParam(value="status1") String status
 				,Model model,HttpSession session) {
-			int aaaa = Integer.parseInt(orderIdd);
+//			int aaaa = Integer.parseInt(orderIdd);
 			
-			Long k =(long)(int)aaaa;
+//			Long k =(long)(int)555;
 			
-			List<OrdersBean> ob=(List) memberService.searchOrders(k,phone,status);
+			List<OrdersBean> ob=(List) memberService.searchOrders(orderIdd,phone,status);
 			if(ob != null) {
 				model.addAttribute("Orders",ob);
 			}else {
@@ -657,7 +661,46 @@ public class MemberController {
 			
 					return "backOrders";
 		}
-	
+		
+		//後台訂單下單中修改
+		@GetMapping("/ororor1/{ID}")
+		public String ororor1(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor1(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
+		//後台訂單運送中修改
+		@GetMapping("/ororor2/{ID}")
+		public String ororor2(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor2(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
+		//後台訂單已完成修改
+		@GetMapping("/ororor3/{ID}")
+		public String ororor3(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor3(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
 	//如果沒有登入就跳轉登入畫面
 //	Object sess = session.getAttribute("LoginOK");
 //	if(sess == null) {
