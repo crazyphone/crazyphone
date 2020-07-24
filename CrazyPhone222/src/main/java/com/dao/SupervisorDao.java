@@ -22,7 +22,7 @@ public interface SupervisorDao {
 
 	public void insertproduct(ProductBean product);
 
-	public boolean updataproduct(String nProductName, BrandBean nBrandID, TypeBean ntypeID, Blob nProductImage,
+	public boolean updataproduct(String nProductName, Integer nBrandID, Integer ntypeID, Blob nProductImage,
 			Blob nProductImage2, Blob nProductImage3, String nProductIntro, Integer nUnitPrice, Integer nStockQuantity,
 			Integer ProductID);
 
