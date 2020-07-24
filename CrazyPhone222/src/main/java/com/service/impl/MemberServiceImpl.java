@@ -151,5 +151,17 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.getAllMemberOrders(id);
 	}
+	@Transactional
+	@Override
+	public List<OrdersBean> getAllOrders() {
+		
+		return dao.getAllOrders();
+	}
+	@Transactional
+	@Override
+	public List<OrdersBean> searchOrders(Long id, String phone, String sta) {
+		
+		return dao.searchOrders(id,phone,sta);
+	}
 
 }
