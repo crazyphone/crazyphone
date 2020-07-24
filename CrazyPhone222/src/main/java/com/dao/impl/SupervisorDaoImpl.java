@@ -79,13 +79,24 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	public boolean updataproduct(String nProductName, BrandBean nBrandID, TypeBean ntypeID, Blob nProductImage,
 			Blob nProductImage2, Blob nProductImage3, String nProductIntro, Integer nUnitPrice, Integer nStockQuantity,
 			Integer ProductID) {
-		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.BrandBean.BrandID = :BI , PB.TypeBean.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
+		System.out.println(ProductID);
+		Integer BID = nBrandID.getBrandID();
+		Integer TID = ntypeID.getTypeID();
+		
+		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.brandBean.BrandID = :BI , PB.typeBean.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
 		Session session = factory.getCurrentSession();
 		try {
-			session.createQuery(hql).setParameter("PN", nProductName).setParameter("BI", nBrandID)
-					.setParameter("TI", ntypeID).setParameter("PI1", nProductImage).setParameter("PI2", nProductImage2)
-					.setParameter("PI3", nProductImage3).setParameter("PIn", nProductIntro)
-					.setParameter("UP", nUnitPrice).setParameter("SQ", nStockQuantity).setParameter("PI", ProductID)
+			session.createQuery(hql)
+			        .setParameter("PN", nProductName)
+			        .setParameter("BI", BID)
+					.setParameter("TI", TID)
+					.setParameter("PI1", nProductImage)
+					.setParameter("PI2", nProductImage2)
+					.setParameter("PI3", nProductImage3)
+					.setParameter("PIn", nProductIntro)
+					.setParameter("UP", nUnitPrice)
+ 				    .setParameter("SQ", nStockQuantity)
+					.setParameter("PI", ProductID)
 					.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
