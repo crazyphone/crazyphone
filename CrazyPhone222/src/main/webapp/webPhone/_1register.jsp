@@ -12,8 +12,11 @@
 
 
 <style>
-body {font-family: Arial, Helvetica, sans-serif;
- background-image: url("https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") ;
+body {font-family:Microsoft JhengHei;
+/* font-family: Arial, Helvetica, sans-serif; */
+background-image: url("https://images.pexels.com/photos/3568520/pexels-photo-3568520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") ;
+/*  background-image: url("https://images.pexels.com/photos/1581687/pexels-photo-1581687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500") ; */
+/*  background-image: url("https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") ; */
            
             background-attachment: fixed;
             background-position: center;
@@ -40,6 +43,7 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
+  font-family:Microsoft JhengHei;
 }
 
 button:hover {
@@ -50,7 +54,8 @@ button:hover {
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  background-color: #f44336;
+  background-color: #6A6AFF;
+  font-family:Microsoft JhengHei;
 }
 
 /* Center the image and position the close button */
@@ -129,23 +134,25 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+    
   }
 }
 
 
 .demo{
-margin-left:350px;
+margin-left:365px;
 padding: 9px;
 width: auto;
-background-color: #7df5f1;
+background-color: #6A6AFF;
+font-family:Microsoft JhengHei;
 }
 
-.demo1{
+ .demo1{ 
 
-padding: 9px;
-width: auto;
-background-color: #7df5f1;
-}
+ padding: 9px; 
+ width: auto; 
+ background-color: #7df5f1; 
+ } 
 .h2h2{
 
 }
@@ -232,8 +239,8 @@ background-color: #7df5f1;
     <button type="button" class="cancelbtn">回首頁</button>
     </a>
       
-      
-      <span ><input type="button" class="demo" value='一鍵輸入'></span>
+      <button type="button" class="demo">一鍵輸入</button>
+<!--       <span ><input type="button" class="demo" value='一鍵輸入'></span> -->
      
 
     </div>
