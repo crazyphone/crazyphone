@@ -216,7 +216,7 @@ button {
 	</div>
 	<!--end-breadcrumbs-->
 	<!--contact-start-->
-	<div class="contact">
+	<div class="contact" style="position: relative; top: -40px">
 		<div class="container">
 			<div class="contact-top heading">
 				<h2>聯絡我們</h2>

@@ -162,6 +162,9 @@ th {
 	<!--start-logo-->
 	<div class="logo">
 		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }"> 
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -217,7 +220,22 @@ th {
 							<li class="active"><a href="compare">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
+							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
 							<li class="grid"><a href="lognin">登入</a></li>
+							</c:if>
+							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
+							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
+							</c:if>
+							<c:if test="${! empty LoginOK }"> 
+ 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
+									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
+							</c:if> 
+							<c:if test="${! empty LoginSuperOK }"> 
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
