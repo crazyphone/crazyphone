@@ -76,10 +76,10 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	}
 
 	@Override
-	public boolean updataproduct(String nProductName, Integer nBrandID, Integer ntypeID, Blob nProductImage,
+	public boolean updataproduct(String nProductName, BrandBean nBrandID, TypeBean ntypeID, Blob nProductImage,
 			Blob nProductImage2, Blob nProductImage3, String nProductIntro, Integer nUnitPrice, Integer nStockQuantity,
 			Integer ProductID) {
-		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.BrandID = :BI , PB.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
+		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.BrandBean.BrandID = :BI , PB.TypeBean.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
 		Session session = factory.getCurrentSession();
 		try {
 			session.createQuery(hql).setParameter("PN", nProductName).setParameter("BI", nBrandID)
