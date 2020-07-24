@@ -27,7 +27,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 </script>
 <!--start-menu-->
 <script src="${pageContext.request.contextPath}/js/simpleCart.min.js">
@@ -48,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
 .tb1 {
 	width: 150px;
-	height: 400px;
+	height: 600px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -56,12 +60,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	position: absolute;
 	left: 180px;
 	top: 369px;
-
 }
 
 .tb2 {
 	width: 250px;
-	height: 400px;
+	height: 600px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -81,22 +84,22 @@ th {
 	font-size: larger;
 }
 
-.botD{
-position:fixed;
-left:200px;
-top: 800px;
-/* left:-600px; */
-/* top: 400px; */
-}
-.botD2{
-position:fixed;
-left:200px;
-top: 900px;
-/* position:absolute; */
-/* left:-600px; */
-/* top: 600px; */
+.botD {
+	position: fixed;
+	left: 200px;
+	top: 800px;
+	/* left:-600px; */
+	/* top: 400px; */
 }
 
+.botD2 {
+	position: fixed;
+	left: 200px;
+	top: 900px;
+	/* position:absolute; */
+	/* left:-600px; */
+	/* top: 600px; */
+}
 </style>
 </head>
 <body>
@@ -241,122 +244,128 @@ top: 900px;
 	<!--end-breadcrumbs-->
 	<!--typo-starts-->
 	<div>
-	<div class="pages" id="pages">
-		<div class="container">
-			<div class="typo-top heading">
-				<h2 style="position: relative; top: -50px">車拚</h2>
+		<div class="pages" id="pages">
+			<div class="container">
+				<div class="typo-top heading">
+					<h2 style="position: relative; top: -50px">車拚</h2>
+				</div>
 			</div>
 		</div>
-	</div>
-	<table class="tb1">
-		<thead>
-			<tr>
-				<th>型號</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>單價</td>
-			</tr>
-			<tr>
-				<td>上市日期</td>
-			</tr>
-			<tr>
-				<td style="font-size: larger"><b>規格</b></td>
-			</tr>
-			<tr>
-				<td>處理器</td>
-			</tr>
-			<tr>
-				<td>儲存空間</td>
-			</tr>
-			<tr>
-				<td>電池容量</td>
-			</tr>
-			<tr>
-				<td>螢幕尺寸</td>
-			</tr>
-			<tr>
-				<td>主相機畫素</td>
-			</tr>
-			<tr>
-				<td>前相機畫素</td>
-			</tr>
-			<!-- 							</tbody> -->
-			<!-- 						</table> -->
-			<!-- 					</div> -->
-			<c:choose>
-				<c:when test='${PKCart.itemNumber > 0 }'>
-					<c:set var="sum" value="0"></c:set>
-					<c:forEach var='product' items='${PKCart.content}'>
+		<table class="tb1">
+			<thead>
+				<tr>
+					<th>型號</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td height='217' style="font-size: larger"><b>外型</b></td>
+				</tr>
+				<tr>
+					<td>單價</td>
+				</tr>
+				<tr>
+					<td>上市日期</td>
+				</tr>
+				<tr>
+					<td style="font-size: larger"><b>規格</b></td>
+				</tr>
+				<tr>
+					<td>處理器</td>
+				</tr>
+				<tr>
+					<td>儲存空間</td>
+				</tr>
+				<tr>
+					<td>電池容量</td>
+				</tr>
+				<tr>
+					<td>螢幕尺寸</td>
+				</tr>
+				<tr>
+					<td>主相機畫素</td>
+				</tr>
+				<tr>
+					<td>前相機畫素</td>
+				</tr>
+				<!-- 							</tbody> -->
+				<!-- 						</table> -->
+				<!-- 					</div> -->
+				<c:choose>
+					<c:when test='${PKCart.itemNumber > 0 }'>
+						<c:set var="sum" value="0"></c:set>
+						<c:forEach var='product' items='${PKCart.content}'>
 
-						<div class="col-sm-4 wthree-crd widgettable">
+							<div class="col-sm-4 wthree-crd widgettable">
 
-							<div class="card">
-								<div class="card-body">
-									<div class="agileinfo-cdr">
+								<div class="card">
+									<div class="card-body">
+										<div class="agileinfo-cdr">
 
-										<table class="tb2">
-											<thead>
-												<tr>
-													<th>${product.value.productBean.productName}</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>${product.value.productBean.unitPrice}元</td>
-												</tr>
-												<tr>
-													<td>${product.value.productBean.releasedDate}</td>
-												</tr>
-												<tr>
-													<td style="color: white; font-size: larger"><b>規格</b></td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.processor}</td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.storage}</td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.batteryCapacity}</td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.displaySize}</td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.rearCamera}</td>
-												</tr>
-												<tr>
-													<td>${product.value.specBean.frontCamera}</td>
-												</tr>
-											</tbody>
-										</table>
+											<table class="tb2">
+												<thead>
+													<tr>
+														<th>${product.value.productBean.productName}</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><img height='200'
+															src="<c:url value='/getPictureForPK/${product.value.productBean.productID}'/>" /></td>
+													</tr>
+													<tr>
+														<td>${product.value.productBean.unitPrice}元</td>
+													</tr>
+													<tr>
+														<td>${product.value.productBean.releasedDate}</td>
+													</tr>
+													<tr>
+														<td style="color: white; font-size: larger"><b>規格</b></td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.processor}</td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.storage}</td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.batteryCapacity}</td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.displaySize}</td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.rearCamera}</td>
+													</tr>
+													<tr>
+														<td>${product.value.specBean.frontCamera}</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
-							</div>
-<!-- 						</div> -->
+								<!-- 						</div> -->
+						</c:forEach>
 
-					</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr colspan='5'>
+							<td>您尚未選擇任何商品</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+				<!-- 		</table> -->
 
-				</c:when>
-				<c:otherwise>
-					<tr colspan='5'>
-						<td>您尚未選擇任何商品</td>
-					</tr>
-				</c:otherwise>
-			</c:choose>
-			<!-- 		</table> -->
-
-		</tbody>
-	</table>
+			</tbody>
+		</table>
 	</div>
-<!-- 	<hr> -->
+	<!-- 	<hr> -->
 	<!--typo-ends-->
 	<!--information-starts-->
 
-<!-- 	<div class="information" > -->
-<div class="botD">
+	<!-- 	<div class="information" > -->
+	<div class="botD">
 		<div class="container">
 			<div class="infor-top">
 				<div class="col-md-3 infor-left">
@@ -405,29 +414,29 @@ top: 900px;
 	</div>
 	<!--information-end-->
 	<!--footer-starts-->
-<div class="botD2">
-	<hr>
-	<div class="footer">
-		<div class="container">
-			<div class="footer-top">
-				<div class="col-md-6 footer-left">
-					<form>
-						<input type="text" value="Enter Your Email"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-						<input type="submit" value="Subscribe">
-					</form>
+	<div class="botD2">
+		<hr>
+		<div class="footer">
+			<div class="container">
+				<div class="footer-top">
+					<div class="col-md-6 footer-left">
+						<form>
+							<input type="text" value="Enter Your Email"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+					<div class="col-md-6 footer-right">
+						<p>
+							© 2020 Phone人苑. All Rights Reserved | Design by <a
+								href="http://w3layouts.com/" target="_blank">W3layouts</a>
+						</p>
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="col-md-6 footer-right">
-					<p>
-						© 2020 Phone人苑. All Rights Reserved | Design by <a
-							href="http://w3layouts.com/" target="_blank">W3layouts</a>
-					</p>
-				</div>
-				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!--footer-end-->
 </body>

@@ -30,19 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	
-	
-	
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
+		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 </script>
 <!--start-menu-->
@@ -274,11 +262,11 @@ th {
 						<div class="agileinfo-cdr">
 
 							<table class="tbC">
-								<thead>
-									<tr>
-										<th colspan="2">no.${criticism.criticismID}</th>
-									</tr>
-								</thead>
+								<!-- 								<thead> -->
+								<!-- 									<tr> -->
+								<%-- 										<th colspan="2">no.${criticism.criticismID}</th> --%>
+								<!-- 									</tr> -->
+								<!-- 								</thead> -->
 								<tbody>
 									<tr>
 										<td rowspan="2"><img width='60' height='60'
@@ -299,15 +287,21 @@ th {
 										<td colspan="2"><img height='160'
 											src="<c:url value='/getPicture2/${criticism.criticismID}' />" /></td>
 									</tr>
+
 									<tr>
-										<td><a
-											href="<c:url value='/dCri/${criticism.criticismID}'/>">刪除</a>
-										</td>
-										<td><a
-											href="<c:url value='/updateCriticism/${criticism.criticismID}'/>">編輯</a>
-										</td>
+										<c:if
+											test="${LoginOK.memberID == criticism.memberBean.memberID}">
+											<td><a
+												href="<c:url value='/dCri/${criticism.criticismID}'/>">刪除</a>
+											</td>
+											<td><a
+												href="<c:url value='/updateCriticism/${criticism.criticismID}'/>">編輯</a>
+											</td>
+									
+										</c:if>
 
 									</tr>
+
 								</tbody>
 							</table>
 						</div>
