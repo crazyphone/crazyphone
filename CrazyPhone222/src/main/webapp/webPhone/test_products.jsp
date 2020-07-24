@@ -191,7 +191,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						     	</form>
 											-->
 										</p>
-									<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ ${product.unitPrice}</span></h4>
+									<h4><a class="item_add" href="<spring:url value='addToCart?phoneId=${product.productID}&&phoneName=${product.productName}&&phonePrice=${product.unitPrice}&&qty=1&&page=products'/>">
+									
+									
+									
+									
+									<i></i></a> <span class=" item_price">$ ${product.unitPrice}</span></h4>
+								<form action='addToPKCart' method='POST'>
+									<input type='hidden' name='productID'
+										value='${product.productID}'> <input type='hidden'
+										name='productName' value='${product.productName}'> <input
+										type='hidden' name='UnitPrice' value='${product.unitPrice}'>
+									<input type='hidden' name='qty' value=1> <input
+										type='hidden' name='page' value='products'> <input
+										type='submit' class="btn btn-primary" value='加入車拚'>
+								</form>
+								
 								</div>
 								<div class="srch srch1">
 									<span>-50%</span>

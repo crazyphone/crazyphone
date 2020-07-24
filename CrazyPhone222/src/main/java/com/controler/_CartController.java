@@ -8,6 +8,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -89,6 +90,25 @@ public class _CartController {
 		System.out.println("After addToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
+	
+	//測試href 2020/07/24 小圖示
+		@GetMapping("/addToCart")
+		public String addToCart_products(Model model, 
+			   @RequestParam Integer phoneId,
+			   @RequestParam String phoneName,
+			   @RequestParam Integer phonePrice,
+			   @RequestParam Integer qty, 
+			   @RequestParam String page) {
+			
+			ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+			ProductBean bean = new ProductBean(phoneId, phoneName,phonePrice);
+			
+			OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);
+			cart.addToCart(phoneId, oib);
+			System.out.println("After addToCart to ShowPage->" + page);
+			return  "redirect:/" + page ;
+		}
+	
 	@PostMapping("/addQtyToCart")
 	public String addQtyToCart(Model model, 
 		   @RequestParam Integer phoneId,
