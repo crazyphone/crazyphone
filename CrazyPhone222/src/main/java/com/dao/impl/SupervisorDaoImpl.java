@@ -167,7 +167,7 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	public boolean updataspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
 			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
 			Integer ProductID) {
-		String hql = "update SpecBean SB SET SB.OS = :OS,SB.Processor:SP,SB.DisplaySize:DS,SB.DisplayResolution:DR,SB.FrontCamera:FC,SB.RearCamera:RC,SB.RAM:RM,SB.Storage:SS,SB.BatteryCapacity:BC where SB.ProductID = :PI";
+		String hql = "update SpecBean SB SET SB.OS = :OS ,SB.Processor= :SP ,SB.DisplaySize= :DS ,SB.DisplayResolution= :DR ,SB.FrontCamera= :FC ,SB.RearCamera= :RC ,SB.RAM= :RM ,SB.Storage= :SS ,SB.BatteryCapacity= :BC where SB.productBean.ProductID = :PI";
 		Session session = factory.getCurrentSession();
 		try {
 			session.createQuery(hql).setParameter("OS", nOS).setParameter("SP", nProcessor)

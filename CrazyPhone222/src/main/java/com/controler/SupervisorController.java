@@ -603,7 +603,6 @@ public class SupervisorController {
 				SB.getFrontCamera(), SB.getRearCamera(), SB.getRAM(), SB.getStorage(), SB.getBatteryCapacity(),
 				productID);
 		
-		
 		return "redirect:/Product";
 	}
 }
