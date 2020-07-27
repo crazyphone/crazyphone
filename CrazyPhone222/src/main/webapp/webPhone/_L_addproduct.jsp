@@ -70,7 +70,7 @@ button:hover {
 /* Modal Content/Box */
 .modal-content {
 	background-color: #fefefe;
-	margin-top:5% ;
+	margin: 5% auto 15% auto;
 	border: 1px solid #888;
 	width: 40%;
 }
@@ -156,7 +156,7 @@ button:hover {
 			<img id="chimg3" src="" />
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">下一步</button>
-				<input type="button" class="cancelbtn" value='一鍵輸入'>
+				<button type="button" style="margin-top: 50px" class="cancelbtn">一鍵輸入</button>
 			</div>
 		</form:form>
 	</div>

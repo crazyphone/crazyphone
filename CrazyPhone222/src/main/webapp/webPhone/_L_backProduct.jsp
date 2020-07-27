@@ -109,7 +109,7 @@ input[type=text] {
 					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="button">編輯</button></a>
 					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			
 					<a href="<c:url value='/query/${product.productID}'/>"><button type="button" class="button">查看規格</button></a> 
-					<a href="<c:url value=''/>"><button type="button" class="button">編輯規格</button></a> 
+					<a href="<c:url value='/upSpec/${product.productID}'/>"><button type="button" class="button">編輯規格</button></a> 
 					</td>
 				</tr>
 			</c:forEach>

@@ -45,7 +45,9 @@ public interface SupervisorDao {
 			Integer ProductID);
 
 	public boolean deletepspec(Integer ProductID);
-	
+
 	public List<SpecBean> getSpeclist();
+
+	public SpecBean getspecbyid(int ProductID);
 
 }
