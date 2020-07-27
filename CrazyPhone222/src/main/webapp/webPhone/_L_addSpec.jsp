@@ -77,7 +77,7 @@ button:hover {
 		crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="modal">
+	<div class="modal" >
 		<form:form class="modal-content animate" method="post"
 			modelAttribute="SpecBean">
 			<div class="container">
