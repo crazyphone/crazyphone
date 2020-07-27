@@ -155,6 +155,15 @@ padding: 9px;
 width: auto;
 background-color: #7df5f1;
 }
+.demo2{
+
+float: right;
+margin-top:10px;
+padding: 9px;
+width: auto;
+background-color: #7df5f1;
+}
+
 .psw2{
 float: right;
 
@@ -223,7 +232,8 @@ float: right;
       
       <span ><input type="button" class="demo" value='一鍵輸入'></span>
 <!--       <span ><input type="button" class="demo1" value='一鍵管理者'></span> -->
-	<span ><input type="button" class="demo1" value='一鍵輸入(新)'></span>
+	<span ><input type="button" class="demo1" value='一鍵(新)'></span>
+	<span ><input type="button" class="demo2" value='一鍵(琪)'></span>
       
  
     </div>
@@ -242,13 +252,15 @@ float: right;
   			$("#pswDemo").val("Do!ng123");
 
  		})
-//  		$(".demo1").click(function(){
-//  			$("#namedemo").val("1111@gmail.com");
-//   			$("#pswdemo").val("xxxxxxxxxxxx");
 
-//  		})
  		$(".demo1").click(function(){
  			$("#nameDemo").val("eeit11011@gmail.com");
+  			$("#pswDemo").val("sa123456");
+
+ 		})
+ 		
+ 		$(".demo2").click(function(){
+ 			$("#nameDemo").val("eeit11012@gmail.com");
   			$("#pswDemo").val("sa123456");
 
  		})
@@ -300,18 +312,7 @@ float: right;
     	    document.getElementById('g-recaptcha-error').innerHTML = '';
     	}
       
-      
-      
-
-      
-      
-     
     </script>
-	
-
-
-
-
 
 </body>
 </html>
