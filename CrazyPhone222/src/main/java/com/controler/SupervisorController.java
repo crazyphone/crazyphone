@@ -576,15 +576,34 @@ public class SupervisorController {
 			ProductBean PB = new ProductBean();
 			PB.setProductID(supervisorervice.getallpid().get(supervisorervice.getallpid().size() - 1));
 			SB.setProductBean(PB);
+			supervisorervice.addspec(SB);
 			return "redirect:/Product";
 		}
 	}
 
-	// 品牌頁
+	// 詳細資料頁
 	@GetMapping("/query/{productID}")
 	public String readSjsp(Model model) {
 		model.addAttribute("products", supervisorervice.getproductlist());
 		model.addAttribute("specs", supervisorervice.getSpeclist());
 		return "_L_productIno";
+	}
+
+	// 詳細資料編輯頁
+	@GetMapping("/upSpec/{productID}")
+	public String upsjsp(Model model, @PathVariable Integer productID) {
+		SpecBean SB = supervisorervice.getspecbyid(productID);
+		model.addAttribute("SpecBean1", SB);
+		return "_L_upSpec";
+	}
+
+	@PostMapping("/upSpec/{productID}")
+	public String upSpec(@ModelAttribute("SpecBean1") SpecBean SB, @PathVariable Integer productID) {
+		supervisorervice.upspec(SB.getOS(), SB.getProcessor(), SB.getDisplaySize(), SB.getDisplayResolution(),
+				SB.getFrontCamera(), SB.getRearCamera(), SB.getRAM(), SB.getStorage(), SB.getBatteryCapacity(),
+				productID);
+		
+		
+		return "redirect:/Product";
 	}
 }

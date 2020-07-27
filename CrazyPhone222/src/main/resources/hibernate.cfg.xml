@@ -10,7 +10,7 @@
 		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 		<property name="connection.url">jdbc:sqlserver://127.0.0.1:1433;DatabaseName=topicDb</property>
 		<property name="connection.username">sa</property>
-		<property name="connection.password">60513apple</property>
+		<property name="connection.password">sa123456</property>
 
 
 		<!-- 2. 其他與資料存取有關的設定 -->

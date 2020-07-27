@@ -207,4 +207,14 @@ public class SupervisorDaoImpl implements SupervisorDao {
 		return Speclist;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public SpecBean getspecbyid(int productID) {
+		System.out.println(productID);
+		Session session = factory.getCurrentSession();
+		String hql = "FROM SpecBean m WHERE m.productBean.ProductID = :mid ";
+		SpecBean Speclist = (SpecBean)session.createQuery(hql).setParameter("mid", productID).getSingleResult();
+		return Speclist;
+	}
+
 }

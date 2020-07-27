@@ -101,7 +101,7 @@ public class SupervisorerviceImpl implements Supervisorervice {
 
 	@Transactional
 	@Override
-	public List<Integer > getallpid() {
+	public List<Integer> getallpid() {
 		return dao.getallproductid();
 	}
 
@@ -109,7 +109,7 @@ public class SupervisorerviceImpl implements Supervisorervice {
 	@Override
 	public void addspec(SpecBean spec) {
 		dao.insertspec(spec);
-		
+
 	}
 
 	@Transactional
@@ -117,7 +117,8 @@ public class SupervisorerviceImpl implements Supervisorervice {
 	public boolean upspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
 			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
 			Integer ProductID) {
-		return dao.updataspec(nOS, nProcessor, nDisplaySize, nDisplayResolution, nFrontCamera, nRearCamera, nRAM, nStorage, nBatteryCapacity, ProductID);
+		return dao.updataspec(nOS, nProcessor, nDisplaySize, nDisplayResolution, nFrontCamera, nRearCamera, nRAM,
+				nStorage, nBatteryCapacity, ProductID);
 	}
 
 	@Transactional
@@ -130,6 +131,12 @@ public class SupervisorerviceImpl implements Supervisorervice {
 	@Override
 	public List<SpecBean> getSpeclist() {
 		return dao.getSpeclist();
+	}
+
+	@Transactional
+	@Override
+	public SpecBean getspecbyid(int productID) {
+		return dao.getspecbyid(productID);
 	}
 
 }

@@ -164,7 +164,7 @@ public class EDMTableResetHibernate {
 			
 			// 2-2 由"data/bookCompany.dat"逐筆讀入BookCompany表格內的初始資料，
 			// 然後依序新增到BookCompany表格中
-			try (FileReader fr = new FileReader("data/Spec_0709_2.txt"); BufferedReader br = new BufferedReader(fr);) {
+			try (FileReader fr = new FileReader("data/Spec_0727_2.txt"); BufferedReader br = new BufferedReader(fr);) {
 				while ((line = br.readLine()) != null) {
 					if (line.startsWith(UTF8_BOM)) {
 						line = line.substring(1);
