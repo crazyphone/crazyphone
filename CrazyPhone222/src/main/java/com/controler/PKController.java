@@ -37,12 +37,17 @@ public class PKController {
 		
 		PKCart cart = (PKCart)model.getAttribute("PKCart");
 		ProductBean bean = service.getProductById(productID);
-	
 		PKItemBean pib = new PKItemBean(null, null, bean.getSpecBean(), bean);
+		int pin=cart.getItemNumber();
+		if(pin <= 2) {
 		cart.addToPKCart(productID, pib);
+		System.out.println(cart.getItemNumber());
+		}else {
+		}
 		System.out.println("After addToCart to ShowPage->" + page);
-		return "redirect:/" + page;
+		return "redirect:/" + page;	
 	}
+	
 	//移除車拚項目
 	@PostMapping("/deleteFromPKCart")
 	public String deleteItem(Model model, 

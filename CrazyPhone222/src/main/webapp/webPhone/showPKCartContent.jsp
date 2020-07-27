@@ -79,13 +79,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 }
 
 td, th {
-	border: 1px solid gray;
+	border-bottom: 1px solid gray;
 	text-align: center;
 }
 
-th {
+.th1 {
 	height: 50px;
 	font-size: larger;
+	text-align: center;
+}
+.th2 {
+	height: 50px;
+	font-size: larger;
+	text-align: right;
 }
 
 .botD {
@@ -276,7 +282,7 @@ th {
 		<table class="tb1">
 			<thead>
 				<tr>
-					<th>型號</th>
+					<th class="th1">型號</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -310,12 +316,8 @@ th {
 				<tr>
 					<td>前相機畫素</td>
 				</tr>
-				<tr>
-					<td height='50px'>&nbsp</td>
-				</tr>
-				<!-- 							</tbody> -->
-				<!-- 						</table> -->
-				<!-- 					</div> -->
+
+
 				<c:choose>
 					<c:when test='${PKCart.itemNumber > 0 }'>
 						<c:set var="sum" value="0"></c:set>
@@ -330,55 +332,51 @@ th {
 											<table class="tb2">
 												<thead>
 													<tr>
-														<th>${product.value.productBean.productName}</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td><img height='200'
-															src="<c:url value='/getPictureForPK/${product.value.productBean.productID}'/>" /></td>
-													</tr>
-													<tr>
-														<td>${product.value.productBean.unitPrice}元</td>
-													</tr>
-													<tr>
-														<td>${product.value.productBean.releasedDate}</td>
-													</tr>
-													<tr>
-														<td style="color: white; font-size: larger"><b>規格</b></td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.processor}</td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.storage}</td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.batteryCapacity}</td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.displaySize}</td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.rearCamera}</td>
-													</tr>
-													<tr>
-														<td>${product.value.specBean.frontCamera}</td>
-													</tr>
-
-													<tr>
-														<td>
-															<form action='deleteFromPKCart' method='POST'>
+														<th class="th2">${product.value.productBean.productName}</th>
+														<th class="th2"><form action='deleteFromPKCart' method='POST'>
 																<input type='hidden' name='productID'
 																	value='${product.value.productBean.productID}'>
 																<input type='hidden' name='page'
 																	value='showPKCartContent'>
 																<!-- 																	type='hidden' name='page' value='products'> <input -->
 																<input type='submit' class="btn btn-link"
-																	value='移出車拚'>
-															</form>
-														</td>
+																	value='x'>
+															</form></th>
 													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="2"><img height='200'
+															src="<c:url value='/getPictureForPK/${product.value.productBean.productID}'/>" /></td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.productBean.unitPrice}元</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.productBean.releasedDate}</td>
+													</tr>
+													<tr>
+														<td colspan="2" style="color: white; font-size: larger"><b>規格</b></td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.processor}</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.storage}</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.batteryCapacity}</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.displaySize}</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.rearCamera}</td>
+													</tr>
+													<tr>
+														<td colspan="2">${product.value.specBean.frontCamera}</td>
+													</tr>
+
 												</tbody>
 											</table>
 										</div>
