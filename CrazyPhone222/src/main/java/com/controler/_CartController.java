@@ -161,7 +161,17 @@ public class _CartController {
 		System.out.println("After DelQtyToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
-	
+	//H0725
+	@PostMapping("DelProductToCart")
+	public String DelProductToCart(Model model,
+			   @RequestParam Integer phoneId,
+			   @RequestParam String page) {
+		
+		ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+		cart.deleteItem(phoneId);
+		System.out.println("After DelProductToCart to ShowPage->" + page);
+		return "redirect:/"+page;
+	}
 	@PostMapping("/orderToDB")
 	public String orderToDB(Model model,
 		   @RequestParam Integer MemberID,

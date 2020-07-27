@@ -69,7 +69,7 @@
 							<th width='10'></th>						
 							<th width='50'>數量</th>	
 							<th width='80'></th>
-							<th width='150'>金額</th>	
+							<th width='80'>金額</th>	
 						</tr>	
 				   	<c:set var="sum" value="0"></c:set>					
 			   		<c:forEach items='${ShoppingCart.content}' var='entry'>
@@ -98,14 +98,26 @@
 						    </form></td>
                           	
                           	<td>${entry.value.bean.unitPrice*entry.value.quantity}</td>							
+                                    <!--H0725 -->
+									<td>
+										<form action='DelProductToCart' method='POST'>
+											<input type='hidden' name='phoneId' value='${entry.value.bean.productID}'>
+											<input type='hidden' name='page' value='showCartContent'>
+											<input type='submit' class="btn-xs btn-primary" value='移除'>
+										</form>
+									</td>
 						</tr>	
+								
 					<c:set var="sum" value="${sum+(entry.value.bean.unitPrice*entry.value.quantity)}"></c:set>
+					
+					
 					</c:forEach>
+										
 					<tr height='16'>
-						<td colspan='7' align='right'>合計金額(含稅):</td>>
+						<td colspan='7' align='right'>合計金額(含稅):</td>
 						<td colspan='8' align='left'>${sum}元</td>
 					</tr>
-					
+									
 		<ul class="pager">
 			<!--//ProductController-->
 			<li class="previous"><a href='products'>&larr; 上一頁</a></li>
