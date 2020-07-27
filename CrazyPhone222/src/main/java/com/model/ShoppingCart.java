@@ -54,6 +54,16 @@ public class ShoppingCart {
 	    oiBean.setQuantity(oib.getQuantity()-1);
 	}
 	
+	// 刪除某項商品 //H0725
+	public int deleteItem(long ItemId) {
+		if ( cart.get(ItemId) != null ) {
+			 cart.remove(ItemId);  // Map介面的remove()方法
+			 return 1;
+		} else {
+		     return 0;
+		}
+	}
+	
 	/*  //nowqty	
 	public void orderToDB(long ItemId, OrderItemBean  oib) {
 		if (oib.getQuantity() <= 0 ) {
