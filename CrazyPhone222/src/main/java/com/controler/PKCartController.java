@@ -47,13 +47,17 @@ public class PKCartController {
 		@RequestMapping("showPKCartContent")
 		public String showPKCartContentAll(Model model, SessionStatus status,HttpSession session) {
 			                      
-			
+
 //			如果沒有登入就跳轉登入畫面
 			Object sess = session.getAttribute("LoginOK");
 			if(sess == null) {
 				return "redirect:/lognin";
 			}
-			
+			//PKCart尚未選任何商品也是可以跳轉
+			Object pk = session.getAttribute("PKCart");
+			if(pk == null) {
+				return "showPKCartContent";
+			}
 			
 			PKCart cart = (PKCart)model.getAttribute("PKCart");
 			Map<Long, PKItemBean> pkcart = cart.getContent();

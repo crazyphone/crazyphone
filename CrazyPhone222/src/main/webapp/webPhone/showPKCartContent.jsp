@@ -56,19 +56,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
 .tb1 {
 	width: 150px;
-	height: 620px;
+	height: 650px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
 	float: left;
 	position: absolute;
 	left: 180px;
-	top: 369px;
+	top: 378px;
 }
 
 .tb2 {
 	width: 250px;
-	height: 620px;
+	height: 650px;
 	border: 2px solid;
 	border-color: gray white;
 	margin: 2px;
@@ -162,6 +162,9 @@ th {
 	<!--start-logo-->
 	<div class="logo">
 		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }"> 
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -217,7 +220,22 @@ th {
 							<li class="active"><a href="compare">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
+							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
 							<li class="grid"><a href="lognin">登入</a></li>
+							</c:if>
+							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
+							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
+							</c:if>
+							<c:if test="${! empty LoginOK }"> 
+ 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
+									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
+							</c:if> 
+							<c:if test="${! empty LoginSuperOK }"> 
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
@@ -293,7 +311,7 @@ th {
 					<td>前相機畫素</td>
 				</tr>
 				<tr>
-					<td>&nbsp</td>
+					<td height='50px'>&nbsp</td>
 				</tr>
 				<!-- 							</tbody> -->
 				<!-- 						</table> -->
@@ -356,7 +374,7 @@ th {
 																<input type='hidden' name='page'
 																	value='showPKCartContent'>
 																<!-- 																	type='hidden' name='page' value='products'> <input -->
-																<input type='submit' class="btn btn-primary"
+																<input type='submit' class="btn btn-link"
 																	value='移出車拚'>
 															</form>
 														</td>
@@ -371,9 +389,9 @@ th {
 
 					</c:when>
 					<c:otherwise>
-						<tr colspan='5'>
-							<td>您尚未選擇任何商品</td>
-						</tr>
+						
+							<h4 style="position:relative;left:45%">您尚未選擇任何商品</h4>
+				
 					</c:otherwise>
 				</c:choose>
 				<!-- 		</table> -->
