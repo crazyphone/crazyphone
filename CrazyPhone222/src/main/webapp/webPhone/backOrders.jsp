@@ -104,6 +104,11 @@ padding: 3px
 
 					</tr>
 					<c:forEach var='Order' items='${Orders}'>
+					 <c:choose>
+					
+	                    <c:when	test="${Order.orderID== number1}"  >
+	                    </c:when>
+	                   <c:otherwise>
 						<tr>
 							<td style="text-align: center">${Order.orderID}</td>
 							<td style="text-align: center">${Order.orderDate}</td>
@@ -132,6 +137,9 @@ padding: 3px
 <!-- 										type="button" class="button" class='deletelink'>刪除</button></a></td> -->
 				
 						</tr>
+						<c:set var="number1" value="${Order.orderID}"/>
+						 </c:otherwise>
+						   </c:choose>
 					</c:forEach>
 				</table>
 			</c:otherwise>
