@@ -42,6 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.easydropdown.js"></script>
 </head>
 <body>
+	<!-- 標頭開始 -->
 	<!--top-header-->
 	<div class="top-header">
 		<div class="container">
@@ -64,28 +65,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</select>
 						</div>
 						<div class="clearfix"></div>
-					</div> -->
+					</div>
+					-->
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
 						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+<!-- 							<div class="total"> -->
+<!-- 								<span class="simpleCart_total"></span> -->
+<!-- 							</div> -->
+							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
 						</a>
-						<p></p>
-						<!-- 						<p><a href="javascript:;" class="simpleCart_empty">清空購物車</a></p> -->
-						<td width='130' align='center'><a href='showCartContent'>購物車明細</a>&nbsp;&nbsp;<a
-							href='removeCart'>移除購物車項目</a></td>
+						<p>
+<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
+						</p>
+						<td width='130' align='center'>
+<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
+						<a	href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
-						<a href="account"> <!-- <div class="total">
-								<span class="simpleCart_total"></span></div> --> <img
-							src="images/user2.png" alt="" title="登入" />
-
-						</a>
-						<!-- <p><a href="javascript:;" class="simpleCart_empty">登入</a></p> -->
 						<div class="clearfix"></div>
 					</div>
 				</div>
@@ -96,7 +94,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }"> 
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -106,43 +107,80 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
-							<li class="active "><a href="products">商城</a>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
+							<li class="grid"><a href="products">商城</a> <!--  
+								<div class="mepanel">
+									<div class="row">
+										<div class="col1 me-one">
+											<h4>智慧型手機</h4>
+											<ul>
+												<li><a href="products">SAMSUNG</a></li>
+												<li><a href="products">Apple</a></li>
+												<li><a href="products">ASUS</a></li>
+												<li><a href="products">HTC</a></li>
+												<li><a href="products">SONY</a></li>
+												<li><a href="products">Google</a></li>
+											</ul>
+										</div>
+										<div class="col1 me-one">
+											<h4>穿戴式配件</h4>
+											<ul>
+												<li><a href="products">SAMSUNG</a></li>
+												<li><a href="products">Apple</a></li>
+												<li><a href="products">ASUS</a></li>
+												<li><a href="products">HTC</a></li>
+												<li><a href="products">SONY</a></li>
+												<li><a href="products">Google</a></li>
+											</ul>
+										</div>
+										<div class="col1 me-one">
+											<h4>Popular Brands</h4>
+											<ul>
+												<li><a href="products.html">499 Store</a></li>
+												<li><a href="products.html">Fastrack</a></li>
+												<li><a href="products.html">Casio</a></li>
+												<li><a href="products.html">Fossil</a></li>
+												<li><a href="products.html">Maxima</a></li>
+												<li><a href="products.html">Timex</a></li>
+												<li><a href="products.html">TomTom</a></li>
+												<li><a href="products.html">Titan</a></li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								--></li>
 							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
-								<li class="grid"><a href="lognin">登入</a></li>
+							<li class="grid"><a href="lognin">登入</a></li>
 							</c:if>
 							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
-								<li class="grid"><a href="lognout" onclick="signOut()">登出</a></li>
+							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
 							</c:if>
-							<c:if test="${! empty LoginOK }">
-								<span style="margin: 50px">Hello <a href="up1">${LoginOK.memberName}</a></span>
-								<img width='60' height='60'
-									style="margin-left: -50px; margin-top: -20px"
+							<c:if test="${! empty LoginOK }"> 
+ 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
-							</c:if>
-							<c:if test="${! empty LoginSuperOK }">
-								<span style="margin: 50px">Hello <a
-									href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)
-								</span>
-								<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
-								<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
-							</c:if>
+							</c:if> 
+							<c:if test="${! empty LoginSuperOK }"> 
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if> 
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<form method='POST' action="<c:url value='searchProduct' />">
-							<input type="text" name="searchP" value="Search"
-								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Search';}">
-							<input type="submit" value="">
-
-						</form>
+					<form method='POST' action="<c:url value='searchProduct' />">
+					
+						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" value="">
+					</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -150,6 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--bottom-header-->
+	<!-- 	標頭結束 -->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -280,7 +319,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</section>
 				 -->
 				<section class="sky-form">
-					<h4>Brand</h4>
+					<h4>品牌</h4>
 					<div class="row1 row2 scroll-pane">
 
 						<!-- 
@@ -305,7 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</section>
 
 				<section class="sky-form">
-					<h4>Price</h4>
+					<h4>價格</h4>
 
 					<div class="row1 row2 scroll-pane">
 

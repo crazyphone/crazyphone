@@ -58,7 +58,7 @@ padding: 3px
 	
         
         
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
 	</a></div>
       </ul>
     </div>
