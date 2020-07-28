@@ -208,7 +208,6 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public SpecBean getspecbyid(int productID) {
 		System.out.println(productID);
 		Session session = factory.getCurrentSession();

@@ -581,14 +581,6 @@ public class SupervisorController {
 		}
 	}
 
-	// 詳細資料頁
-	@GetMapping("/query/{productID}")
-	public String readSjsp(Model model) {
-		model.addAttribute("products", supervisorervice.getproductlist());
-		model.addAttribute("specs", supervisorervice.getSpeclist());
-		return "_L_productIno";
-	}
-
 	// 詳細資料編輯頁
 	@GetMapping("/upSpec/{productID}")
 	public String upsjsp(Model model, @PathVariable Integer productID) {
@@ -602,7 +594,7 @@ public class SupervisorController {
 		supervisorervice.upspec(SB.getOS(), SB.getProcessor(), SB.getDisplaySize(), SB.getDisplayResolution(),
 				SB.getFrontCamera(), SB.getRearCamera(), SB.getRAM(), SB.getStorage(), SB.getBatteryCapacity(),
 				productID);
-		
+
 		return "redirect:/Product";
 	}
 }

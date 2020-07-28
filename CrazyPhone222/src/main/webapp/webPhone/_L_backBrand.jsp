@@ -63,7 +63,7 @@ input[type=text] {
 	
         
         
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
 	</a></div>
       </ul>
     </div>
@@ -91,7 +91,7 @@ input[type=text] {
 					<td>${brand.brandName}</td>
 					<td>${brand.brandInfo}</td>
 					<td>${brand.brandCountry}</td>
-					<td><img width='200' height='150'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
+					<td><img width='200' height='100'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
 					<td>
 				<a href="upBrand/${brand.brandID}"><button type="button" class="button">編輯</button></a>
 				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button">刪除</button></a>

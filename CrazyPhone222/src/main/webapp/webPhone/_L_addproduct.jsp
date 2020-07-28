@@ -179,7 +179,7 @@ button:hover {
 				var reader = new FileReader();
 				reader.onload = function(e) {
 					$("#chimg").attr('src', e.target.result);
-					$("#chimg").css('width', '100px').css('height', '100px')
+					$("#chimg").css('width', '250px').css('height', '100px')
 				}
 				reader.readAsDataURL(input.files[0]);
 				console.log()
@@ -193,7 +193,7 @@ button:hover {
 				var reader = new FileReader();
 				reader.onload = function(e) {
 					$("#chimg2").attr('src', e.target.result);
-					$("#chimg2").css('width', '100px').css('height', '100px')
+					$("#chimg2").css('width', '250px').css('height', '100px')
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
@@ -206,7 +206,7 @@ button:hover {
 				var reader = new FileReader();
 				reader.onload = function(e) {
 					$("#chimg3").attr('src', e.target.result);
-					$("#chimg3").css('width', '100px').css('height', '100px')
+					$("#chimg3").css('width', '250px').css('height', '100px')
 				}
 				reader.readAsDataURL(input.files[0]);
 			}

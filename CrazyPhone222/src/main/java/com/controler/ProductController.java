@@ -141,6 +141,103 @@ public class ProductController {
 		return re;
 	}
 	
+	//透過ID顯示圖片2
+	@GetMapping("/getPicture22/{productID}")
+	public ResponseEntity<byte[]> getPitcure2(HttpServletRequest req, @PathVariable Integer productID){
+		String noImagePath = "\\resources\\images\\NoImage.jpg";
+		ResponseEntity<byte[]> re = null;
+		ProductBean bean = service.getProductById(productID);
+		
+		ByteArrayOutputStream baos=null;
+		InputStream is = null;
+		try {
+			Blob blob = bean.getProductImage2();
+			if(blob !=null) {
+				is = blob.getBinaryStream();
+			}else {
+				;
+			}
+			
+			if (is == null){
+				is = ctx.getResourceAsStream(noImagePath);
+			}
+			baos = new ByteArrayOutputStream();
+			int len = 0;
+			byte[] b = new byte[819200];
+			while ((len = is.read(b)) != -1) {
+				baos.write(b,0,len);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		byte[] b0 = baos.toByteArray();
+		String filename = bean.getProductFileName2();
+		String mimeType = null;
+		MediaType mediaType = null;
+		if (filename != null) {
+			mimeType = ctx.getMimeType(filename);
+		}else {
+			mimeType = ctx.getMimeType(noImagePath);
+		}
+		mediaType = MediaType.valueOf(mimeType);
+		
+		HttpHeaders headers = new HttpHeaders();//回應標頭
+		headers.setContentType(mediaType);
+		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		re = new ResponseEntity<>(b0, headers, HttpStatus.OK);
+		
+		return re;
+	}
+	//透過ID顯示圖片3
+	@GetMapping("/getPicture33/{productID}")
+	public ResponseEntity<byte[]> getPitcure3(HttpServletRequest req, @PathVariable Integer productID){
+		String noImagePath = "\\resources\\images\\NoImage.jpg";
+		ResponseEntity<byte[]> re = null;
+		ProductBean bean = service.getProductById(productID);
+		
+		ByteArrayOutputStream baos=null;
+		InputStream is = null;
+		try {
+			Blob blob = bean.getProductImage3();
+			if(blob !=null) {
+				is = blob.getBinaryStream();
+			}else {
+				;
+			}
+			
+			if (is == null){
+				is = ctx.getResourceAsStream(noImagePath);
+			}
+			baos = new ByteArrayOutputStream();
+			int len = 0;
+			byte[] b = new byte[819200];
+			while ((len = is.read(b)) != -1) {
+				baos.write(b,0,len);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		byte[] b0 = baos.toByteArray();
+		String filename = bean.getProductFileName3();
+		String mimeType = null;
+		MediaType mediaType = null;
+		if (filename != null) {
+			mimeType = ctx.getMimeType(filename);
+		}else {
+			mimeType = ctx.getMimeType(noImagePath);
+		}
+		mediaType = MediaType.valueOf(mimeType);
+		
+		HttpHeaders headers = new HttpHeaders();//回應標頭
+		headers.setContentType(mediaType);
+		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		re = new ResponseEntity<>(b0, headers, HttpStatus.OK);
+		
+		return re;
+	}
+	
 	// 搜尋
 		@PostMapping("/searchProduct")
 		public String productSearch(@RequestParam(value = "searchP") String productname, Model model, HttpSession session) {

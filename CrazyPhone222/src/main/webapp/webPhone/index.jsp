@@ -91,13 +91,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
 						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+<!-- 							<div class="total"> -->
+<!-- 								<span class="simpleCart_total"></span> -->
+<!-- 							</div> -->
+							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">清空購物車</a>
+<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
+						<td width='130' align='center'>
+<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
+						<a	href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"></div>
 					</div>
 						<div class="clearfix"></div>

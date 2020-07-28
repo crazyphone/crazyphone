@@ -123,7 +123,7 @@ button:hover {
 				var reader = new FileReader();
 				reader.onload = function(e) {
 					$("#bchimg").attr('src', e.target.result);
-					$("#bchimg").css('width', '100px').css('height', '100px')
+					$("#bchimg").css('width', '250px').css('height', '100px')
 				}
 				reader.readAsDataURL(input.files[0]);
 				console.log()

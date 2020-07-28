@@ -75,17 +75,18 @@ padding: 3px
   display: inline-block;
   line-height: 1em;
 }
+
 </style>
 </head>
 <body class="body1" >
   
   
  	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 680px; position:fixed">
+		style="width: 15%; background-color: #363636; height: 680px; position:fixed;">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
-			<li><a href="addCarousel" style="color: #5d76cf">輪播牆管理</a></li>
+			<li><a href="addCarousel" style="color: #5d76cf ">輪播牆管理</a></li>
 			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
 			<li><a href="Brand" style="color: #5d76cf">品牌管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
@@ -94,7 +95,7 @@ padding: 3px
 	
         
         
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
 	</a></div>
       </ul>
     </div>

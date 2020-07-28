@@ -63,7 +63,7 @@ input[type=text] {
 	
         
         
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
 	</a></div>
       </ul>
     </div>
@@ -107,8 +107,7 @@ input[type=text] {
 					<td>${product.stockQuantity}</td>
 					<td>
 					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="button">編輯</button></a>
-					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			
-					<a href="<c:url value='/query/${product.productID}'/>"><button type="button" class="button">查看規格</button></a> 
+					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			 
 					<a href="<c:url value='/upSpec/${product.productID}'/>"><button type="button" class="button">編輯規格</button></a> 
 					</td>
 				</tr>
