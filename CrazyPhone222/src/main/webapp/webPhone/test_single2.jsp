@@ -187,16 +187,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</li>
 									<li
-										data-thumb="<c:url value='/getPicture/${product.productID}'/>">
+										data-thumb="<c:url value='/getPicture22/${product.productID}'/>">
 										<div class="thumb-image">
-											<img src="<c:url value='/getPicture/${product.productID}'/>"
+											<img src="<c:url value='/getPicture22/${product.productID}'/>"
 												data-imagezoom="true" class="img-responsive" alt="" />
 										</div>
 									</li>
 									<li
-										data-thumb="<c:url value='/getPicture/${product.productID}'/>">
+										data-thumb="<c:url value='/getPicture33/${product.productID}'/>">
 										<div class="thumb-image">
-											<img src="<c:url value='/getPicture/${product.productID}'/>"
+											<img src="<c:url value='/getPicture33/${product.productID}'/>"
 												data-imagezoom="true" class="img-responsive" alt="" />
 										</div>
 									</li>

@@ -91,7 +91,7 @@ input[type=text] {
 					<td>${brand.brandName}</td>
 					<td>${brand.brandInfo}</td>
 					<td>${brand.brandCountry}</td>
-					<td><img width='200' height='150'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
+					<td><img width='200' height='100'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
 					<td>
 				<a href="upBrand/${brand.brandID}"><button type="button" class="button">編輯</button></a>
 				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button">刪除</button></a>
