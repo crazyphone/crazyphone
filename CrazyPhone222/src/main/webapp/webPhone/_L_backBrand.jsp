@@ -94,12 +94,20 @@ input[type=text] {
 					<td><img width='200' height='100'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
 					<td>
 				<a href="upBrand/${brand.brandID}"><button type="button" class="button">編輯</button></a>
-				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button">刪除</button></a>
+				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button" onclick="return delForm()">刪除</button></a>
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
 		<hr>
 	</div>
+	<script type="text/javascript">
+	function delForm() {
+		if (confirm("確定刪除嗎?")) {
+			return true;
+		}
+		return false;
+	}
+	</script>
 </body>
 </html>

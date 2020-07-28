@@ -107,7 +107,7 @@ input[type=text] {
 					<td>${product.stockQuantity}</td>
 					<td>
 					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="button">編輯</button></a>
-					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button">刪除</button></a>			 
+					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button" onclick="return delForm()">刪除</button></a>			 
 					<a href="<c:url value='/upSpec/${product.productID}'/>"><button type="button" class="button">編輯規格</button></a> 
 					</td>
 				</tr>
@@ -115,5 +115,13 @@ input[type=text] {
 		</table>
 		<hr>
 	</div>
+		<script type="text/javascript">
+	function delForm() {
+		if (confirm("確定刪除嗎?")) {
+			return true;
+		}
+		return false;
+	}
+	</script>
 </body>
 </html>
