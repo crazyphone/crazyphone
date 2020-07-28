@@ -30,7 +30,7 @@
 			alert("此瀏覽器只支援SockJS");
 		}
 		websocket.onopen = function(evnt) {
-			$("#tou").html("連結伺服器成功!")
+			$("#tou").html("上線中!")
 		};
 		websocket.onmessage = function(evnt) {
 			var memberId = "${LoginOK.memberName}";
@@ -52,8 +52,8 @@
 				$("#msg")
 						.append(
 								"<div id = 'msgmsg' class = 'd-flex justify-content-start mb-4 '>"
-								+ "<div class='msg_cotainer'>" 
-								+ evnt.data + "<span class='msg_time'>"
+								+ "<div class='msg_cotainer_send'>" 
+								+ evnt.data + "<span class='msg_time_send'>"
 								+ msgtime + "</span>"+" </div>"+"</div>");
 
 			}
@@ -62,7 +62,7 @@
 		websocket.onerror = function(evnt) {
 		};
 		websocket.onclose = function(evnt) {
-			$("#tou").html("與伺服器斷開了連結!")
+			$("#tou").html("連線失敗!")
 		}
 
 		$('#message').keydown(function() {
@@ -264,7 +264,7 @@ body, html {
 	margin-bottom: auto;
 	margin-left: 10px;
 	border-radius: 25px;
-	background-color: #82ccdd;
+	background-color: #29FF1A;
 	padding: 10px;
 	position: relative;
 }
@@ -274,25 +274,25 @@ body, html {
 	margin-bottom: auto;
 	margin-right: 10px;
 	border-radius: 25px;
-	background-color: #78e08f;
+	background-color: #FFFB1A;
 	padding: 10px;
 	position: relative;
 }
 
 .msg_time {
 	position: absolute;
-	left: 0;
-	bottom: -15px;
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 10px;
+	left: 0px;
+	bottom: -18px;
+	color: rgba(256,256, 256, 0.8);
+	font-size: 12px;
 }
 
 .msg_time_send {
 	position: absolute;
-	right: 0;
-	bottom: -15px;
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 10px;
+	left: 5px;
+	bottom: -18px;
+	color: rgba(256,256, 256, 0.8);
+	font-size: 12px;
 }
 
 .msg_head {
@@ -364,12 +364,12 @@ body, html {
 					class="rounded-circle user_img"> <span class="online_icon"></span>
 			</div>
 			<div class="user_info">
-				<span id="eha">${LoginOK.memberName}</span>
+				<div id="eha">${LoginOK.memberName}</div>
 
 			</div>
 
 		</div>
-		<div>
+		<div class="card">
 
 			<div id="msg"></div>
 

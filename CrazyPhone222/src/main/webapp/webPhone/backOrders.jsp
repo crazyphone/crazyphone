@@ -58,7 +58,7 @@ padding: 3px
 	
         
         
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
+	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
 	</a></div>
       </ul>
     </div>
@@ -104,6 +104,11 @@ padding: 3px
 
 					</tr>
 					<c:forEach var='Order' items='${Orders}'>
+					 <c:choose>
+					
+	                    <c:when	test="${Order.orderID== number1}"  >
+	                    </c:when>
+	                   <c:otherwise>
 						<tr>
 							<td style="text-align: center">${Order.orderID}</td>
 							<td style="text-align: center">${Order.orderDate}</td>
@@ -132,6 +137,9 @@ padding: 3px
 <!-- 										type="button" class="button" class='deletelink'>刪除</button></a></td> -->
 				
 						</tr>
+						<c:set var="number1" value="${Order.orderID}"/>
+						 </c:otherwise>
+						   </c:choose>
 					</c:forEach>
 				</table>
 			</c:otherwise>
