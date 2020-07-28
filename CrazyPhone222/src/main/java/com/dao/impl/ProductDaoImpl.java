@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dao.ProductDao;
 import com.model.ProductBean;
+import com.model.ProductBeanWithImageData;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -94,5 +95,29 @@ public class ProductDaoImpl implements ProductDao {
 		}
 
 		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProductBeanWithImageData> getBrandName(String brandName) {
+		List<ProductBeanWithImageData> listTarget = new ArrayList<ProductBeanWithImageData>();
+		String hql = "FROM ProductBean p WHERE p.brandBean.BrandName = :brandName ";
+		Session session  = factory.getCurrentSession();
+		List<ProductBean> list = session.createQuery(hql)
+										.setParameter("brandName", brandName)
+										.getResultList();
+		for (ProductBean productBean : list) {
+			System.out.println(productBean.getProductName()+"-----------------");
+			ProductBeanWithImageData p = new ProductBeanWithImageData();
+			//p.setBean(productBean);
+			p.setProductIntro(productBean.getProductIntro());
+			p.setProductName(productBean.getProductName());
+			p.setStockQuantity(productBean.getStockQuantity());
+			p.setUnitPrice(productBean.getUnitPrice());
+			p.setImageData(productBean.getProductFileName());
+			p.setProductID(productBean.getProductID());
+			listTarget.add(p);
+		}
+		return listTarget;
 	}
 }

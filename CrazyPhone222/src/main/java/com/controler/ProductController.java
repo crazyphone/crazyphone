@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.BrandBean;
 import com.model.ProductBean;
+import com.model.ProductBeanWithImageData;
 import com.service.ProductService;
 
 @Controller
@@ -36,7 +37,17 @@ public class ProductController {
 	//第一個controller(用來顯示所有評論)
 	//0703測試ok
 
-
+	@GetMapping("/allProducts")
+	public ResponseEntity<List<ProductBeanWithImageData>>  allProductsWithImageData(String brandName)  {
+		System.out.println(brandName+"--------------------------");
+//		List<ProductBeanWithImageData> list = service.getAllProductsWithImageData();
+		List<ProductBeanWithImageData> list = service.getBrandName(brandName);
+		for (ProductBeanWithImageData productBeanWithImageData : list) {
+			System.out.println(productBeanWithImageData+"------------------------");
+		}
+		ResponseEntity<List<ProductBeanWithImageData>> re = new ResponseEntity<>(list, HttpStatus.OK);
+		return re;
+	}
 	
 	//跳轉商品頁
 	@GetMapping("/products")

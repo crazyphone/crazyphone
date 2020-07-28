@@ -175,8 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 	</section> -->
 	<div class="prdt" style="position: relative; top: -40px">
 		<div class="container">
-			<div class="prdt-top">
-				<div class="col-md-9 prdt-left" style="position: relative; top: -30px">
+			<div id="adjustment" class="prdt-top">
+				<div  class="col-md-9 prdt-left" style="position: relative; top: -30px">
 					<div>
 						<p>${adjustmentText}</p>
 					</div>
@@ -224,11 +224,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>
 										<a class="item_add"
 											href="<spring:url value='addToCart?phoneId=${product.productID}&&phoneName=${product.productName}&&phonePrice=${product.unitPrice}&&qty=1&&page=products'/>">
-
-
-
-
-											<i></i>
+										<i></i>
 										</a> <span class=" item_price">$ ${product.unitPrice}</span>
 									</h4>
 									<form action='addToPKCart' method='POST'>
@@ -240,14 +236,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											type='hidden' name='page' value='products'> <input
 											type='submit' class="btn btn-primary" value='加入車拚'>
 									</form>
-
 								</div>
 								<div class="srch srch1">
 									<span>-50%</span>
 								</div>
 							</div>
 						</div>
-
 						<c:if test="${(status.count%3==0)||status.last}">
 							<div class="clearfix"></div>
 				</div>
@@ -291,19 +285,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							-->
 						<div class="col col-4">
 							<c:forEach var='brand' items='${brands}' varStatus='status'>
-								<!--  
-								<label class="checkbox"> <input type="checkbox"
-									onclick='window.location.assign("productsBrand?brandName=${brand}")'
-									name="checkbox"><i></i>${brand}</label>
-							-->
-								<label class="radio"> <input type="radio" name="radio"
-									onclick='window.location.assign("productsBrand?brandName=${brand}")'><i></i>${brand}</label>
+								<label class="radio"> <input type="radio" name="radio" value="${brand}"><i></i>${brand}</label>
+<%-- 									onclick='window.location.assign("productsBrand?brandName=${brand}")' --%>
+									
+							
 							</c:forEach>
 
 						</div>
 					</div>
 				</section>
-
+				<script>
+				
+				$(function(){
+					$('input[type=radio][name=radio]').change(function() {
+//		 			       if (this.value == 'SONY') alert("click SONY");
+		 			      //alert(this.value);
+	 				  // var data = {brandName: $(this).val()};
+					  var data; 
+	 				  $.ajax({
+					            url: "<c:url value='/allProducts' />",   //後端的URL
+					            type: "GET",   //用POST的方式
+					            //dataType: "json",   //response的資料格式
+					            data: {brandName:this.value},   //response的資料格式
+					            cache: false,   //是否暫存
+					            //data: data, //傳送給後端的資料
+					            success: function(data) {
+					            	console.log('Submission was successful.');
+					                console.log(data);  //成功後回傳的資料
+					                var content="<div  class='col-md-9 prdt-left' style='position: relative; top: -30px'><div class='product-one'>";
+					                
+					                
+// 					                var content = "<div  class='col-md-9 prdt-left' style='position: relative; top: -30px'>";
+									//content += "<div><p>${adjustmentText}</p></div><div class='product-one'>";
+					                for(var i=0; i < data.length; i++){
+									content +="<div class='col-md-4 product-left p-left'>"+
+											  "<div class='product-main simpleCart_shelfItem'>"+
+											  "<a href='product?id="+data[i].productID+"'class='mask'>"+
+											  "<img class='img-responsive zoom-img'src='/CrazyPhone222/getPicture/"+data[i].productID+"' /></a>"+
+											  "<div class='product-bottom'><h3>"+data[i].productName+"</h3><p>	</p><h4>"+
+											  "<a class='item_add' href='addToCart?phoneId="+data[i].productID+"&&phoneName="+data[i].productName+"&&phonePrice="+data[i].unitPrice+"&&qty=1&&page=products'><i></i></a>"+
+											  "<span class='item_price'>$ "+data[i].unitPrice+"</span></h4>"+
+											  "<form action='addToPKCart' method='POST'>"+
+											  "<input type='hidden' name='productID'value='"+data[i].productID+"'>"+
+											  "<input type='hidden'name='productName' value='"+data[i].productName+"'>"+
+											  "<input type='hidden' name='UnitPrice' value='"+data[i].unitPrice+"'>"+
+											  "<input type='hidden' name='qty' value=1>"+
+											  "<input type='hidden' name='page' value='products'>"+
+											  "<input type='submit' class='btn btn-primary' value='加入車拚'></form>"+
+											  "</div><div class='srch srch1'><span>-50%</span></div></div></div>";
+									}
+									content += "<div class='clearfix'><br></div>";
+						            $("#adjustment")[0].innerHTML = content;
+					            
+					            },
+					            error: function(XMLHttpRequest, status, error) {
+					                console.log(error);
+					            }
+					        });
+					    });
+				})
+				
+				</script>
 				<section class="sky-form">
 					<h4>Price</h4>
 
