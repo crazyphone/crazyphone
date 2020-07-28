@@ -102,6 +102,7 @@ th {
 </style>
 </head>
 <body>
+	<!-- 標頭開始 -->
 	<!--top-header-->
 	<div class="top-header">
 		<div class="container">
@@ -130,22 +131,19 @@ th {
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
 						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+<!-- 							<div class="total"> -->
+<!-- 								<span class="simpleCart_total"></span> -->
+<!-- 							</div> -->
+							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">清空購物車</a>
+<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
+						<td width='130' align='center'>
+<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
+						<a	href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
-						<a href="account"> <!-- <div class="total">
-								<span class="simpleCart_total"></span></div> --> <img
-							src="images/user2.png" alt="" title="登入" />
-
-						</a>
-						<!-- <p><a href="javascript:;" class="simpleCart_empty">登入</a></p> -->
 						<div class="clearfix"></div>
 					</div>
 				</div>
@@ -156,7 +154,10 @@ th {
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }"> 
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -166,7 +167,7 @@ th {
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
 							<li class="grid"><a href="products">商城</a> <!--  
 								<div class="mepanel">
 									<div class="row">
@@ -209,19 +210,37 @@ th {
 									</div>
 								</div>
 								--></li>
-							<li class="active"><a href="compare">車拚</a></li>
+							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
+							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
 							<li class="grid"><a href="lognin">登入</a></li>
+							</c:if>
+							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
+							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
+							</c:if>
+							<c:if test="${! empty LoginOK }"> 
+ 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
+									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
+							</c:if> 
+							<c:if test="${! empty LoginSuperOK }"> 
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if> 
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<input type="text" value="Search" onfocus="this.value = '';"
+					<form method='POST' action="<c:url value='searchProduct' />">
+					
+						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Search';}">
 						<input type="submit" value="">
+					</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -229,6 +248,7 @@ th {
 		</div>
 	</div>
 	<!--bottom-header-->
+	<!-- 	標頭結束 -->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">

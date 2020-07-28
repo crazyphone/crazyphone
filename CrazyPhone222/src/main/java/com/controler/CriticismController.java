@@ -178,6 +178,7 @@ public class CriticismController {
 //		return "redirect:/products";
 		return "redirect:http://localhost:8080/CrazyPhone222/criticism?productID=3" ;
 //		return "criticism";
+		
 
 	}
 

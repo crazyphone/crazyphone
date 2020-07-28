@@ -221,8 +221,8 @@ float: right;
     <script >
     $(function(){
  		$(".demo").click(function(){
- 			$("#nameDemo").val("abcd1234@gmail.com");
-  			$("#pswDemo").val("abcd1234");
+ 			$("#nameDemo").val("eeit11402@gmail.com");
+  			$("#pswDemo").val("Do!ng123");
 
  		})
  		
