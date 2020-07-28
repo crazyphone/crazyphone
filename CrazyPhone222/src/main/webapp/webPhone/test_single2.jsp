@@ -135,48 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top-nav">
 						<ul class="memenu skyblue">
 							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
-							<li class="grid"><a href="products">商城</a> <!--  
-								<div class="mepanel">
-									<div class="row">
-										<div class="col1 me-one">
-											<h4>智慧型手機</h4>
-											<ul>
-												<li><a href="products">SAMSUNG</a></li>
-												<li><a href="products">Apple</a></li>
-												<li><a href="products">ASUS</a></li>
-												<li><a href="products">HTC</a></li>
-												<li><a href="products">SONY</a></li>
-												<li><a href="products">Google</a></li>
-											</ul>
-										</div>
-										<div class="col1 me-one">
-											<h4>穿戴式配件</h4>
-											<ul>
-												<li><a href="products">SAMSUNG</a></li>
-												<li><a href="products">Apple</a></li>
-												<li><a href="products">ASUS</a></li>
-												<li><a href="products">HTC</a></li>
-												<li><a href="products">SONY</a></li>
-												<li><a href="products">Google</a></li>
-											</ul>
-										</div>
-										<div class="col1 me-one">
-											<h4>Popular Brands</h4>
-											<ul>
-												<li><a href="products.html">499 Store</a></li>
-												<li><a href="products.html">Fastrack</a></li>
-												<li><a href="products.html">Casio</a></li>
-												<li><a href="products.html">Fossil</a></li>
-												<li><a href="products.html">Maxima</a></li>
-												<li><a href="products.html">Timex</a></li>
-												<li><a href="products.html">TomTom</a></li>
-												<li><a href="products.html">Titan</a></li>
-											</ul>
-										</div>
-										
-									</div>
-								</div>
-								--></li>
+							<li class="grid"><a href="products">商城</a></li>
 							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
@@ -303,7 +262,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 
 								<h5 class="item_price">$ ${product.unitPrice}</h5>
-								<p>${product.productIntro}</p>
+								<p>${product.productIntro} </p>
+								<p>是一種可用來撥打行動電話和進行多功能行動計算的裝置。
+								有客製化的行動操作系統，可瀏覽網頁和播放多媒體檔案，
+								也可通過安裝應用軟體、遊戲等程式來擴充功能。</p>
+								<!-- 
 								<div class="available">
 									<ul>
 										<li>Color <select>
@@ -319,9 +282,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<option>Large</option>
 												<option>small</option>
 										</select></li>
+										
+										 -->
+										 
 										<div class="clearfix"></div>
-									</ul>
+									<!-- 
+								</ul>
 								</div>
+								 -->
 <!-- 								<ul class="tag-men"> -->
 <!-- 									<li><span>TAG</span> <span class="women1">: Women,</span></li> -->
 <!-- 									<li><span>SKU</span> <span class="women1">: CK09</span></li> -->
@@ -359,102 +327,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<!--  
-					<div class="tabs">
-						<ul class="menu_drop">
-							<li class="item1"><a href="#"><img
-									src="images/arrow.png" alt="">Description</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item2"><a href="#"><img
-									src="images/arrow.png" alt="">Additional information</a>
-								<ul>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item3"><a href="#"><img
-									src="images/arrow.png" alt="">Reviews (10)</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item4"><a href="#"><img
-									src="images/arrow.png" alt="">Helpful Links</a>
-								<ul>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item5"><a href="#"><img
-									src="images/arrow.png" alt="">Make A Gift</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-						</ul>
-					</div>
-					-->
-
 					<div class="latestproducts">
 						<div class="product-one">
+						
 							<div class="col-md-4 product-left p-left">
 								<div class="product-main simpleCart_shelfItem">
 									<a href="single" class="mask"><img
@@ -472,6 +347,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 							</div>
+							
+							
 							<div class="col-md-4 product-left p-left">
 								<div class="product-main simpleCart_shelfItem">
 									<a href="single" class="mask"><img
@@ -509,28 +386,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"></div>
 						</div>
 					</div>
+					-->
+					
 				</div>
 				<div class="col-md-3 single-right">
 					<div class="w_sidebar">
 						<section class="sky-form">
-							<h4>Catogories</h4>
-							<div class="row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox" checked=""><i></i>All Accessories</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Women Watches</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Kids Watches</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Men Watches</label>
-								</div>
-							</div>
-						</section>
-						<section class="sky-form">
-							<h4>Brand</h4>
+							<h4>品牌</h4>
 							<div class="row1 row2 scroll-pane">
 							<!--  
 								<div class="col col-4">
@@ -553,26 +415,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 							</div>
 						</section>
-						
-						<section class="sky-form">
-							<h4>discount</h4>
-							<div class="row1 row2 scroll-pane">
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"
-										checked=""><i></i>60 % and above</label> <label class="radio"><input
-										type="radio" name="radio"><i></i>50 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>40
-										% and above</label>
-								</div>
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"><i></i>30
-										% and above</label> <label class="radio"><input type="radio"
-										name="radio"><i></i>20 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>10
-										% and above</label>
-								</div>
-							</div>
-						</section>
+					<section class="sky-form">
+					<h4>價格</h4>
+
+					<div class="row1 row2 scroll-pane">
+						<div class="col col-4">
+							
+							<form method="post" action="productsPrice">
+
+								<input id="priceS" type="text" name="lowestPrice"
+									placeholder="最低價" value="" size="5" maxlength="5"
+									pattern="[0-9]{0,5}" title="價格區間請輸入非零數字"> &nbsp;~&nbsp;
+								<input id="priceE" type="text" name="highestPrice"
+									placeholder="最高價" value="" size="5" maxlength="5"
+									pattern="[0-9]{0,5}" title="價格區間請輸入非零數字"> <input
+									type="submit" value="確定">
+							</form>
+						</div>
+					</div>
+				</section>
 					</div>
 				</div>
 				<div class="clearfix"></div>

@@ -108,48 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top-nav">
 						<ul class="memenu skyblue">
 							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
-							<li class="grid"><a href="products">商城</a> <!--  
-								<div class="mepanel">
-									<div class="row">
-										<div class="col1 me-one">
-											<h4>智慧型手機</h4>
-											<ul>
-												<li><a href="products">SAMSUNG</a></li>
-												<li><a href="products">Apple</a></li>
-												<li><a href="products">ASUS</a></li>
-												<li><a href="products">HTC</a></li>
-												<li><a href="products">SONY</a></li>
-												<li><a href="products">Google</a></li>
-											</ul>
-										</div>
-										<div class="col1 me-one">
-											<h4>穿戴式配件</h4>
-											<ul>
-												<li><a href="products">SAMSUNG</a></li>
-												<li><a href="products">Apple</a></li>
-												<li><a href="products">ASUS</a></li>
-												<li><a href="products">HTC</a></li>
-												<li><a href="products">SONY</a></li>
-												<li><a href="products">Google</a></li>
-											</ul>
-										</div>
-										<div class="col1 me-one">
-											<h4>Popular Brands</h4>
-											<ul>
-												<li><a href="products.html">499 Store</a></li>
-												<li><a href="products.html">Fastrack</a></li>
-												<li><a href="products.html">Casio</a></li>
-												<li><a href="products.html">Fossil</a></li>
-												<li><a href="products.html">Maxima</a></li>
-												<li><a href="products.html">Timex</a></li>
-												<li><a href="products.html">TomTom</a></li>
-												<li><a href="products.html">Titan</a></li>
-											</ul>
-										</div>
-										
-									</div>
-								</div>
-								--></li>
+							<li class="grid"><a href="products">商城</a> </li>
 							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
@@ -389,23 +348,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>價格</h4>
 
 					<div class="row1 row2 scroll-pane">
-
-						<!--  
 						<div class="col col-4">
-							<label class="radio"><input type="radio" name="radio"
-								checked=""><i></i>60 % and above</label> <label class="radio"><input
-								type="radio" name="radio"><i></i>50 % and above</label> <label
-								class="radio"><input type="radio" name="radio"><i></i>40%
-								and above</label>
-						</div>
-						-->
-						<div class="col col-4">
-							<!-- 
-							<label class="radio"><input type="radio" name="radio"><i></i>30	% and above</label> 
-							<label class="radio"><input type="radio"name="radio"><i></i>20 % and above</label>
-							 <label class="radio"><input type="radio" name="radio"><i></i>10 % and above</label> 
-						
-						 -->
+							
 							<form method="post" action="productsPrice">
 
 								<input id="priceS" type="text" name="lowestPrice"
@@ -415,11 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									placeholder="最高價" value="" size="5" maxlength="5"
 									pattern="[0-9]{0,5}" title="價格區間請輸入非零數字"> <input
 									type="submit" value="確定">
-
 							</form>
-
-
-
 						</div>
 					</div>
 				</section>
@@ -427,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	</div>
+<!-- 	</div> -->
 	</div>
 	<!--product-end-->
 	<!--information-starts-->
