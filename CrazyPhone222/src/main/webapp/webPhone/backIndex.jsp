@@ -91,7 +91,7 @@ input[type=text] {
 
 
 	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 680px; position: fixed;">
+		style="width: 15%; background-color: #363636; height: 750px; position: fixed;">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>

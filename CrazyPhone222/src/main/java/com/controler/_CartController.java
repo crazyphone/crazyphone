@@ -241,8 +241,12 @@ public class _CartController {
 			  //items.add(oib);
 		   }
 		   
-		
-		      
+//		   for(Long j : set) {
+//			    Integer p = (int) (long) j;
+//			    sc.deleteItem(content.get(j).getBean().getProductID());
+//			      }
+//		      
+		   
 //		PAypal 連線	    
 			    OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
 				try {
