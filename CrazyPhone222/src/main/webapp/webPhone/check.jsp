@@ -28,7 +28,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 
@@ -86,6 +90,12 @@ th {
 
 .tac {
 	text-align: center;
+}
+
+.sub {
+	position: absolute;
+	right: 400px;
+	top: 320px;
 }
 </style>
 
@@ -197,6 +207,39 @@ th {
 		<!-- <div style="text-align:center"> -->
 		<hr>
 		<h4 align="center">請確認下列訊息：</h4>
+		<form action='orderToDB' method='POST' class='sub'>
+			<!--//ProductController-->
+			<input type='hidden' name='MemberID' value='${LoginOK.memberID}'>
+			<input type='hidden' name='Receiver' value='${LoginOK.memberName}'>
+			<input type='hidden' name='ReceiverPhone'
+				value='${LoginOK.memberPhone}'> <input type='hidden'
+				name='ShipAddress' value='${LoginOK.memberAddress}'> <input
+				type='hidden' name='page' value='check2'> <input
+				type='submit' class="btn btn-primary" value='確定送出'>
+			<!--    		 <button><a href='orderList1'>確定送出</a></button>		 -->
+			<!--    		 ------------------------------------------------------------------ -->
+			<c:set var="sum" value="0"></c:set>
+			<c:forEach items='${ShoppingCart.content}' var='entry'>
+
+				<input type='hidden' name='productID'
+					value='${entry.value.bean.productID}'>
+				<input type='hidden' name='productName'
+					value='${entry.value.bean.productName}'>
+				<input type='hidden' name='unitPrice'
+					value='${entry.value.bean.unitPrice}'>
+				<input type='hidden' name='quantity' value='${entry.value.quantity}'>
+				<c:set var="sum"
+					value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'></c:set>
+
+			</c:forEach>
+			<!--    		 paypal參數 -->
+			<input type="hidden" name="product" value="OrderNumber" /> <input
+				type="hidden" name="subtotal" value="${sum} " /> <input
+				type="hidden" name="shipping" value="0" /> <input type="hidden"
+				name="tax" value="0" /> <input type="hidden" name="total"
+				value="${sum}" />
+			<!--    		 ------------------------------------------------------------- -->
+		</form>
 
 		<br>
 	</div>
@@ -257,46 +300,7 @@ th {
 					<td colspan='4' align='right'>合計金額(含稅):</td>
 					<td class='tac'>${sum}元</td>
 				</tr>
-				<tr>
-					<td colspan='5' align='center'>
-						<form action='orderToDB' method='POST'>
-							<!--//ProductController-->
-							<input type='hidden' name='MemberID' value='${LoginOK.memberID}'>
-							<input type='hidden' name='Receiver'
-								value='${LoginOK.memberName}'> <input type='hidden'
-								name='ReceiverPhone' value='${LoginOK.memberPhone}'> <input
-								type='hidden' name='ShipAddress'
-								value='${LoginOK.memberAddress}'> <input type='hidden'
-								name='page' value='check2'> <input type='submit'
-								class="btn btn-primary" value='確定送出'>
-							<!--    		 <button><a href='orderList1'>確定送出</a></button>		 -->
-							<!--    		 ------------------------------------------------------------------ -->
-							<c:set var="sum" value="0"></c:set>
-							<c:forEach items='${ShoppingCart.content}' var='entry'>
 
-								<input type='hidden' name='productID'
-									value='${entry.value.bean.productID}'>
-								<input type='hidden' name='productName'
-									value='${entry.value.bean.productName}'>
-								<input type='hidden' name='unitPrice'
-									value='${entry.value.bean.unitPrice}'>
-								<input type='hidden' name='quantity'
-									value='${entry.value.quantity}'>
-								<c:set var="sum"
-									value='${sum+(entry.value.bean.unitPrice*entry.value.quantity)}'></c:set>
-
-							</c:forEach>
-							<!--    		 paypal參數 -->
-							<input type="hidden" name="product" value="OrderNumber" /> <input
-								type="hidden" name="subtotal" value="${sum} " /> <input
-								type="hidden" name="shipping" value="0" /> <input type="hidden"
-								name="tax" value="0" /> <input type="hidden" name="total"
-								value="${sum}" />
-							<!--    		 ------------------------------------------------------------- -->
-						</form>
-
-					</td>
-				</tr>
 			</table>
 			<!--    <input type="button" name="CancelBtn" value="取消訂單" onclick="cancelOrder()"> -->
 		</FORM>
