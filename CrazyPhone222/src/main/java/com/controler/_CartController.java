@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.model.OrderDetail;
 import com.model.OrderItemBean;
@@ -173,7 +174,7 @@ public class _CartController {
 		return "redirect:/"+page;
 	}
 	@PostMapping("/orderToDB")
-	public String orderToDB(Model model,
+	public String orderToDB(Model model,SessionStatus status,
 		   @RequestParam Integer MemberID,
 		   @RequestParam String Receiver,
 		   @RequestParam String ReceiverPhone,
@@ -243,9 +244,9 @@ public class _CartController {
 		   
 //		   for(Long j : set) {
 //			    Integer p = (int) (long) j;
-//			    sc.deleteItem(content.get(j).getBean().getProductID());
+//			    sc.deleteItem(content.get(p).getBean().getProductID());
 //			      }
-//		      
+            status.setComplete(); // Clear Cart Items
 		   
 //		PAypal 連線	    
 			    OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
