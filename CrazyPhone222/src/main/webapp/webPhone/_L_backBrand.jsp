@@ -49,8 +49,8 @@ input[type=text] {
 </style>
 </head>
 <body style="background: #e1e1e8">
-	 	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 680px; position:fixed">
+<div class="col-md-3 "
+		style="width: 15%; background-color: #363636; height: 750px; position: fixed;">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
@@ -59,14 +59,18 @@ input[type=text] {
 			<li><a href="Brand" style="color: #5d76cf">品牌管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
 			<li><a href="OOrders" style="color: #5d76cf">訂單管理</a></li>
-			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
+			<li><a href="webwebBack" style="color: #5d76cf">客服</a></li>
+			<li><a href="statistic" style="color: #5d76cf">統計</a></li>
+
+
+			<div>
+				<a href="<c:url value='/' />"
+					style="color: #5d76cf; box-sizing: border-box; position: absolute; bottom: 0; margin-bottom: 50px; padding-left: 50px; padding-bottom: 30px">回購物首頁
+				</a>
+			</div>
+		</ul>
+	</div>
 	
-        
-        
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;padding-left: 50px;padding-bottom: 30px" >回購物首頁
-	</a></div>
-      </ul>
-    </div>
 	<div align='center'  style="position: absolute;
 	left: 300px; right:50px" >
 		<h3>品牌資料</h3>
@@ -94,12 +98,20 @@ input[type=text] {
 					<td><img width='200' height='100'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
 					<td>
 				<a href="upBrand/${brand.brandID}"><button type="button" class="button">編輯</button></a>
-				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button">刪除</button></a>
+				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button" onclick="return delForm()">刪除</button></a>
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
 		<hr>
 	</div>
+	<script type="text/javascript">
+	function delForm() {
+		if (confirm("確定刪除嗎?")) {
+			return true;
+		}
+		return false;
+	}
+	</script>
 </body>
 </html>

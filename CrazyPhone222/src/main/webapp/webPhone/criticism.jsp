@@ -30,7 +30,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
 		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!--start-menu-->
@@ -99,6 +103,12 @@ th {
 	/* left:-600px; */
 	/* top: 600px; */
 }
+
+.cri {
+	position: absolute;
+	right: 185px;
+	top: 315px;
+}
 </style>
 </head>
 <body>
@@ -130,33 +140,34 @@ th {
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
-						<a href="checkout">
-<!-- 							<div class="total"> -->
-<!-- 								<span class="simpleCart_total"></span> -->
-<!-- 							</div> -->
-							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
+						<a href="checkout"> <!-- 							<div class="total"> --> <!-- 								<span class="simpleCart_total"></span> -->
+							<!-- 							</div> --> <a href='showCartContent'> <img
+								src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
+							<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
 						<td width='130' align='center'>
-<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
-						<a	href='removeCart'>移除購物車項目</a></td>
+							<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; --> <a
+							href='removeCart'>移除購物車項目</a>
+						</td>
 						<div class="clearfix"></div>
 					</div>
-						<div class="clearfix"></div>
-					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
+			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
 		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
-		<c:if test="${! empty LoginSuperOK }"> 
-		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		<c:if test="${! empty LoginSuperOK }">
+			<span
+				style="position: absolute; right: 0; margin-right: 250px; font-size: 22px"><a
+				href="backIndex">後台</a></span>
 		</c:if>
 	</div>
 	<!--start-logo-->
@@ -214,33 +225,37 @@ th {
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
 							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
-							<li class="grid"><a href="lognin">登入</a></li>
+								<li class="grid"><a href="lognin">登入</a></li>
 							</c:if>
 							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
-							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
+								<li class="grid"><a href="lognout" onclick="signOut()">登出</a></li>
 							</c:if>
-							<c:if test="${! empty LoginOK }"> 
- 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
-								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
+							<c:if test="${! empty LoginOK }">
+								<span style="margin: 50px">Hello <a href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60'
+									style="margin-left: -50px; margin-top: -20px"
 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
-							</c:if> 
-							<c:if test="${! empty LoginSuperOK }"> 
- 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
-<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
-<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
-							</c:if> 
+							</c:if>
+							<c:if test="${! empty LoginSuperOK }">
+								<span style="margin: 50px">Hello <a
+									href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)
+								</span>
+								<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+								<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-					<form method='POST' action="<c:url value='searchProduct' />">
-					
-						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="">
-					</form>
+						<form method='POST' action="<c:url value='searchProduct' />">
+
+							<input type="text" name="searchP" value="Search"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Search';}">
+							<input type="submit" value="">
+						</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -267,6 +282,13 @@ th {
 			<div class="container">
 				<div class="typo-top heading">
 					<h2 style="position: relative; top: -50px">評論</h2>
+				</div>
+				<div>
+					<a
+						href="<spring:url value='criticism/add?productID=3' />"
+						class="btn btn-secondary cri"> <span
+						class="glyphicon-info-sigh glyphicon cri"></span>撰寫評論
+					</a>
 				</div>
 			</div>
 		</div>
@@ -317,7 +339,7 @@ th {
 											<td><a
 												href="<c:url value='/updateCriticism/${criticism.criticismID}'/>">編輯</a>
 											</td>
-									
+
 										</c:if>
 
 									</tr>
