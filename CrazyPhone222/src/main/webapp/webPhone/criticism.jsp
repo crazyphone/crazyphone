@@ -291,7 +291,7 @@ th {
 					</a>
 				</div>
 			</div>
-		</div>
+		</div>1
 		<!-- 		<table class="tb1"> -->
 		<!-- 			<tbody> -->
 		<c:forEach var='criticism' items='${criticism}'>
