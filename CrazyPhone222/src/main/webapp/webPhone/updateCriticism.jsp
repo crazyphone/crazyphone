@@ -272,7 +272,7 @@ button {
 					<li><a
 						href="<spring:url value='single?productID=${productID}' />">回前頁</a></li>
 					<%-- 					<li><a href="<spring:url value='single?productID=${productID}' />" class="mask" >回前頁</a></li> --%>
-					<li class="active">撰寫評論</li>
+					<li class="active">編輯評論</li>
 				</ol>
 			</div>
 		</div>

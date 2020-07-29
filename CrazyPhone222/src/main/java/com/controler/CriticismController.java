@@ -218,7 +218,8 @@ public class CriticismController {
 		service.updateCriticism(CB.getScore(),  CB.getTextContent(),
 				criticismID, CB.getCriticismImage());
 		
-		return "products";
+		return "redirect:http://localhost:8080/CrazyPhone222/criticism?productID=3";
+//		return "products";
 //		return "redirect:/criticism";
 	}
 
