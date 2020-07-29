@@ -247,6 +247,7 @@ public class ProductController {
 			model.addAttribute("brands", brand);
 			if (products != null) {
 				model.addAttribute("products", products);
+				model.addAttribute("searchText", productname);
 			} else {
 				System.out.println("查無此商品資料");
 			}

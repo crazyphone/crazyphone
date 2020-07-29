@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="search-bar">
 					<form method='POST' action="<c:url value='searchProduct' />">
 					
-						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
+						<input type="text" name="searchP" value="${searchText}" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Search';}">
 						<input type="submit" value="">
 					</form>
@@ -274,19 +274,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<section class="sky-form">
 					<h4>品牌</h4>
 					<div class="row1 row2 scroll-pane">
-
 						<!-- 
 						<div class="col col-4">
 									<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>kurtas</label>
 								</div>
-								
 							-->
 						<div class="col col-4">
 							<c:forEach var='brand' items='${brands}' varStatus='status'>
 								<label class="radio"> <input type="radio" name="radio" value="${brand}"><i></i>${brand}</label>
-<%-- 									onclick='window.location.assign("productsBrand?brandName=${brand}")' --%>
-									
-							
 							</c:forEach>
 
 						</div>
