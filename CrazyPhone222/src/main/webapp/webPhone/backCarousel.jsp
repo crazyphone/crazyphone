@@ -16,7 +16,8 @@
 <title>後台</title>
 <style type="text/css">
 th{
-background: #ff2f24;
+background: #515873;
+color: white;
 }
 table{
 background: #ffffff;
@@ -145,7 +146,7 @@ padding: 3px
 							<td style="text-align: center">${carousel.carouselUrl}</td>
 							<td style="text-align: center">${carousel.createDate}</td>
 							<td style="text-align: center"><a href="<c:url value='/deCar/${carousel.carouselID}'/>"><button
-							type="button" class="button" class="btn btn-primary" onclick="return delForm()">刪除</button></a></td>
+							type="button"  class="btn btn-primary" onclick="return delForm()">刪除</button></a></td>
 									
 						</tr>
 					</c:forEach>

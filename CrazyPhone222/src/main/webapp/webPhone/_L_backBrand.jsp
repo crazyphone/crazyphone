@@ -15,7 +15,8 @@
 <title>後台</title>
 <style type="text/css">
 th {
-	background: #ff2f24;
+	background: #515873;
+	color: white;
 }
 
 table {
@@ -23,8 +24,7 @@ table {
 }
 
 .button {
-	background-color: #4CAF50;
-	color: white;
+
 	padding: 15px 10px;
 	margin: 8px 0;
 	border: none;
@@ -97,8 +97,8 @@ input[type=text] {
 					<td>${brand.brandCountry}</td>
 					<td><img width='200' height='100'src="<c:url value='/getBrandImg/${brand.brandID}'/>" /></td>
 					<td>
-				<a href="upBrand/${brand.brandID}"><button type="button" class="button">編輯</button></a>
-				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="button" onclick="return delForm()">刪除</button></a>
+				<a href="upBrand/${brand.brandID}"><button type="button" class="btn btn-primary button">編輯</button></a>
+				<a href="<c:url value='/deb/${brand.brandID}'/>"><button type="button" class="btn btn-primary button" onclick="return delForm()">刪除</button></a>
 					</td>
 				</tr>
 			</c:forEach>

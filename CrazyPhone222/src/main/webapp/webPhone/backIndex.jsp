@@ -125,7 +125,7 @@ input[type=text] {
 
 	<div style="position: absolute; left: 300px; right: 50px">
 		<h4 class="ml16"
-			style="margin-top: 250px; margin-left: 50px; font-weight: bold">您好${LoginSuperOK.supervisorName}，歡迎進入Phone人苑後台系統</h4>
+			style="margin-top: 250px; margin-left: 150px; font-weight: bold">您好${LoginSuperOK.supervisorName}，歡迎進入Phone人苑後台系統</h4>
 		<!-- 		<h1 class="ml9" style="margin-top: 250px;margin-left: 50px;font-weight:800"> -->
 		<!-- 			<span class="text-wrapper">  -->
 		<!-- 			<span class="letters" style="font-family:_GB2312 FangSong_GB2312">您好關禮源，歡迎進入Phone人苑後台系統</span> -->

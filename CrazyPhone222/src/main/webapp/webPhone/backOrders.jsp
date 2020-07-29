@@ -12,14 +12,13 @@
 <title>後台</title>
 <style type="text/css">
 th{
-background: #ff2f24;
+	background: #515873;
+	color: white;
 }
 table{
 background: #ffffff;
 }
 .button {
-  background-color: #4CAF50;
-  color: white;
   padding: 10px 0px;
   margin: 8px 0;
   border: none;
@@ -120,9 +119,9 @@ padding: 3px
 							<td style="text-align: center">${Order.finalPrice}</td>
 							<td style="text-align: center">${Order.goodsStatus}</td>
 							<td style="text-align: center">
-							<a href="<c:url value='/ororor1/${Order.ID}'/>"><button type="button" class="button" >下單中</button></a>
-							<a href="<c:url value='/ororor2/${Order.ID}'/>"><button type="button" class="button" >運送中</button></a>
-							<a href="<c:url value='/ororor3/${Order.ID}'/>"><button type="button" class="button" >已完成</button></a>
+							<a href="<c:url value='/ororor1/${Order.ID}'/>"><button type="button" class="btn btn-primary button" >下單中</button></a>
+							<a href="<c:url value='/ororor2/${Order.ID}'/>"><button type="button" class="btn btn-primary button" >運送中</button></a>
+							<a href="<c:url value='/ororor3/${Order.ID}'/>"><button type="button" class="btn btn-primary button" >已完成</button></a>
 							</td>
 <%--  								<c:choose>  --%>
 <%-- 								<c:when test="${  seal.mapaa  !=  Order.memberID}">  --%>

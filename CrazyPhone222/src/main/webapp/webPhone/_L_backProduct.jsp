@@ -15,7 +15,8 @@
 <title>後台</title>
 <style type="text/css">
 th {
-	background: #ff2f24;
+	background: #515873;
+	color: white;
 }
 
 table {
@@ -23,8 +24,7 @@ table {
 }
 
 .button {
-	background-color: #4CAF50;
-	color: white;
+
 	padding: 15px 10px;
 	margin: 8px 0;
 	border: none;
@@ -109,9 +109,9 @@ input[type=text] {
 					<td>${product.releasedDate}</td>
 					<td>${product.stockQuantity}</td>
 					<td>
-					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="button">編輯</button></a>
-					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="button" onclick="return delForm()">刪除</button></a>			 
-					<a href="<c:url value='/upSpec/${product.productID}'/>"><button type="button" class="button">編輯規格</button></a> 
+					<a href="<c:url value='/upproduct/${product.productID}'/>"><button type="button" class="btn btn-primary button">編輯</button></a>
+					<a href="<c:url value='/peb/${product.productID}'/>"><button type="button" class="btn btn-primary button" onclick="return delForm()">刪除</button></a>			 
+					<a href="<c:url value='/upSpec/${product.productID}'/>"><button type="button" class="btn btn-primary button">編輯規格</button></a> 
 					</td>
 				</tr>
 			</c:forEach>

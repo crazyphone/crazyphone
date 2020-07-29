@@ -12,14 +12,13 @@
 <title>後台</title>
 <style type="text/css">
 th{
-background: #ff2f24;
+background: #515873;
+color: white;
 }
 table{
 background: #ffffff;
 }
 .button {
-  background-color: #4CAF50;
-  color: white;
   padding: 10px 0px;
   margin: 8px 0;
   border: none;
@@ -122,13 +121,13 @@ padding: 3px
 							
  								<c:choose> 
 								<c:when test="${  seal.mapaa  !=  member.memberID}"> 
-							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button"  onclick="return delForm2()">封鎖</button></a> 
+							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="btn btn-primary button"  onclick="return delForm2()">封鎖</button></a> 
 							</c:when> 
  								<c:when test="${ empty seal }"> 
-										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" onclick="return delForm2()">封鎖</button></a>
+										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="btn btn-primary button" onclick="return delForm2()">封鎖</button></a>
  								</c:when> 
  								<c:when test="${  seal.mapaa  ==  member.memberID }">
-								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="button" >解鎖</button></a> 
+								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="btn btn-primary button" >解鎖</button></a> 
 								</c:when>
 								</c:choose> 
 
@@ -136,7 +135,7 @@ padding: 3px
 	
 
 										<a href="<c:url value='/debu/${member.memberID}'/>"><button
-										type="button" class="button" class='deletelink' onclick="return delForm()">刪除</button></a></td>
+										type="button" class="btn btn-primary button" onclick="return delForm()">刪除</button></a></td>
 				
 						</tr>
 					</c:forEach>
