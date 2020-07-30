@@ -78,26 +78,26 @@ button:hover {
 		<form:form class="modal-content animate" method="post"
 			modelAttribute="BrandBean" enctype="multipart/form-data">
 			<div class="container">
-				<label for="Brandname"><b>廠商名稱:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+				<label for="Brandname"><b>廠商名稱:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.namespace}</Font>
 				<form:input type="text" path="BrandName" id="Brandname" />
 			</div>
 			<div class="container">
-				<label for="Brandinfo"><b>廠商資訊:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.infospace}</Font></small>
+				<label for="Brandinfo"><b>廠商資訊:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.infospace}</Font>
 				<div>
 					<form:textarea style="resize:none" type="text" path="BrandInfo"
 						id="Brandinfo" />
 				</div>
 			</div>
 			<div class="container">
-				<label for="Brandcountry"><b>廠商地址:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.countryspace}</Font></small>
+				<label for="Brandcountry"><b>廠商地址:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.countryspace}</Font>
 				<form:input type="text" path="BrandCountry" id="Brandcountry" />
 			</div>
 			<div class="container">
 				<div>
-					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
+					<Font color='red' size="3">${Errorb.imgspace}</Font>
 				</div>
 				<label for="BImage"><b>廠商Logo:</b></label>
 				<form:input type="file" path="BImage" accept="image/*" id="bchaimg"/>
