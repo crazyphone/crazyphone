@@ -116,7 +116,7 @@ button:hover {
 	<script>
 		$(function() {
 			$(".cancelbtn").click(function() {
-				$("#Brandname").val("acer");
+				$("#Brandname").val("APPLE");
 				$("#Brandinfo").val("宏碁（英語譯名暨品牌名稱：acer）是源自臺灣的跨國科技公司，成立於1976年");
 				$("#Brandcountry").val("台灣");
 			})
