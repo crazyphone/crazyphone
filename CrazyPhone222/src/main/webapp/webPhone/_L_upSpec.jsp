@@ -135,14 +135,14 @@ button:hover {
 <script>
 		$(function() {
 			$(".cancelbtn").click(function() {
-				$("#os").val("Android 4.4");
-				$("#processor").val("MT6732M");
+				$("#os").val("iOS 8.0");
+				$("#processor").val("A8 晶片");
 				$("#displaySize").val(" 4.5 inch");
-				$("#displayResolution").val("245 ppi ");
-				$("#frontCamera").val("500 萬畫素");
+				$("#displayResolution").val("326 ppi 解析度 ");
+				$("#frontCamera").val("120 萬像素照片");
 				$("#rearCamera").val("無");
 				$("#ram").val("1 GB");
-				$("#storage").val("8 GB");
+				$("#storage").val("32GB");
 				$("#batterycapacity").val("2000 mAh");
 			})
 		})

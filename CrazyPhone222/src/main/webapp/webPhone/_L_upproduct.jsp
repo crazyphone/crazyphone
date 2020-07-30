@@ -163,11 +163,11 @@ button:hover {
 	<script>
 		$(function() {
 			$(".cancelbtn").click(function() {
-				$("#Productname").val("Liquid Z410");
-				$("#brand").val(5);
+				$("#Productname").val("iPhone 6");
+				$("#brand").val(6);
 				$("#type").val(1);
-				$("#Productintro").val("畫面銳利、速度一流");
-				$("#Unitprice").val("9000");
+				$("#Productintro").val("內建指紋辨識/3D Touch 1200萬畫素主鏡頭");
+				$("#Unitprice").val("4000");
 				$("#Stockquantity").val("50");
 			})
 		})
