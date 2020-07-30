@@ -326,6 +326,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="clearfix"></div>
 					</div>
+					<div class="tabs">
+					<ul class="menu_drop">
+				<li class="item1"><a href="#"><img src="images/arrow.png" alt="">規格</a>
+					<ul>
+<%-- 						<li class="subitem1"><a href="#">處理器:${product.specBean.processor}</a></li> --%>
+<%-- 						<li class="subitem2"><a href="#">儲存空間:${product.specBean.storage}</a></li> --%>
+<%-- 						<li class="subitem3"><a href="#">電池容量:${product.specBean.batteryCapacity} </a></li> --%>
+<%-- 						<li class="subitem4"><a href="#">螢幕尺寸:${product.specBean.displaySize} </a></li> --%>
+<%-- 						<li class="subitem5"><a href="#">主相機畫素:${product.specBean.rearCamera} </a></li> --%>
+<%-- 						<li class="subitem6"><a href="#">前相機畫素:${product.specBean.frontCamera} </a></li> --%>
+					<table style="width:100% ;color:black;background-color:white; ">
+						<tr>
+						<th style="padding:8px;">處理器</th>
+						<th>儲存空間</th>
+						<th>電池容量</th>
+						<th>螢幕尺寸</th>
+						<th>主相機畫素</th>
+						<th>前相機畫素</th>						
+						</tr>
+						<tr>
+						<td style="padding:8px;">${product.specBean.processor}</td>
+						<td>${product.specBean.storage}</td>
+						<td>${product.specBean.batteryCapacity}</td>
+						<td>${product.specBean.displaySize}</td>
+						<td>${product.specBean.rearCamera} </td>
+						<td>${product.specBean.frontCamera}</td>						
+						</tr>
+						
+						</table>
+					</ul>
+					
+				</li>
+				
+	 		</ul>
+				</div>
 					<!--  
 					<div class="latestproducts">
 						<div class="product-one">
