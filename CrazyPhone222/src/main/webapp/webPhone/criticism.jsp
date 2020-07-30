@@ -55,14 +55,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	src="${pageContext.request.contextPath}/js/jquery.easydropdown.js"></script>
 <style>
 .tbC {
-	width: 300px;
+	width: 340px;
 	height: 380px;
 	border: 2px solid gray;
 	border-radius: 30px;
 	margin: 2px;
 	float: left;
 	position: absolute;
-	left: 180px;
+	left: 200px;
 	top: -100px;
 }
 
@@ -295,7 +295,7 @@ th {
 		<!-- 		<table class="tb1"> -->
 		<!-- 			<tbody> -->
 		<c:forEach var='criticism' items='${criticism}'>
-			<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
+			<div class="col-sm-6 col-md-3" style="width: 390px; height: 400px">
 				<!-- 					<div class="col-sm-6 col-md-3" > -->
 				<!-- 					<div class="col-sm-4 wthree-crd widgettable"> -->
 
