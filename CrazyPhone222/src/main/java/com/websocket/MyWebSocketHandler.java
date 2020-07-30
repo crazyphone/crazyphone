@@ -50,9 +50,9 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 		
 	
 		if (tokens[0] != "LISA" && tokens[1].equals("hi")) {
-			session.sendMessage(new TextMessage("How can I help you?"));
+			session.sendMessage(new TextMessage("您好,請問您需要甚麼協助?"));
 		} else if (tokens[0] != "LISA" && tokens[1].contains("爛")) {
-			session.sendMessage(new TextMessage("We apologize for any inconvenience caused."));
+			session.sendMessage(new TextMessage("造成您的不便非常抱歉!!!"));
 		} else if (tokens[0].equals("LISA") && flag == true) {
 			
 			flag=false;

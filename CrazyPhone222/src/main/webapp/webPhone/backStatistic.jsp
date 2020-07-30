@@ -91,10 +91,10 @@ input[type=text] {
 				<thead style="font-size: 20px;">
 
 					<tr>
-						<th style="text-align: center">Rank</th>
-						<th style="text-align: center">Brand</th>
-						<th style="text-align: center">Product<br>Name</th>
-						<th style="text-align: center">Quantity <br>of Sale</th>
+						<th style="text-align: center">暢銷排行</th>
+						<th style="text-align: center">品牌</th>
+						<th style="text-align: center">品名</th>
+						<th style="text-align: center">銷量</th>
 					</tr>
 				</thead>
 				<tbody>
