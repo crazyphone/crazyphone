@@ -36,13 +36,15 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+	background-color: #4860a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
 }
 
 button:hover {
@@ -53,7 +55,8 @@ button:hover {
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  background-color: #f44336;
+  	background-color: #6A6AFF;
+	font-family: Microsoft JhengHei;
 }
 
 /* Center the image and position the close button */
@@ -148,7 +151,13 @@ background-color: #7df5f1;
 float: right;
 
 }
-
+.onekey {
+	float: right;
+	margin-top: 10px;
+	padding: 9px;
+	width: auto;
+	border: none;
+}
 </style>
 
 </head>
@@ -205,7 +214,7 @@ float: right;
            
       
   
-      <span ><input type="button" class="demo" value='一鍵管理者'></span>
+      <span ><input type="button" class="onekey" id="demo" value='1'></span>
 	
       
  
@@ -220,7 +229,7 @@ float: right;
     
     <script >
     $(function(){
- 		$(".demo").click(function(){
+ 		$("#demo").click(function(){
  			$("#nameDemo").val("eeit11402@gmail.com");
   			$("#pswDemo").val("Do!ng123");
 

@@ -244,10 +244,11 @@ to {
 					value='1'></span>
 				<!--       <span ><input type="button" class="demo1" value='一鍵管理者'></span> -->
 				<span><input type="button" class="onekey" id="demo1"
-					value='2'></span> <span><input type="button"
+					value='2'></span> 
+				<span><input type="button"
 					class="onekey" id="demo2" value='3'></span>
-
-
+				<span><input type="button"
+					class="onekey" id="demo3" value='4'></span>
 			</div>
 		</form>
 
@@ -276,6 +277,12 @@ to {
 			$("#demo2").click(function() {
 				$("#nameDemo").val("eeit11012@gmail.com");
 				$("#pswDemo").val("sa123456");
+
+			})
+			
+			$("#demo3").click(function() {
+				$("#nameDemo").val("eeit11010@gmail.com");
+				$("#pswDemo").val("Do!ng123");
 
 			})
 		})

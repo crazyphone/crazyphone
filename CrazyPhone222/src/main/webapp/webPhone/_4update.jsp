@@ -110,6 +110,13 @@ span.psw {
      width: 100%;
   }
 }
+.onekey {
+	float: right;
+	margin-top: 10px;
+	padding: 9px;
+	width: auto;
+	border: none;
+}
 </style>
 </head>
 <body>
@@ -121,10 +128,10 @@ span.psw {
     <div class="container">
 
       <label for="newPwd"><b>新的密碼</b></label>
-      <input type="password"  name="newPwd" autocomplete="off">
+      <input type="password"  name="newPwd" id="qwe" autocomplete="off">
 	
 	  <label for="newPwd2"><b>確認密碼</b></label>
-      <input type="password"  name="newPwd2" autocomplete="off">
+      <input type="password"  name="newPwd2" id="ewq" autocomplete="off">
       
       
       <button type="submit"  id="buttonMail" >送出</button>
@@ -133,10 +140,23 @@ span.psw {
      <a href=<c:url value='/'/> style="text-decoration:none;"> 
     <button type="button" class="cancelbtn">回首頁</button>
     </a>
+    <span><input type="button" class="onekey" id='demo' value='1'></span>
       
     </div>
     </div>
   </form>
 </div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script >
+	$(function() {
+		$("#demo").click(function() {
+			$("#qwe").val("sa123456");
+			$("#ewq").val("sa123456");
+		})
+	})
+	</script>
 </body>
+
 </html>
