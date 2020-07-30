@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	border-color: gray white;
 	float: left;
 	position: relative;
-	left: 200px;
+	left: 275px;
 	top: 10px;
 }
 

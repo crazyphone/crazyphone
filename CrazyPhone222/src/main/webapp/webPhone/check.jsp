@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <style>
 .tb1 {
-	width: 600px;
+	width: 750px;
 	/* 	height: 650px; */
 	border: 2px solid;
 	border-color: gray white;
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 }
 
 .tb2 {
-	width: 600px;
+	width: 750px;
 	/* 	height: 650px; */
 	border: 2px solid;
 	border-color: gray white;
