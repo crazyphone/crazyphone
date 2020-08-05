@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.ProductDao;
 import com.model.ProductBean;
+import com.model.ProductBeanWithImageData;
 import com.service.ProductService;
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -64,5 +65,10 @@ public class ProductServiceImpl implements ProductService {
 		else {
 			return null;
 		}
+	}
+	@Transactional
+	@Override
+	public List<ProductBeanWithImageData> getBrandName(String brandName) {
+		return productDao.getBrandName(brandName);
 	}
 }

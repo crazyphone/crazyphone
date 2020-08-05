@@ -79,13 +79,24 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	public boolean updataproduct(String nProductName, BrandBean nBrandID, TypeBean ntypeID, Blob nProductImage,
 			Blob nProductImage2, Blob nProductImage3, String nProductIntro, Integer nUnitPrice, Integer nStockQuantity,
 			Integer ProductID) {
-		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.BrandID = :BI , PB.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
+		System.out.println(ProductID);
+		Integer BID = nBrandID.getBrandID();
+		Integer TID = ntypeID.getTypeID();
+		
+		String hql = "update ProductBean PB SET PB.ProductName = :PN , PB.brandBean.BrandID = :BI , PB.typeBean.TypeID =  :TI , PB.ProductImage = :PI1,PB.ProductImage2 = :PI2 , PB.ProductImage3 = :PI3 , PB.ProductIntro = :PIn , PB.UnitPrice = :UP , PB.StockQuantity = :SQ where PB.ProductID = :PI ";
 		Session session = factory.getCurrentSession();
 		try {
-			session.createQuery(hql).setParameter("PN", nProductName).setParameter("BI", nBrandID)
-					.setParameter("TI", ntypeID).setParameter("PI1", nProductImage).setParameter("PI2", nProductImage2)
-					.setParameter("PI3", nProductImage3).setParameter("PIn", nProductIntro)
-					.setParameter("UP", nUnitPrice).setParameter("SQ", nStockQuantity).setParameter("PI", ProductID)
+			session.createQuery(hql)
+			        .setParameter("PN", nProductName)
+			        .setParameter("BI", BID)
+					.setParameter("TI", TID)
+					.setParameter("PI1", nProductImage)
+					.setParameter("PI2", nProductImage2)
+					.setParameter("PI3", nProductImage3)
+					.setParameter("PIn", nProductIntro)
+					.setParameter("UP", nUnitPrice)
+ 				    .setParameter("SQ", nStockQuantity)
+					.setParameter("PI", ProductID)
 					.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,7 +167,7 @@ public class SupervisorDaoImpl implements SupervisorDao {
 	public boolean updataspec(String nOS, String nProcessor, String nDisplaySize, String nDisplayResolution,
 			String nFrontCamera, String nRearCamera, String nRAM, String nStorage, String nBatteryCapacity,
 			Integer ProductID) {
-		String hql = "update SpecBean SB SET SB.OS = :OS,SB.Processor:SP,SB.DisplaySize:DS,SB.DisplayResolution:DR,SB.FrontCamera:FC,SB.RearCamera:RC,SB.RAM:RM,SB.Storage:SS,SB.BatteryCapacity:BC where SB.ProductID = :PI";
+		String hql = "update SpecBean SB SET SB.OS = :OS ,SB.Processor= :SP ,SB.DisplaySize= :DS ,SB.DisplayResolution= :DR ,SB.FrontCamera= :FC ,SB.RearCamera= :RC ,SB.RAM= :RM ,SB.Storage= :SS ,SB.BatteryCapacity= :BC where SB.productBean.ProductID = :PI";
 		Session session = factory.getCurrentSession();
 		try {
 			session.createQuery(hql).setParameter("OS", nOS).setParameter("SP", nProcessor)
@@ -173,15 +184,36 @@ public class SupervisorDaoImpl implements SupervisorDao {
 
 	@Override
 	public boolean deletepspec(Integer ProductID) {
+		System.out.println(ProductID);
 		Session session = factory.getCurrentSession();
-		String hql = "delete SpecBean SB where SB.id = :SPid";
+		String hql = "delete SpecBean SB where SB.productBean.ProductID = :SPid";
+		String hql2 = "delete ProductBean PB where PB.id = :Pid";
 		try {
 			session.createQuery(hql).setParameter("SPid", ProductID).executeUpdate();
+			session.createQuery(hql2).setParameter("Pid", ProductID).executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<SpecBean> getSpeclist() {
+		String hql = "FROM SpecBean";
+		Session session = factory.getCurrentSession();
+		List<SpecBean> Speclist = session.createQuery(hql).getResultList();
+		return Speclist;
+	}
+
+	@Override
+	public SpecBean getspecbyid(int productID) {
+		System.out.println(productID);
+		Session session = factory.getCurrentSession();
+		String hql = "FROM SpecBean m WHERE m.productBean.ProductID = :mid ";
+		SpecBean Speclist = (SpecBean)session.createQuery(hql).setParameter("mid", productID).getSingleResult();
+		return Speclist;
 	}
 
 }

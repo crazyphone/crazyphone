@@ -1,6 +1,6 @@
-Author: W3layout Author URL: http://w3layouts.com License: Creative
-Commons Attribution 3.0 Unported License URL:
-http://creativecommons.org/licenses/by/3.0/ -->
+<!-- Author: W3layout Author URL: http://w3layouts.com License: Creative -->
+<!-- Commons Attribution 3.0 Unported License URL: -->
+<!-- http://creativecommons.org/licenses/by/3.0/ --> 
 <%@ page contentType="text/html; charset=UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -69,49 +69,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
+	<!-- 標頭開始 -->
 	<!--top-header-->
 	<div class="top-header">
 		<div class="container">
 			<div class="top-header-main">
 				<div class="col-md-6 top-header-left">
 					<!-- <div class="drop">
-					<div class="box">
-						<select tabindex="4" class="dropdown drop">
-							<option value="" class="label">Dollar :</option>
-							<option value="1">Dollar</option>
-							<option value="2">Euro</option>
-						</select>
+						<div class="box">
+							<select tabindex="4" class="dropdown drop">
+								<option value="" class="label">Dollar :</option>
+								<option value="1">Dollar</option>
+								<option value="2">Euro</option>
+							</select>
+						</div>
+						<div class="box1">
+							<select tabindex="4" class="dropdown">
+								<option value="" class="label">English :</option>
+								<option value="1">English</option>
+								<option value="2">French</option>
+								<option value="3">German</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
 					</div>
-					<div class="box1">
-						<select tabindex="4" class="dropdown">
-							<option value="" class="label">English :</option>
-							<option value="1">English</option>
-							<option value="2">French</option>
-							<option value="3">German</option>
-						</select>
-					</div>
-					<div class="clearfix"></div>
-				</div> -->
+					-->
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
 						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+<!-- 							<div class="total"> -->
+<!-- 								<span class="simpleCart_total"></span> -->
+<!-- 							</div> -->
+							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">清空購物車</a>
+<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
+						<td width='130' align='center'>
+<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
+						<a	href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
-						<a href="account"> <!-- <div class="total">
-							<span class="simpleCart_total"></span></div> --> <img
-							src="images/user2.png" alt="" title="登入" />
-
-						</a>
-						<!-- <p><a href="javascript:;" class="simpleCart_empty">登入</a></p> -->
 						<div class="clearfix"></div>
 					</div>
 				</div>
@@ -122,7 +121,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }"> 
+		<span  style="position: absolute; right: 0; margin-right: 250px;font-size:22px"><a  href="backIndex" >後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -132,25 +134,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
-							<li class="active"><a href="products">商城</a></li>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
+							<li class="grid"><a href="products">商城</a></li>
 							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
+							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
 							<li class="grid"><a href="lognin">登入</a></li>
+							</c:if>
+							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
+							<li class="grid" ><a href="lognout" onclick="signOut()">登出</a></li>
+							</c:if>
+							<c:if test="${! empty LoginOK }"> 
+ 								<span style="margin:50px">Hello <a  href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px"
+									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
+							</c:if> 
+							<c:if test="${! empty LoginSuperOK }"> 
+ 								<span style="margin:50px">Hello <a  href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)</span>
+<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if> 
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<form method='POST' action="<c:url value='searchProduct' />">
-							<input type="text" name="searchP" value="Search"
-								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Search';}">
-							<input type="submit" value="">
-
-						</form>
+					<form method='POST' action="<c:url value='searchProduct' />">
+					
+						<input type="text" name="searchP" value="Search" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" value="">
+					</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -158,6 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--bottom-header-->
+	<!-- 	標頭結束 -->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -187,16 +204,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</li>
 									<li
-										data-thumb="<c:url value='/getPicture/${product.productID}'/>">
+										data-thumb="<c:url value='/getPicture22/${product.productID}'/>">
 										<div class="thumb-image">
-											<img src="<c:url value='/getPicture/${product.productID}'/>"
+											<img src="<c:url value='/getPicture22/${product.productID}'/>"
 												data-imagezoom="true" class="img-responsive" alt="" />
 										</div>
 									</li>
 									<li
-										data-thumb="<c:url value='/getPicture/${product.productID}'/>">
+										data-thumb="<c:url value='/getPicture33/${product.productID}'/>">
 										<div class="thumb-image">
-											<img src="<c:url value='/getPicture/${product.productID}'/>"
+											<img src="<c:url value='/getPicture33/${product.productID}'/>"
 												data-imagezoom="true" class="img-responsive" alt="" />
 										</div>
 									</li>
@@ -234,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											href="<spring:url value='criticism?productID=${product.productID}' />"
 											class="btn btn-primary"> <span
 											class="glyphicon-info-sigh glyphicon"></span>看評論
-										</a> <a
+										</a>&nbsp&nbsp<a
 											href="<spring:url value='criticism/add?productID=${product.productID}' />"
 											class="btn btn-primary"> <span
 											class="glyphicon-info-sigh glyphicon"></span>撰寫評論
@@ -245,7 +262,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 
 								<h5 class="item_price">$ ${product.unitPrice}</h5>
-								<p>${product.productIntro}</p>
+								<p>${product.productIntro} </p>
+								<p>是一種可用來撥打行動電話和進行多功能行動計算的裝置。
+								有客製化的行動操作系統，可瀏覽網頁和播放多媒體檔案，
+								也可通過安裝應用軟體、遊戲等程式來擴充功能。</p>
+								<!-- 
 								<div class="available">
 									<ul>
 										<li>Color <select>
@@ -261,13 +282,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<option>Large</option>
 												<option>small</option>
 										</select></li>
+										
+										 -->
+										 
 										<div class="clearfix"></div>
-									</ul>
-								</div>
-								<ul class="tag-men">
-									<li><span>TAG</span> <span class="women1">: Women,</span></li>
-									<li><span>SKU</span> <span class="women1">: CK09</span></li>
+									<!-- 
 								</ul>
+								</div>
+								 -->
+<!-- 								<ul class="tag-men"> -->
+<!-- 									<li><span>TAG</span> <span class="women1">: Women,</span></li> -->
+<!-- 									<li><span>SKU</span> <span class="women1">: CK09</span></li> -->
+<!-- 								</ul> -->
+								<table style="width:100px;position:relative;left:250px">
+								<tr>
+								<td>
 								<form action='addToCart' method='POST'>
 									<input type='hidden' name='phoneId'
 										value='${product.productID}'> <input type='hidden'
@@ -277,6 +306,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入購物車'>
 								</form>
+								</td>
+								<td style="font-color:white">&nbsp&nbsp</td>
+								<td>
 								<form action='addToPKCart' method='POST'>
 									<input type='hidden' name='productID'
 										value='${product.productID}'> <input type='hidden'
@@ -286,108 +318,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										type='hidden' name='page' value='products'> <input
 										type='submit' class="btn btn-primary" value='加入車拚'>
 								</form>
+								</td>
+								</tr>
+								</table>
 
 							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<!--  
 					<div class="tabs">
-						<ul class="menu_drop">
-							<li class="item1"><a href="#"><img
-									src="images/arrow.png" alt="">Description</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item2"><a href="#"><img
-									src="images/arrow.png" alt="">Additional information</a>
-								<ul>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item3"><a href="#"><img
-									src="images/arrow.png" alt="">Reviews (10)</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item4"><a href="#"><img
-									src="images/arrow.png" alt="">Helpful Links</a>
-								<ul>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-							<li class="item5"><a href="#"><img
-									src="images/arrow.png" alt="">Make A Gift</a>
-								<ul>
-									<li class="subitem1"><a href="#">Lorem ipsum dolor sit
-											amet, consectetuer adipiscing elit, sed diam nonummy nibh
-											euismod tincidunt ut laoreet dolore magna aliquam erat
-											volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-											tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-											commodo consequat.</a></li>
-									<li class="subitem2"><a href="#"> Duis autem vel eum
-											iriure dolor in hendrerit in vulputate velit esse molestie
-											consequat, vel illum dolore eu feugiat nulla facilisis at
-											vero eros et accumsan et iusto odio dignissim qui blandit
-											praesent luptatum zzril delenit augue duis dolore</a></li>
-									<li class="subitem3"><a href="#">Mirum est notare quam
-											littera gothica, quam nunc putamus parum claram, anteposuerit
-											litterarum formas humanitatis per seacula quarta decima et
-											quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-											clari, fiant sollemnes </a></li>
-								</ul></li>
-						</ul>
-					</div>
-					-->
-
+					<ul class="menu_drop">
+				<li class="item1"><a href="#"><img src="images/arrow.png" alt="">規格</a>
+					<ul>
+<%-- 						<li class="subitem1"><a href="#">處理器:${product.specBean.processor}</a></li> --%>
+<%-- 						<li class="subitem2"><a href="#">儲存空間:${product.specBean.storage}</a></li> --%>
+<%-- 						<li class="subitem3"><a href="#">電池容量:${product.specBean.batteryCapacity} </a></li> --%>
+<%-- 						<li class="subitem4"><a href="#">螢幕尺寸:${product.specBean.displaySize} </a></li> --%>
+<%-- 						<li class="subitem5"><a href="#">主相機畫素:${product.specBean.rearCamera} </a></li> --%>
+<%-- 						<li class="subitem6"><a href="#">前相機畫素:${product.specBean.frontCamera} </a></li> --%>
+					<table style="width:100% ;color:black;background-color:white; ">
+						<tr>
+						<th style="padding:8px;">處理器</th>
+						<th>儲存空間</th>
+						<th>電池容量</th>
+						<th>螢幕尺寸</th>
+						<th>主相機畫素</th>
+						<th>前相機畫素</th>						
+						</tr>
+						<tr>
+						<td style="padding:8px;">${product.specBean.processor}</td>
+						<td>${product.specBean.storage}</td>
+						<td>${product.specBean.batteryCapacity}</td>
+						<td>${product.specBean.displaySize}</td>
+						<td>${product.specBean.rearCamera} </td>
+						<td>${product.specBean.frontCamera}</td>						
+						</tr>
+						
+						</table>
+					</ul>
+					
+				</li>
+				
+	 		</ul>
+				</div>
+					<!--  
 					<div class="latestproducts">
 						<div class="product-one">
+						
 							<div class="col-md-4 product-left p-left">
 								<div class="product-main simpleCart_shelfItem">
 									<a href="single" class="mask"><img
@@ -405,6 +382,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 							</div>
+							
+							
 							<div class="col-md-4 product-left p-left">
 								<div class="product-main simpleCart_shelfItem">
 									<a href="single" class="mask"><img
@@ -442,28 +421,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"></div>
 						</div>
 					</div>
+					-->
+					
 				</div>
 				<div class="col-md-3 single-right">
 					<div class="w_sidebar">
 						<section class="sky-form">
-							<h4>Catogories</h4>
-							<div class="row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox" checked=""><i></i>All Accessories</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Women Watches</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Kids Watches</label> <label
-										class="checkbox"><input type="checkbox"
-										name="checkbox"><i></i>Men Watches</label>
-								</div>
-							</div>
-						</section>
-						<section class="sky-form">
-							<h4>Brand</h4>
+							<h4>品牌</h4>
 							<div class="row1 row2 scroll-pane">
 							<!--  
 								<div class="col col-4">
@@ -486,26 +450,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 							</div>
 						</section>
-						
-						<section class="sky-form">
-							<h4>discount</h4>
-							<div class="row1 row2 scroll-pane">
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"
-										checked=""><i></i>60 % and above</label> <label class="radio"><input
-										type="radio" name="radio"><i></i>50 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>40
-										% and above</label>
-								</div>
-								<div class="col col-4">
-									<label class="radio"><input type="radio" name="radio"><i></i>30
-										% and above</label> <label class="radio"><input type="radio"
-										name="radio"><i></i>20 % and above</label> <label
-										class="radio"><input type="radio" name="radio"><i></i>10
-										% and above</label>
-								</div>
-							</div>
-						</section>
+					<section class="sky-form">
+					<h4>價格</h4>
+
+					<div class="row1 row2 scroll-pane">
+						<div class="col col-4">
+							
+							<form method="post" action="productsPrice">
+
+								<input id="priceS" type="text" name="lowestPrice"
+									placeholder="最低價" value="" size="5" maxlength="5"
+									pattern="[0-9]{0,5}" title="價格區間請輸入非零數字"> &nbsp;~&nbsp;
+								<input id="priceE" type="text" name="highestPrice"
+									placeholder="最高價" value="" size="5" maxlength="5"
+									pattern="[0-9]{0,5}" title="價格區間請輸入非零數字"> <input
+									type="submit" value="確定">
+							</form>
+						</div>
+					</div>
+				</section>
 					</div>
 				</div>
 				<div class="clearfix"></div>

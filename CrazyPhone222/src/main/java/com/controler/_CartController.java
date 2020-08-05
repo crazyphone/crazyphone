@@ -8,10 +8,12 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.model.OrderDetail;
 import com.model.OrderItemBean;
@@ -26,6 +28,8 @@ import com.service.OrderService;
 //import com.model.MemberBean;
 import com.service.PaypalService;
 import com.service.ProductService;
+import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
+import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
 
 @Controller
 @SessionAttributes({"ShoppingCart"})
@@ -87,6 +91,41 @@ public class _CartController {
 		System.out.println("After addToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
+	
+	//測試href 2020/07/24 小圖示
+		@GetMapping("/addToCart")
+		public String addToCart_products(Model model, 
+			   @RequestParam Integer phoneId,
+			   @RequestParam String phoneName,
+			   @RequestParam Integer phonePrice,
+			   @RequestParam Integer qty, 
+			   @RequestParam String page) {
+			
+			ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+			ProductBean bean = new ProductBean(phoneId, phoneName,phonePrice);
+			
+			OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);
+			cart.addToCart(phoneId, oib);
+			System.out.println("After addToCart to ShowPage->" + page);
+			return  "redirect:/" + page ;
+		}
+		//首頁測試href_index 2020/07/24
+		@GetMapping("/addToCart_index")
+		public String addToCart_index(Model model, 
+			   @RequestParam Integer phoneId,
+			   @RequestParam String phoneName,
+			   @RequestParam Integer phonePrice,
+			   @RequestParam Integer qty, 
+			   @RequestParam String page) {
+			
+			ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+			ProductBean bean = new ProductBean(phoneId, phoneName,phonePrice);
+			
+			OrderItemBean oib = new OrderItemBean(null, bean, qty, 1.0);
+			cart.addToCart(phoneId, oib);
+			System.out.println("After addToCart to ShowPage->" + page);
+			return  "redirect:/" ;
+		}
 	@PostMapping("/addQtyToCart")
 	public String addQtyToCart(Model model, 
 		   @RequestParam Integer phoneId,
@@ -103,6 +142,7 @@ public class _CartController {
 		System.out.println("After addQtyToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
+
 	@PostMapping("/DelQtyToCart")
 	public String DelQtyToCart(Model model,
 		   @RequestParam Integer phoneId,
@@ -122,9 +162,19 @@ public class _CartController {
 		System.out.println("After DelQtyToCart to ShowPage->" + page);
 		return "redirect:/" + page;
 	}
-	
+	//H0725
+	@PostMapping("DelProductToCart")
+	public String DelProductToCart(Model model,
+			   @RequestParam Integer phoneId,
+			   @RequestParam String page) {
+		
+		ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
+		cart.deleteItem(phoneId);
+		System.out.println("After DelProductToCart to ShowPage->" + page);
+		return "redirect:/"+page;
+	}
 	@PostMapping("/orderToDB")
-	public String orderToDB(Model model,
+	public String orderToDB(Model model,SessionStatus status,
 		   @RequestParam Integer MemberID,
 		   @RequestParam String Receiver,
 		   @RequestParam String ReceiverPhone,
@@ -133,8 +183,8 @@ public class _CartController {
 		   @RequestParam Integer productID,
 		   @RequestParam String productName,
 		   @RequestParam Integer unitPrice,
-		   @RequestParam Integer quantity,
-		   @RequestParam Integer sum1,
+		   @RequestParam(value = "quantity") Integer quantity,
+		   @RequestParam(value = "total")  Integer sum1,
 		   @RequestParam(value = "product") String product,
 		   @RequestParam(value = "subtotal") String subtotal, 
 		   @RequestParam(value = "shipping") String shipping,
@@ -143,7 +193,7 @@ public class _CartController {
 		System.out.println("long in 0");	
 			
 		
-		;
+		
 		   SimpleDateFormat sdf  = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		   
 		   String str = sdf.format(System.currentTimeMillis());
@@ -160,10 +210,12 @@ public class _CartController {
 				                        ShipAddress, Receiver, ReceiverPhone, null);
 		System.out.println("long in 3");   
 		   ShoppingCart sc = (ShoppingCart) model.getAttribute("ShoppingCart");
+		   
 		System.out.println("long in 4");
 		   // 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
 		   Map<Long, OrderItemBean> content = sc.getContent();
-		 
+		  
+		   
 		System.out.println("long in 5");
 	
 		   Set<Long> set = content.keySet();
@@ -176,6 +228,7 @@ public class _CartController {
 			   Integer k = (int) (long) i;
 			    ob.setProductId(k);
 			    ob.setProductName(pservice.getProductById(k).getProductName());
+			    ob.setQuantity(content.get(i).getQuantity());
 			    ob.setGoodsStatus("下單中");
 //			    int a=(int)Math.floor(Math.random()*9999999+1);
 			    ob.setInvoiceNum("AB95718654");
@@ -189,8 +242,12 @@ public class _CartController {
 			  //items.add(oib);
 		   }
 		   
-		
-		      
+//		   for(Long j : set) {
+//			    Integer p = (int) (long) j;
+//			    sc.deleteItem(content.get(p).getBean().getProductID());
+//			      }
+            status.setComplete(); // Clear Cart Items
+		   
 //		PAypal 連線	    
 			    OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
 				try {

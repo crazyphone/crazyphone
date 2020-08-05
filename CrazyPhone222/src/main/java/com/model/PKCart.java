@@ -26,6 +26,7 @@ public class PKCart {
 	}
 	
 	public void addToPKCart(long ItemId, PKItemBean  pib) {
+		//0724測試中(30-31行)
 //		if (pib.getQuantity() <= 0 ) {
 //			return;
 //		}
@@ -33,11 +34,8 @@ public class PKCart {
 		if ( pkcart.get(ItemId) == null ) {
 		    pkcart.put(ItemId, pib);
 		} else {
-	        // 如果客戶在伺服器端已有此項商品的資料，則客戶『加購』此項商品
-			PKItemBean piBean = pkcart.get(ItemId);
-			// 加購的數量：bean.getQuantity()
-			// 原有的數量：oBean.getQuantity()			
-			piBean.setQuantity(pib.getQuantity() + piBean.getQuantity());
+	        // 重複啥事都不做
+			
 		}
 	}
 

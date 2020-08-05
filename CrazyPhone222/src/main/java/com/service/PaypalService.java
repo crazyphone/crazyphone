@@ -38,7 +38,7 @@ public class PaypalService {
 	
 		 
 		Amount amount = new Amount();
-		amount.setCurrency("USD");
+		amount.setCurrency("TWD");
 		amount.setTotal(orderDetail.getTotal());
 		amount.setDetails(details);
 		
@@ -50,7 +50,7 @@ public class PaypalService {
 		    List<Item> items = new ArrayList<>();
 		     
 		    Item item = new Item();
-		    item.setCurrency("USD");
+		    item.setCurrency("TWD");
 		    item.setName(orderDetail.getProductName());
 		    item.setPrice(orderDetail.getSubtotal());
 		    item.setTax(orderDetail.getTax());

@@ -4,6 +4,7 @@ package com.dao;
 import java.util.List;
 
 import com.model.ProductBean;
+import com.model.ProductBeanWithImageData;
 
 public interface ProductDao {
 	List<ProductBean>  getAllProducts();
@@ -17,6 +18,8 @@ public interface ProductDao {
 	
 	
 	public List<ProductBean> searchProduct(String productname);
+
+	List<ProductBeanWithImageData> getBrandName(String brandName);
 	
 	
 	}

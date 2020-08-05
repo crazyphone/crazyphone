@@ -7,8 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
+body {
+	font-family: Microsoft JhengHei, Arial, Helvetica, sans-serif;
+	background-image:
+		url("https://images.unsplash.com/photo-1497864768494-78100d1ddf01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -21,13 +27,15 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+	background-color: #4860a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
 }
 
 button:hover {
@@ -36,9 +44,11 @@ button:hover {
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+	width: auto;
+	padding: 10px 18px;
+	background-color: #6A6AFF;
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
 }
 
 /* Center the image and position the close button */
@@ -100,6 +110,13 @@ span.psw {
      width: 100%;
   }
 }
+.onekey {
+	float: right;
+	margin-top: 10px;
+	padding: 9px;
+	width: auto;
+	border: none;
+}
 </style>
 </head>
 <body>
@@ -111,10 +128,10 @@ span.psw {
     <div class="container">
 
       <label for="newPwd"><b>新的密碼</b></label>
-      <input type="password"  name="newPwd" autocomplete="off">
+      <input type="password"  name="newPwd" id="qwe" autocomplete="off">
 	
 	  <label for="newPwd2"><b>確認密碼</b></label>
-      <input type="password"  name="newPwd2" autocomplete="off">
+      <input type="password"  name="newPwd2" id="ewq" autocomplete="off">
       
       
       <button type="submit"  id="buttonMail" >送出</button>
@@ -123,10 +140,23 @@ span.psw {
      <a href=<c:url value='/'/> style="text-decoration:none;"> 
     <button type="button" class="cancelbtn">回首頁</button>
     </a>
+    <span><input type="button" class="onekey" id='demo' value='1'></span>
       
     </div>
     </div>
   </form>
 </div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script >
+	$(function() {
+		$("#demo").click(function() {
+			$("#qwe").val("sa123456");
+			$("#ewq").val("sa123456");
+		})
+	})
+	</script>
 </body>
+
 </html>

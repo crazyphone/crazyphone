@@ -16,7 +16,8 @@
 <title>後台</title>
 <style type="text/css">
 th{
-background: #ff2f24;
+background: #515873;
+color: white;
 }
 table{
 background: #ffffff;
@@ -43,7 +44,12 @@ margin-left: -20px;
 font-size: 13px;
 padding: 3px
 }
-
+.img1 {
+/*   border: 1.5px solid #ddd; */
+/*   border-radius: 4px; */
+/*   padding: 5px; */
+  border-radius: 8px;
+}
 /* .menu {width:100px; background:#0099FF; height:210px; font-size:14px; font-family: "微軟雅黑";}   */
 /* .menu ul {padding:0px; list-style-type:none;}   */
 /* .menu ul li {width:100px; height:35px; line-height:35px; text-align:center;}   */
@@ -58,23 +64,27 @@ padding: 3px
 <body style="background: #e1e1e8">
   
   
-    	<div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 600px; position:fixed">
+<div class="col-md-3 "
+		style="width: 15%; background-color: #363636; height: 750px; position: fixed;">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
 			<li><a href="addCarousel" style="color: #5d76cf">輪播牆管理</a></li>
 			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
-			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
+			<li><a href="Brand" style="color: #5d76cf">品牌管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
-			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
-	
-        
-        
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
-	</a></div>
-      </ul>
-    </div>
+			<li><a href="OOrders" style="color: #5d76cf">訂單管理</a></li>
+			<li><a href="webwebBack" style="color: #5d76cf">客服</a></li>
+			<li><a href="statistic" style="color: #5d76cf">統計</a></li>
+
+
+			<div>
+				<a href="<c:url value='/' />"
+					style="color: #5d76cf; box-sizing: border-box; position: absolute; bottom: 0; margin-bottom: 50px; padding-left: 50px; padding-bottom: 30px">回購物首頁
+				</a>
+			</div>
+		</ul>
+	</div>
 
 <div align='center' style="position: absolute;
 	left: 300px; right:50px">
@@ -98,9 +108,11 @@ padding: 3px
             
       	<span ><b >圖片:</b></span>
       	<form:input type="file"  path="CImage" id="CImage"  />
+      	
          <span ><b >超連結:</b></span><br>
          <form:input type="text"  path="CarouselUrl" id="CarouselUrl"   />
             </div>
+            <span><img id="changeimg" class="img1" src=""  /></span>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
                 <button  type="submit" class="btn btn-primary">新增</button>
@@ -134,7 +146,7 @@ padding: 3px
 							<td style="text-align: center">${carousel.carouselUrl}</td>
 							<td style="text-align: center">${carousel.createDate}</td>
 							<td style="text-align: center"><a href="<c:url value='/deCar/${carousel.carouselID}'/>"><button
-							type="button" class="button" class="btn btn-primary">刪除</button></a></td>
+							type="button"  class="btn btn-primary" onclick="return delForm()">刪除</button></a></td>
 									
 						</tr>
 					</c:forEach>
@@ -146,11 +158,40 @@ padding: 3px
 	
 <script type='text/javascript'>
 
+$("#CImage").change(function() {
+
+	readURL(this);
+});
+function readURL(input) {
+
+	if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+
+			$("#changeimg").attr('src', e.target.result);
+			
+			$("#changeimg").css('width','220px').css('height','150px')
+		}
+
+		reader.readAsDataURL(input.files[0]);
+
+	}
+
+}
+
 
 function showModal() {
     $('#111').modal('show'); 
 }
-
+function delForm()
+{
+if( confirm("確定刪除嗎?") ){
+	   return true; 
+}
+	   return false;
+}
 	
 	
 </script>

@@ -78,30 +78,31 @@ button:hover {
 		<form:form class="modal-content animate" method="post"
 			modelAttribute="BrandBean" enctype="multipart/form-data">
 			<div class="container">
-				<label for="Brandname"><b>廠商名稱:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.namespace}</Font></small>
+				<label for="Brandname"><b>廠商名稱:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.namespace}</Font>
 				<form:input type="text" path="BrandName" id="Brandname" />
 			</div>
 			<div class="container">
-				<label for="Brandinfo"><b>廠商資訊:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.infospace}</Font></small>
+				<label for="Brandinfo"><b>廠商資訊:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.infospace}</Font>
 				<div>
 					<form:textarea style="resize:none" type="text" path="BrandInfo"
 						id="Brandinfo" />
 				</div>
 			</div>
 			<div class="container">
-				<label for="Brandcountry"><b>廠商地址:</b></label>&nbsp;<small><Font
-					color='red' size="-3">${Errorb.countryspace}</Font></small>
+				<label for="Brandcountry"><b>廠商地址:</b></label>&nbsp;<Font
+					color='red' size="3">${Errorb.countryspace}</Font>
 				<form:input type="text" path="BrandCountry" id="Brandcountry" />
 			</div>
 			<div class="container">
 				<div>
-					<small><Font color='red' size="-3">${Errorb.imgspace}</Font></small>
+					<Font color='red' size="3">${Errorb.imgspace}</Font>
 				</div>
 				<label for="BImage"><b>廠商Logo:</b></label>
-				<form:input type="file" path="BImage" accept="image/*" />
+				<form:input type="file" path="BImage" accept="image/*" id="bchaimg"/>
 			</div>
+			<img id="bchimg" src="" />
 			<div class="container">
 				<button type="submit" style="margin-top: 50px">送出</button>
 				<input type="button" class="cancelbtn" value='一鍵輸入'> <a
@@ -115,11 +116,25 @@ button:hover {
 	<script>
 		$(function() {
 			$(".cancelbtn").click(function() {
-				$("#Brandname").val("acer");
+				$("#Brandname").val("APPLE");
 				$("#Brandinfo").val("宏碁（英語譯名暨品牌名稱：acer）是源自臺灣的跨國科技公司，成立於1976年");
 				$("#Brandcountry").val("台灣");
 			})
 		})
+		$("#bchaimg").change(function() {
+			readURL(this);
+		});
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#bchimg").attr('src', e.target.result);
+					$("#bchimg").css('width', '250px').css('height', '100px')
+				}
+				reader.readAsDataURL(input.files[0]);
+				console.log()
+			}
+		}
 	</script>
 </body>
 </html>

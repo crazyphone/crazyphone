@@ -13,6 +13,7 @@ import com.model.SupervisorBean;
 public interface MemberService {
 	MemberBean checkIdPassword(String userId, String password);
 	public MemberBean checkIdPassword2(String mail,String name) ;
+	public boolean checkSealoffIdPassword(String mail,String pwd);
 	
 	public SupervisorBean checkSuperIdPassword(String userId, String password);
 	
@@ -45,4 +46,10 @@ public interface MemberService {
 	public boolean deleteCarousel(Integer id);
 	
 	public List<OrdersBean> getAllMemberOrders(Integer id);
+	
+	List<OrdersBean> getAllOrders();
+	public List<OrdersBean> searchOrders(String id,String phone,String sta);
+	public boolean ororor1(Integer id) ;
+	public boolean ororor2(Integer id) ;
+	public boolean ororor3(Integer id) ;
 }

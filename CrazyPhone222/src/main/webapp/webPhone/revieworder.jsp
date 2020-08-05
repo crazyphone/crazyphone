@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,19 +30,19 @@
         </tr>
         <tr>
             <td>Subtotal:</td>
-            <td>${transaction.amount.details.subtotal} USD</td>
+            <td>${transaction.amount.details.subtotal} TWD</td>
         </tr>
         <tr>
             <td>Shipping:</td>
-            <td>${transaction.amount.details.shipping} USD</td>
+            <td>${transaction.amount.details.shipping} TWD</td>
         </tr>
         <tr>
             <td>Tax:</td>
-            <td>${transaction.amount.details.tax} USD</td>
+            <td>${transaction.amount.details.tax} TWD</td>
         </tr>
         <tr>
             <td>Total:</td>
-            <td>${transaction.amount.total} USD</td>
+            <td>${transaction.amount.total} TWD</td>
         </tr>
         <tr><td><br/></td></tr>
         <tr>
@@ -89,7 +91,7 @@
         <tr>
             <td colspan="2" align="center">
                 
-                <a href="index" >Back to HomePage</a>
+                <a href="<c:url value='/'/>">Back to HomePage</a>
             </td>
         </tr>    
     </table>

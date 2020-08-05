@@ -69,10 +69,39 @@ public class MemberDaoImpl implements MemberDao {
 			;
 		} catch (NonUniqueResultException ex) {
 			;
+		}catch (NullPointerException e) {
+			en=null;
+			return en;
 		}
 
 		return en;
 	}
+	//查看帳號封鎖
+	@Override
+	public boolean checkSealoffIdPassword(String mail, String pwd) {
+		String hql = "select m.Memberstatus FROM MemberBean m WHERE m.MemberEmail = :mid and m.MemberPwd = :pwsd";
+		Session session = factory.getCurrentSession();
+		String mb = null;
+		
+			try {
+				mb =  (String) session.createQuery(hql).setParameter("mid", mail).setParameter("pwsd", pwd)
+						.getSingleResult();
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+				return true;
+			}
+			if(mb.length() == 3) {
+				return false;
+			}else if(mb.length() == 2 || mb == null){
+				return true;
+			}else {
+				return true;
+			}
+		
+	}
+	
+	
 	//管理員登入
 	@Override
 	public SupervisorBean checkSuperIdPassword(String userId, String password) {
@@ -343,6 +372,77 @@ public class MemberDaoImpl implements MemberDao {
 		System.out.println(list);
 		return list;
 	}
+
+	@Override
+	public List<OrdersBean> getAllOrders() {
+		String hql = "FROM OrdersBean";
+		Session session = factory.getCurrentSession();
+		List<OrdersBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+
+	@Override
+	public List<OrdersBean> searchOrders(String id, String phone, String sta) {
+		
+		String hql = "FROM OrdersBean ob WHERE ob.Receiver like :id and ob.ReceiverPhone like :ph and ob.GoodsStatus = :sta ";
+		Session session = factory.getCurrentSession();
+		
+		List<OrdersBean> list=null;
+		try {
+			list=  session.createQuery(hql).setParameter("id", "%"+id+"%").setParameter("ph","%"+phone+"%").setParameter("sta",sta)
+					.getResultList();
+		} catch (NoResultException ex) {
+			;
+		} catch (NonUniqueResultException ex) {
+			;
+		}
+
+		return list;
+	}
+
+	@Override
+	public boolean ororor1(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '下單中'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean ororor2(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '運送中'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean ororor3(Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql ="update OrdersBean ob SET ob.GoodsStatus = '已完成'  where ob.ID = :idd ";
+		
+		try {
+			session.createQuery(hql).setParameter("idd", id).executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+
 
 
 

@@ -8,8 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
+body {
+	font-family: Microsoft JhengHei, Arial, Helvetica, sans-serif;
+	background-image:
+		url("https://images.unsplash.com/photo-1497864768494-78100d1ddf01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
 /* Full-width input fields */
 input[type=text] {
   width: 100%;
@@ -22,24 +28,27 @@ input[type=text] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+	background-color: #4860a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
 }
-
 button:hover {
   opacity: 0.8;
 }
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+	width: auto;
+	padding: 10px 18px;
+	background-color: #6A6AFF;
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
 }
 
 /* Center the image and position the close button */

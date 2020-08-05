@@ -9,6 +9,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
+		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 
 
@@ -57,15 +55,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	src="${pageContext.request.contextPath}/js/jquery.easydropdown.js"></script>
 <style>
 .tbC {
-	width: 300px;
+	width: 340px;
 	height: 380px;
 	border: 2px solid gray;
-	border-radius:30px;
+	border-radius: 30px;
 	margin: 2px;
 	float: left;
- 	position: absolute; 
- 	left: 180px; 
-  	top: -100px;  
+	position: absolute;
+	left: 200px;
+	top: -100px;
 }
 
 /* .tb2 { */
@@ -79,7 +77,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 /* 	left: -100px; */
 /* 	top: -100px; */
 /* } */
-
 td, th {
 	border: 1px solid gray;
 	text-align: center;
@@ -106,9 +103,16 @@ th {
 	/* left:-600px; */
 	/* top: 600px; */
 }
+
+.cri {
+	position: absolute;
+	right: 185px;
+	top: 315px;
+}
 </style>
 </head>
 <body>
+	<!-- 標頭開始 -->
 	<!--top-header-->
 	<div class="top-header">
 		<div class="container">
@@ -136,34 +140,35 @@ th {
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
-						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+						<a href="checkout"> <!-- 							<div class="total"> --> <!-- 								<span class="simpleCart_total"></span> -->
+							<!-- 							</div> --> <a href='showCartContent'> <img
+								src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">清空購物車</a>
+							<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
+						<td width='130' align='center'>
+							<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; --> <a
+							href='removeCart'>移除購物車項目</a>
+						</td>
 						<div class="clearfix"></div>
 					</div>
-					<div class="cart box_1">
-						<a href="account"> <!-- <div class="total">
-								<span class="simpleCart_total"></span></div> --> <img
-							src="images/user2.png" alt="" title="登入" />
-
-						</a>
-						<!-- <p><a href="javascript:;" class="simpleCart_empty">登入</a></p> -->
-						<div class="clearfix"></div>
-					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
+			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="<c:url value = '/' />"><h1>Phone人苑</h1></a>
+		<a href="<c:url value='/'/>"><h1>Phone人苑</h1></a>
+		<c:if test="${! empty LoginSuperOK }">
+			<span
+				style="position: absolute; right: 0; margin-right: 250px; font-size: 22px"><a
+				href="backIndex">後台</a></span>
+		</c:if>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -173,7 +178,7 @@ th {
 				<div class="col-md-9 header-left">
 					<div class="top-nav">
 						<ul class="memenu skyblue">
-							<li class="grid"><a href="<c:url value = '/' />">首頁</a></li>
+							<li class="active"><a href="<c:url value = '/' />">首頁</a></li>
 							<li class="grid"><a href="products">商城</a> <!--  
 								<div class="mepanel">
 									<div class="row">
@@ -216,19 +221,41 @@ th {
 									</div>
 								</div>
 								--></li>
-							<li class="active"><a href="compare">車拚</a></li>
+							<li class="grid"><a href="showPKCartContent">車拚</a></li>
 							<li class="grid"><a href="contact">聯絡我們</a></li>
 							<li class="grid"><a href="register">註冊</a></li>
-							<li class="grid"><a href="lognin">登入</a></li>
+							<c:if test="${  empty LoginOK &&  empty LoginSuperOK}">
+								<li class="grid"><a href="lognin">登入</a></li>
+							</c:if>
+							<c:if test="${ ! empty LoginOK ||  ! empty LoginSuperOK}">
+								<li class="grid"><a href="lognout" onclick="signOut()">登出</a></li>
+							</c:if>
+							<c:if test="${! empty LoginOK }">
+								<span style="margin: 50px">Hello <a href="up1">${LoginOK.memberName}</a></span>
+								<img width='60' height='60'
+									style="margin-left: -50px; margin-top: -20px"
+									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" />
+							</c:if>
+							<c:if test="${! empty LoginSuperOK }">
+								<span style="margin: 50px">Hello <a
+									href="<c:url value='/'/>">${LoginSuperOK.supervisorName}</a>(管理人員)
+								</span>
+								<!-- 								<img width='60' height='60' style="margin-left: -50px;margin-top: -20px" -->
+								<%-- 									src="<c:url value='/getmemImg/${LoginOK.memberID}'/>" /> --%>
+							</c:if>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<input type="text" value="Search" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="">
+						<form method='POST' action="<c:url value='searchProduct' />">
+
+							<input type="text" name="searchP" value="Search"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Search';}">
+							<input type="submit" value="">
+						</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -236,6 +263,7 @@ th {
 		</div>
 	</div>
 	<!--bottom-header-->
+	<!-- 	標頭結束 -->
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -255,58 +283,80 @@ th {
 				<div class="typo-top heading">
 					<h2 style="position: relative; top: -50px">評論</h2>
 				</div>
+				<div>
+					<a
+						href="<spring:url value='criticism/add?productID=3' />"
+						class="btn btn-secondary cri"> <span
+						class="glyphicon-info-sigh glyphicon cri"></span>撰寫評論
+					</a>
+				</div>
 			</div>
 		</div>
-<!-- 		<table class="tb1"> -->
-<!-- 			<tbody> -->
-				<c:forEach var='criticism' items='${criticism}'>
-				<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
-<!-- 					<div class="col-sm-6 col-md-3" > -->
-<!-- 					<div class="col-sm-4 wthree-crd widgettable"> -->
+		<!-- 		<table class="tb1"> -->
+		<!-- 			<tbody> -->
+		<c:forEach var='criticism' items='${criticism}'>
+			<div class="col-sm-6 col-md-3" style="width: 390px; height: 400px">
+				<!-- 					<div class="col-sm-6 col-md-3" > -->
+				<!-- 					<div class="col-sm-4 wthree-crd widgettable"> -->
 
-						<div class="card">
-							<div class="card-body">
-								<div class="agileinfo-cdr">
+				<div class="card">
+					<div class="card-body">
+						<div class="agileinfo-cdr">
 
-									<table class="tbC">
-										<thead>
-											<tr>
-												<th colspan="2">no.${criticism.criticismID}</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td rowspan="2"><img width='60' height='60'
-													src="<c:url value='/getmemImg/${criticism.memberBean.memberID}'/>" /></td>
-												<td>${criticism.memberBean.memberName}</td>
-											</tr>
-											<tr>
-												<td>給  <span style="font-size:20px">${criticism.score}  </span>分</td>
-											</tr>
+							<table class="tbC">
+								<!-- 								<thead> -->
+								<!-- 									<tr> -->
+								<%-- 										<th colspan="2">no.${criticism.criticismID}</th> --%>
+								<!-- 									</tr> -->
+								<!-- 								</thead> -->
+								<tbody>
+									<tr>
+										<td rowspan="2"><img width='60' height='60'
+											src="<c:url value='/getmemImg/${criticism.memberBean.memberID}'/>" /></td>
+										<td>${criticism.memberBean.memberName}</td>
+									</tr>
+									<tr>
+										<td>給 <span style="font-size: 20px">${criticism.score}
+										</span>分
+										</td>
+									</tr>
 
-											<tr>
-												<td colspan="2" style="text-align:left">${criticism.textContent}</td>
-												
-											</tr>
-											<tr>
-												<td colspan="2"><img width='200' height='160'
-													src="<c:url value='/getPicture2/${criticism.criticismID}' />" /></td>
-												
-											</tr>
+									<tr>
+										<td colspan="2" style="text-align: left">${criticism.textContent}</td>
 
-										</tbody>
-									</table>
-								</div>
-							</div>
+									</tr>
+									<tr>
+										<td colspan="2"><img height='160'
+											src="<c:url value='/getPicture2/${criticism.criticismID}' />" /></td>
+									</tr>
+
+									<tr>
+										<c:if
+											test="${LoginOK.memberID == criticism.memberBean.memberID}">
+											<td><a
+												href="<c:url value='/dCri/${criticism.criticismID}'/>">刪除</a>
+											</td>
+											<td><a
+												href="<c:url value='/updateCriticism/${criticism.criticismID}'/>">編輯</a>
+											</td>
+
+										</c:if>
+
+									</tr>
+
+								</tbody>
+							</table>
 						</div>
 					</div>
+				</div>
+			</div>
 
-				</c:forEach>
+		</c:forEach>
 
-				<!-- 		</table> -->
+		<!-- 		</table> -->
 
-<!-- 			</tbody> -->
-<!-- 		</table> -->
+		<!-- 			</tbody> -->
+		<!-- 		</table> -->
 	</div>
 	<!-- 	<hr> -->
 	<!--typo-ends-->

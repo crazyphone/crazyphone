@@ -43,6 +43,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.model.CarouselBean;
 import com.model.MemberBean;
+import com.model.OrdersBean;
 import com.model.SupervisorBean;
 import com.service.MemberService;
 
@@ -105,6 +106,17 @@ public class MemberController {
 		
 		model.addAttribute("ErrorMsgKey",errorMsgMap);
 		
+		boolean abab = memberService.checkSealoffIdPassword(name,psw);
+		System.out.println("這裡 "+abab);
+		
+		if(abab == false) {
+			errorMsgMap.put("sealo1", "帳號封鎖中，如有疑問請至聯絡我們，謝謝");
+		}
+//		else if(abab == null && abab.length() == 2){
+			
+		
+		
+		
 		if (name == null || name.trim().length() == 0) {
 			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 		}
@@ -119,6 +131,11 @@ public class MemberController {
 			return "_1signIn";
 			
 		}else {
+			
+		
+			
+			
+			
 			MemberBean mb=null;
 		
 			try {
@@ -144,6 +161,8 @@ public class MemberController {
 			} else {
 				return "_1signIn";
 			}
+		
+		
 		}
 		
 	}
@@ -618,7 +637,7 @@ public class MemberController {
 			return "redirect:/addCarousel";
 		
 		}
-
+//------------------------------------訂單-----------------------------------------------
 		//連到歷史訂單
 		@PostMapping("/orderSelectMember")
 		public String orderSelectMember(Model model,HttpSession session,@RequestParam(value="idid") Integer id) {
@@ -628,8 +647,78 @@ public class MemberController {
 			return "selectOrders";
 		}
 		
+		//連到後台訂單資料
+		@GetMapping("/OOrders")
+		public String backOrders(Model model,HttpSession session) {
 		
-	
+			model.addAttribute("Orders",memberService.getAllOrders());
+			
+			return "backOrders";
+		}
+		
+		
+		
+		
+		//搜尋訂單資料
+		@RequestMapping(value = "/searchOOrders",method =RequestMethod.POST)
+		public String searchOOrders1(@RequestParam(value="search1") String orderIdd
+				,@RequestParam(value="phone1") String phone
+				,@RequestParam(value="status1") String status
+				,Model model,HttpSession session) {
+//			int aaaa = Integer.parseInt(orderIdd);
+			
+//			Long k =(long)(int)555;
+			
+			List<OrdersBean> ob=(List) memberService.searchOrders(orderIdd,phone,status);
+			if(ob != null) {
+				model.addAttribute("Orders",ob);
+			}else {
+				System.out.println("查無此訂單資料");
+			}
+			
+			
+					return "backOrders";
+		}
+		
+		//後台訂單下單中修改
+		@GetMapping("/ororor1/{ID}")
+		public String ororor1(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor1(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
+		//後台訂單運送中修改
+		@GetMapping("/ororor2/{ID}")
+		public String ororor2(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor2(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
+		//後台訂單已完成修改
+		@GetMapping("/ororor3/{ID}")
+		public String ororor3(Model model,@PathVariable Integer ID,HttpSession session) {
+			
+
+			boolean seal = memberService.ororor3(ID);
+			if(seal == false) {
+				System.out.println("修改失敗");
+			}
+
+				return "redirect:/OOrders";
+		
+		}
 	//如果沒有登入就跳轉登入畫面
 //	Object sess = session.getAttribute("LoginOK");
 //	if(sess == null) {

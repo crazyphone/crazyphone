@@ -45,5 +45,9 @@ public interface Supervisorervice {
 			Integer ProductID);
 
 	public boolean dropspec(Integer ProductID);
+	
+	public List<SpecBean> getSpeclist();
+	
+	public SpecBean getspecbyid(int productID);
 
 }

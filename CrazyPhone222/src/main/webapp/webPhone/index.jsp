@@ -91,13 +91,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
 						<a href="checkout">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div> <img src="images/cart-1.png" alt="" />
+<!-- 							<div class="total"> -->
+<!-- 								<span class="simpleCart_total"></span> -->
+<!-- 							</div> -->
+							<a href='showCartContent'> <img src="images/cart-1.png" alt="" /></a>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">清空購物車</a>
+<!-- 							<a href="javascript:;" class="simpleCart_empty">清空購物車</a> -->
 						</p>
+						<td width='130' align='center'>
+<!-- 						<a href='showCartContent'>購物車明細</a>&nbsp;&nbsp; -->
+						<a	href='removeCart'>移除購物車項目</a></td>
 						<div class="clearfix"></div>
 					</div>
 						<div class="clearfix"></div>
@@ -294,7 +298,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h3>${product.productName}</h3>
 									<p>Explore Now</p>
 									<h4>
-										<a class="item_add" href="#"><i></i></a> <span
+										<a class="item_add" href="<spring:url value='addToCart_index?phoneId=${product.productID}&&phoneName=${product.productName}&&phonePrice=${product.unitPrice}&&qty=1&&page=products'/>">
+										
+										<i></i>
+										</a> <span
 											class=" item_price">$ ${product.unitPrice}</span>
 									</h4>
 								</div>
@@ -389,7 +396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 						<li class="grid"><a href="test">測試會員顯示</a></li> -->
 <!-- 						<li class="grid"><a href="addCarousel">測試輪播顯示</a></li> -->
 <!-- 							<li class="grid"><a href="ck">測試</a></li> -->
-						<li class="grid"><a href="webweb">測試聊天</a></li>
+						<li class="grid"><a href="webweb">LIVE CHAT</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 footer-right">

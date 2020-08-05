@@ -12,14 +12,13 @@
 <title>後台</title>
 <style type="text/css">
 th{
-background: #ff2f24;
+background: #515873;
+color: white;
 }
 table{
 background: #ffffff;
 }
 .button {
-  background-color: #4CAF50;
-  color: white;
   padding: 10px 0px;
   margin: 8px 0;
   border: none;
@@ -45,22 +44,26 @@ padding: 3px
 
 
 <div class="col-md-3 "
-		style="width: 15%; background-color: #363636; height: 600px; position:fixed">
+		style="width: 15%; background-color: #363636; height: 750px; position: fixed;">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="backIndex"
 				style="text-align: center;">商城管理系統</a></li>
 			<li><a href="addCarousel" style="color: #5d76cf">輪播牆管理</a></li>
 			<li><a href="test" style="color: #5d76cf">會員管理</a></li>
-			<li><a href="Brand" style="color: #5d76cf">廠商管理</a></li>
+			<li><a href="Brand" style="color: #5d76cf">品牌管理</a></li>
 			<li><a href="Product" style="color: #5d76cf">商品管理</a></li>
-			<li><a href="webwebBack" style="color:#5d76cf">客服</a></li>
-	
-        
-        
-	<div><a href="<c:url value='/' />"style="color:#5d76cf;box-sizing: border-box;position: absolute;bottom: 0;margin-bottom: 50px;" >回購物首頁
-	</a></div>
-      </ul>
-    </div>
+			<li><a href="OOrders" style="color: #5d76cf">訂單管理</a></li>
+			<li><a href="webwebBack" style="color: #5d76cf">客服</a></li>
+			<li><a href="statistic" style="color: #5d76cf">統計</a></li>
+
+
+			<div>
+				<a href="<c:url value='/' />"
+					style="color: #5d76cf; box-sizing: border-box; position: absolute; bottom: 0; margin-bottom: 50px; padding-left: 50px; padding-bottom: 30px">回購物首頁
+				</a>
+			</div>
+		</ul>
+	</div>
     
 <div align='center' style="position: absolute;
 	left: 300px; right:50px">
@@ -118,13 +121,13 @@ padding: 3px
 							
  								<c:choose> 
 								<c:when test="${  seal.mapaa  !=  member.memberID}"> 
-							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a> 
+							    <td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="btn btn-primary button"  onclick="return delForm2()">封鎖</button></a> 
 							</c:when> 
  								<c:when test="${ empty seal }"> 
-										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="button" >封鎖</button></a>
+										<td> <a href="<c:url value='/seal/${member.memberID}'/>"><button type="button" class="btn btn-primary button" onclick="return delForm2()">封鎖</button></a>
  								</c:when> 
  								<c:when test="${  seal.mapaa  ==  member.memberID }">
-								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="button" >解鎖</button></a> 
+								<td> <a href="<c:url value='/sealOn/${member.memberID}'/>"><button type="button" class="btn btn-primary button" >解鎖</button></a> 
 								</c:when>
 								</c:choose> 
 
@@ -132,7 +135,7 @@ padding: 3px
 	
 
 										<a href="<c:url value='/debu/${member.memberID}'/>"><button
-										type="button" class="button" class='deletelink'>刪除</button></a></td>
+										type="button" class="btn btn-primary button" onclick="return delForm()">刪除</button></a></td>
 				
 						</tr>
 					</c:forEach>
@@ -145,25 +148,35 @@ padding: 3px
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type='text/javascript'>
 
-// 	function sealoff() {
-// 		setInterval(go, 5000);
-// 	};
+	function delForm() {
+		if (confirm("確定刪除嗎?")) {
+			return true;
+		}
+		return false;
+	}
 	
-// 	function go() {
-// 		$(".${member.memberID}").click()
-// 	};
+	function delForm2() {
+		if (confirm("確定封鎖嗎?")) {
+			return true;
+		}
+		return false;
+	}
+	// 	function sealoff() {
+	// 		setInterval(go, 5000);
+	// 	};
 
-// 	$("#a1").click(function(){
-// 		$("#a1").css("display","none");
-// 		$("#a2").css("display","block");
-// 	})
-// 	$("#a2").click(function(){
-// 		$("#a1").css("display","block");
-// 		$("#a2").css("display","none");
-// 	})
-	
-	
-	
+	// 	function go() {
+	// 		$(".${member.memberID}").click()
+	// 	};
+
+	// 	$("#a1").click(function(){
+	// 		$("#a1").css("display","none");
+	// 		$("#a2").css("display","block");
+	// 	})
+	// 	$("#a2").click(function(){
+	// 		$("#a1").css("display","block");
+	// 		$("#a2").css("display","none");
+	// 	})
 </script>
 </body>
 </html>
